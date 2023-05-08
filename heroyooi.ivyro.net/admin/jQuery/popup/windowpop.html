@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/popup/windowpop.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { height:600px; border:1px solid #000; }
+		a.popBtn { position:absolute; left:10px; top:10px; display:block; width:80px; height:35px; line-height:35px; background:#333; font-size:13px; color:#fff; text-align:center; border-radius:3px; -webkit-border-radius:3px; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<a href="javascript:popupOpen();" class="popBtn">윈도우 팝업</a>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		function popupOpen(){
+			var popUrl = "http://heroyooi.ivyro.net/admin/jQuery/popup/privacy.html";
+			var popOption = "width=610, height=650, left=30, top=30, resizable=no, scrollbars=yes, status=no;";
+			window.open(popUrl,"",popOption);
+		}
+/*
+width : 팝업창 가로크기
+height : 팝업창 세로크기
+toolbar=no : 단축도구창(툴바) 표시안함
+menubar=no : 메뉴창(메뉴바) 표시안함
+location=no : 주소창 표시안함
+status=no : 아래 상태표시줄 표시안함
+resizable=no : 창 크기 조절 금지
+scrollbars=no : 스크롤바 표시안함
+fullscreen=no : 전체화면 하지않음
+channelmode=yes : F11키 기능이랑 같음
+left=0 : 왼쪽에서부터 위치
+top=0 : 위에서부터 위치
+*/
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/popup/windowpop.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

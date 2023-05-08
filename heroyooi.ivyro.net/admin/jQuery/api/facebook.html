@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/facebook.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script src="../../../../developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.content { padding:10px; }
+		.info li { margin-top:10px; font-size:14px; color:#666; line-height:1.4; word-break:break-all; }
+		.info li:first-child { margin-top:0; }
+		.info li span { color:#f00; font-weight:bold; }
+		.info li a { color:#000; }
+		.info li a:hover { font-weight:bold; }
+
+		iframe.fb { display:block; width:324px; height:450px; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<!-- 페이지 플러그인 적용을 위해 body 처음에 추가 -->
+		<div id="fb-root"></div>
+		<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "../../../../connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'))
+		;</script>
+		<!-- // 페이지 플러그인 적용을 위해 body 처음에 추가 -->
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="content">
+				<ul class="info">
+					<li>1) 페이스북 소셜 플러그인 (<a href="https://developers.facebook.com/docs/plugins" target="_blank">https://developers.facebook.com/docs/plugins</a>)</li>
+					<li>2) 페이스북 로그인하고 들어가서 페이지 만들기<br />&nbsp;&nbsp;&nbsp;&nbsp;(<a href="https://www.facebook.com/pages/create/?ref_type=logout_gear" target="_blank">https://www.facebook.com/pages/create/?ref_type=logout_gear</a>)</li>
+					<li>3) 예 - 페이지 플러그인<br />
+						<div class="fb-page" data-href="https://www.facebook.com/tokyosteak1" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tokyosteak1" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tokyosteak1">도쿄스테이크</a></blockquote></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/facebook.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

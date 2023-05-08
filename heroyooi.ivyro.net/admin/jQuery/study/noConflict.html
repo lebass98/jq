@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/study/noConflict.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link type="text/css" rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+		<link type="text/css" rel="stylesheet" href="https://codemirror.net/2/theme/monokai.css">
+		<!--
+		CodeMirror Theme : https://codemirror.net/demo/theme.html
+		-->
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/lib/codemirror.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/javascript/javascript.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/addon/selection/active-line.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/xml/xml.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+		<script type="text/javascript" src="common.js"></script>
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap" class="study">
+			<h1>다른 라이브러리, 다른 버전의 jQuery와 충돌 방지하기</h1>
+
+<!-- 스터디 영역 -->
+<div class="studyArea">
+<p class="test1">- 다른 라이브러리와 충돌</p>
+<script>
+$(function(){
+	console.log($ == jQuery); // true
+	jQuery.noConflict();
+	console.log($ == jQuery); // false
+	jQuery(document).ready(function($){
+		// jQuery가 $로 사용됨
+		console.log($);
+	});
+	// 다른 라이브러리가 $로 사용됨
+	console.log($); // undefined
+
+	// jQuery의 alias(별명)를 ja로 만듦
+	var ja = jQuery.noConflict();
+	ja('p.test1').css('margin-top', '15px');
+});
+</script>
+</div>
+<!-- //스터디 영역 -->
+
+<!-- 스터디 영역 -->
+<div class="studyArea">
+<p>- 다른 버전의 jQuery와 충돌</p>
+<p class="con mt10">흔한 경우는 아니지만 여러 버전의 jQuery를 사용하는 경우 버전별로 alias를 따로 만들어 주어야 한다.</p>
+<script src='https://code.jquery.com/jquery-1.11.1.js'></script>
+<script>
+$(function(){
+	var jb = jQuery.noConflict();
+});
+</script>
+<script src='https://code.jquery.com/jquery-2.1.1.js'></script>
+<script>
+$(function(){
+	var hs = jQuery.noConflict();
+});
+</script>
+<p class="con">1.11.1을 사용할 때는 jb를, 2.1.1을 사용할 때는 hs를 alias로 사용한다.</p>
+</div>
+<!-- //스터디 영역 -->
+
+		</div>
+		<!-- // wrap -->
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/study/noConflict.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.bxslider.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.bxslider.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.dimm { position:fixed; left:0; top:0; width:100%; height:100%; background:#000; opacity:0.8; filter:alpha(opacity=80); z-index:8; }
+
+		.view_sdr_pop { position:fixed; left:0; top:0; width:100%; height:100%; z-index:9; /*display:none;*/ }
+		.view_sdr_pop div.view_sdr_wrap { position:relative; margin:auto; height:100%; }
+		.view_sdr_pop div.view_sdr_wrap div.bx-wrapper { height:100%; }
+		.view_sdr_pop div.view_sdr_wrap div.bx-viewport { position:absolute !important; left:0; top:0; right:0; bottom:0; margin:auto !important; height:auto; }
+		.view_sdr_pop a.view_sdr_close { position:fixed; right:0; top:0; display:block; width:78px; }
+		.view_sdr_pop a.view_sdr_close img { width:100%; }
+		.view_sdr_pop ul.slider_contoller { position:absolute; right:30px; bottom:20px; width:127px; height:61px; }
+		.view_sdr_pop ul.slider_contoller li.prev { position:absolute; left:0; top:0; }
+		.view_sdr_pop ul.slider_contoller li.next { position:absolute; right:0; top:0; }
+		.view_sdr_pop ul.slider_contoller li a { display:block; width:62px; height:59px; text-indent:-20000px; border:1px solid #fff; }
+		.view_sdr_pop ul.slider_contoller li.on { z-index:1; }
+		.view_sdr_pop ul.slider_contoller li.on a { border:1px solid #000; }
+		.view_sdr_pop ul.slider_contoller li.prev a { background:url('img/bxslider/b_prev.png') 50% 50% no-repeat; }
+		.view_sdr_pop ul.slider_contoller li.next a { background:url('img/bxslider/b_next.png') 50% 50% no-repeat; }
+
+		.view_sdr_pop ul.slider_contoller li.prev.on a { background:url('img/bxslider/b_prev_on.png') 50% 50% no-repeat; }
+		.view_sdr_pop ul.slider_contoller li.next.on a { background:url('img/bxslider/b_next_on.png') 50% 50% no-repeat; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="dimm"></div>
+		<div class="view_sdr_pop">
+			<div class="view_sdr_wrap">
+				<ul class="view_pop_slider">
+					<li><img src="img/bxslider/standard_single_img01.jpg" alt="" /></li>
+					<li><img src="img/bxslider/standard_single_img02.jpg" alt="" /></li>
+					<li><img src="img/bxslider/standard_single_img03.jpg" alt="" /></li>
+				</ul>
+			</div>
+			<ul class="slider_contoller">
+				<li class="prev"><a href="#">prev</a></li>
+				<li class="next"><a href="#">next</a></li>
+			</ul>
+			<a href="#" class="view_sdr_close"><img src="img/bxslider/fullscreen_close_btn.gif" alt="" /></a>
+		</div>
+		<!-- // view_sdr_pop -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var view_pop_slider = $('.view_pop_slider').bxSlider({
+			mode: 'fade',
+			auto: false,
+			pager: false,
+			controls: false
+		});
+
+		$('.view_sdr_pop ul.slider_contoller li.prev a').on('click', function(){
+			view_pop_slider.goToPrevSlide();
+			return false;
+		});
+		$('.view_sdr_pop ul.slider_contoller li.next a').on('click', function(){
+			view_pop_slider.goToNextSlide();
+			return false;
+		});
+
+		$('.slider_contoller li').on('mouseenter', function(){
+			$(this).addClass('on');
+		});
+		$('.slider_contoller li').on('mouseleave', function(){
+			$(this).removeClass('on');
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:10:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

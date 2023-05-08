@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/input/resetTextarea.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { margin:0 auto; width:320px; }
+		.area-text {padding: 7px 10px 7px 50px;background-color: #191919;}
+		.area-text .textarea-base {font-size:15px;height: 33px;max-height:95px;padding: 5px 15px;border-radius: 15px;width:100%;box-sizing:border-box;resize:none;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="area-text">
+			<textarea class="textarea-base"></textarea>
+		</div>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		//모바일 채팅 textarea 높이 계산
+		$(window).on('load resize', function(){
+			function resetTextarea(){
+				//console.log($('.textarea-base').prop('scrollHeight'));
+				if($('.textarea-base').prop('scrollHeight') < 54 || $('.textarea-base').val() == ''){
+					$('.textarea-base').height(21);
+				}
+				if($('.textarea-base').prop('scrollHeight') >= 52){
+					$('.textarea-base').height(43);
+				}
+				if($('.textarea-base').prop('scrollHeight') >= 73){
+					$('.textarea-base').height(63);
+				}
+				if($('.textarea-base').prop('scrollHeight') >= 94){
+					$('.textarea-base').height(83);
+				}
+			}
+			$('.textarea-base').off('input propertychange').on('input propertychange', function(){
+				resetTextarea();  
+			});
+			resetTextarea();
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/input/resetTextarea.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

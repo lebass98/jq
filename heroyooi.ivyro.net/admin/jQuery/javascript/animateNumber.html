@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/animateNumber.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<p class="number"></p>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript" src="../common/js/jquery.animateNumber.js"></script>
+		<script type="text/javascript">
+		function numberWithCommas(x) { // 숫자 3자리 단위마다 콤마 함수
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+		$('#wrap p.number').animateNumber(
+			{
+				number: 4559043,
+				numberStep: function(now, tween) {
+					var floored_number = numberWithCommas(Math.floor(now)),
+						 target = $(tween.elem);
+					target.text(floored_number);
+				}
+			}, 6000
+		)
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/animateNumber.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

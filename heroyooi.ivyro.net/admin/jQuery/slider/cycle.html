@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/cycle.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:14:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.cycle2.js"></script>
+		<script type="text/javascript" src="../common/js/TweenMax.js"></script>
+		<script type="text/javascript" src="../common/js/falling.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#visual{position:relative;}
+		#visual .m_visual{height:755px; }
+		#visual .main_slider{position:relative; width:100%;}
+		#visual .m_slide{position:absolute; top:0; left:0; width:100%; z-index:100;}
+		#visual .m_slogan{position:relative; width:1100px; margin:0 auto; }
+		#visual .m_slogan>.slogan{position:absolute; top:292px; left:-100px; z-index:110; width:460px; opacity:0; filter:alpha(opacity=0);}
+		#visual .m_slogan>.menu{position:absolute; top:145px; right:-100px; z-index:110; width:610px; opacity:0; filter:alpha(opacity=0);}
+		.control{position:absolute; top:50%; z-index:210; margin-top:-30px; cursor:pointer; width:60px; height:60px;}
+		.prev{ left:50px; background:url("img/circle/m_left.png") 0 0 no-repeat;}
+		.prev:hover{background-position:0 -60px;}
+		.next{ right:50px; background:url("img/circle/m_right.png") 0 0 no-repeat;}
+		.next:hover{background-position:0 -60px;}
+
+		#winter_event{overflow:hidden; position:absolute; top:0; left:50%; margin-left:-50%; width:100%; height:755px; min-height:755px; }
+		.falling{width:100%;}
+		.falling > li{position:absolute; left:0; top:0; background:url('img/circle/snow02.png') no-repeat 0 0; background-size:cover;}
+		.falling > li:nth-child(3n){max-width:15px; max-height:15px; background:url('img/circle/snow01.png') no-repeat 0 0; background-size:cover}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="visual">
+			<div id="winter_event"></div><!-- end : id : winter_event -->
+				<div class="m_visual" style="width:100%; background:url('img/circle/bg.jpg') center bottom no-repeat;">
+					<div class="main_slider cycle-slideshow slideshow"
+						data-cycle-fx="fade" 
+						data-cycle-slides=">div.m_slide"
+						data-cycle-timeout="6500"
+						data-cycle-speed="500"
+						data-cycle-prev="#prev" 
+						data-cycle-next="#next"
+						> <!-- scrollHorz, fade -->
+							<div class="m_slide">
+								<div class="m_slogan m_slogan1">
+									<img src="img/circle/m_slogan01.png" alt="" class="slogan" />
+									<img src="img/circle/m_menu01.png" alt="" class="menu" />
+								</div>
+							</div>
+							<div class="m_slide">
+								<div class="m_slogan m_slogan2">
+									<img src="img/circle/m_slogan02.png" alt=""  class="slogan" />
+									<img src="img/circle/m_menu02.png" alt="" class="menu" />
+								</div>
+							</div>
+							<div class="m_slide">
+								<div class="m_slogan m_slogan3">
+									<img src="img/circle/m_slogan03.png" alt="" class="slogan"  />
+									<img src="img/circle/m_menu03.png" alt="" class="menu" />
+								</div>
+							</div>
+							<div class="m_slide">
+								<div class="m_slogan m_slogan4">
+									<img src="img/circle/m_slogan04.png" alt="" class="slogan"  />
+									<img src="img/circle/m_menu04.png" alt="" class="menu" />
+								</div>
+							</div>
+							<div class="m_slide">
+								<div class="m_slogan m_slogan5">
+									<img src="img/circle/m_slogan05.png" alt=""  class="slogan" />
+									<img src="img/circle/m_menu05.png" alt="" class="menu" />
+								</div>
+							</div>
+						</div><!-- end : class : main_slider -->
+				</div><!-- end : class : m_visual -->
+				<div id="prev" class="control prev"></div>
+				<div id="next" class="control next"></div>
+		</div><!-- end : id : visual -->
+
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		MainVisual();
+		winterevent();
+
+		function MainVisual(){
+			var tween_1 = new TimelineLite();
+			var tween_2 = new TimelineLite();
+			var tween_3 = new TimelineLite();
+			var tween_4 = new TimelineLite();
+			var tween_5 = new TimelineLite();
+
+			fn_act();
+			fn_act_init();
+
+			function fn_act(){
+				tween_1.to(".m_slogan1 .menu", 0.7, {right:0, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.3}).to(".m_slogan1 .slogan", 0.7, {left:10, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.1});
+				tween_2.to(".m_slogan2 .menu", 0.7, {right:0, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.3}).to(".m_slogan2 .slogan", 0.7, {left:10, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.1});
+				tween_3.to(".m_slogan3 .menu", 0.7, {right:0, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.3}).to(".m_slogan3 .slogan", 0.7, {left:10, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.1});
+				tween_4.to(".m_slogan4 .menu", 0.7, {right:0, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.3}).to(".m_slogan4 .slogan", 0.7, {left:10, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.1});
+				tween_5.to(".m_slogan5 .menu", 0.7, {right:0, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.3}).to(".m_slogan5 .slogan", 0.7, {left:10, ease:Linear.easeInOutCubic, opacity:1 ,delay:0.1});
+			}
+
+			function fn_act_init(){
+				tween_1.to(".m_slogan1 .menu", 0.9, {right:-80, ease:Linear.easeInOutCubic, opacity:0 ,delay:3.5}).to(".m_slogan1 .slogan", 0.9, {left:-100, ease:Linear.easeInOutCubic, opacity:0 ,delay:-0.2});
+				tween_2.to(".m_slogan2 .menu", 0.9, {right:-80, ease:Linear.easeInOutCubic, opacity:0 ,delay:3.5}).to(".m_slogan2 .slogan", 0.9, {left:-100, ease:Linear.easeInOutCubic, opacity:0 ,delay:-0.2});
+				tween_3.to(".m_slogan3 .menu", 0.9, {right:-80, ease:Linear.easeInOutCubic, opacity:0 ,delay:3.5}).to(".m_slogan3 .slogan", 0.9, {left:-100, ease:Linear.easeInOutCubic, opacity:0 ,delay:-0.2});
+				tween_4.to(".m_slogan4 .menu", 0.9, {right:-80, ease:Linear.easeInOutCubic, opacity:0 ,delay:3.5}).to(".m_slogan4 .slogan", 0.9, {left:-100, ease:Linear.easeInOutCubic, opacity:0 ,delay:-0.2});
+				tween_5.to(".m_slogan5 .menu", 0.9, {right:-80, ease:Linear.easeInOutCubic, opacity:0 ,delay:3.5}).to(".m_slogan5 .slogan", 0.9, {left:-100, ease:Linear.easeInOutCubic, opacity:0 ,delay:-0.2});
+			}
+
+
+			$(".main_slider").on("cycle-before",function(){
+				var curr_Slide = $(".main_slider").data("cycle.opts").nextSlide;
+				$("#adv-custom-caption2").text(curr_Slide);
+
+				if(curr_Slide == "0"){
+					tween_1.restart();
+				}else if(curr_Slide == "1"){
+					tween_2.restart();
+				}else if(curr_Slide == "2"){
+					tween_3.restart();
+				}else if(curr_Slide == "3"){
+					tween_4.restart();
+				}else if(curr_Slide == "4"){
+					tween_5.restart();
+				}
+			});
+		};
+
+		function autosize(){
+			var h = $(window).height();
+
+			$('#winter_event').css({'height':h-316});
+		}
+
+		function winterevent(){
+			autosize();
+			var w = $(window).width();
+			
+			if(w >= 641){
+				$('#winter_event').fallingObj({
+					maxLength : 40,
+					//closeBtn : $('#winter_event .btn_close'),
+					screenW     : $('#winter_event').width(),
+					screenH      : $('#winter_event').height(),
+					inteval       : 60,
+					mXmax       : 150,
+					mXmin        : 30,
+					mYmax       : 9,
+					mYmin        : 1.1,
+					sizeMax      : 25,
+					sizeMin       : 6
+				});
+			}else if(w <= 640){
+				$('#winter_event').fallingObj({
+					maxLength : 15,
+					mYmin        : 0.5
+				});
+			}
+		}
+
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/cycle.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:15:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

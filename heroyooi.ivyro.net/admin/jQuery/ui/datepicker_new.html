@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker_new.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="http://heroyooi.ivyro.net/ta/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.min.js"></script>
+
+		<!-- 스타일 -->
+		<style>
+		@import url('../../../../fonts.googleapis.com/earlyaccess/notosanskr.css');
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+		/* Reset & Layout */
+		*{box-sizing:border-box;}
+		em{font-style:normal;}
+		#wrap{max-width:100%;font-family:'Noto Sans KR';}
+		.header{position:fixed;left:0;top:0;padding:20px 20px 10px;width:100%;background:#288ecc;z-index:2;/*opacity:0.95;*/}
+		.header h1{font-size:18px;color:#fff;text-align:center;}
+		.header a.btn-close{position:absolute;left:20px;top:20px;font-family:'Roboto';font-size:20px;font-weight:normal;color:#fff;}
+		.header .travel-result{margin-top:15px;overflow:hidden;}
+		.header .travel-result li{width:32%;margin-left:2%;height:26px;padding-bottom:7px;float:left;font-size:13px;color:#fff;letter-spacing:-1px;border-bottom:2px solid #53a4d6;}
+		.header .travel-result li a{color:#fff;}
+		.header .travel-result li.where{margin-left:0;}
+		.header .travel-result li.when .bridge{display:none;}
+		.header .travel-result li.active{border-bottom:2px solid #fff !important;}
+		.header .travel-result input[type="text"]{border: 0;clip: rect(0 0 0 0);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}
+		.header .travel-result li.when span.before{}
+		.calendar-wrap{padding:104px 10px 10px;background:#eee;}
+		.u-datepicker-calendar{position:relative;padding-top:50px;overflow-y:auto;}
+		.u-datepicker-weekend{position:absolute;left:10px;right:10px;top:104px;height:50px;background-color: #ffffff;border-bottom: 1px solid #e6e6e5;z-index:2;}
+		.u-datepicker-weekend ul {display: table;table-layout: fixed;width: 100%;}
+		.u-datepicker-weekend li {display: table-cell;width: 14.28571428571429%;font-size:12px;color: #000;font-family:'Roboto';font-weight: 300;text-align: center;padding:17px 0;}
+		.u-datepicker-weekend li:first-child {color: #f35600;}
+		.u-datepicker-weekend li:last-child {color: #337be8;}
+
+		/* Datepicker */
+		.ui-datepicker.ui-datepicker-multi{position:relative;background-color:#ffffff;border-radius:0;text-align:center;font-family:'Roboto';}
+		.ui-datepicker-multi .ui-datepicker-group{float:none;border-top:1px solid #e6e6e6;margin-top:20px;}
+		.ui-datepicker-multi .ui-datepicker-group:first-child{margin-top:0;border-top:0;}
+		.ui-datepicker-multi .ui-datepicker-group table{width:100%;margin:0 auto;table-layout: fixed;}
+		.ui-widget-header{background:none;border:0;color: #000;font-weight:normal;}
+		.ui-widget.ui-widget-content {border: 0;}
+		.ui-datepicker .ui-datepicker-header{padding:20px 0;}
+		.ui-datepicker .ui-datepicker-header .ui-corner-all {display: none;}
+		.ui-datepicker .ui-datepicker-title{padding:0;font-size:17px;color:#000;font-weight: 600;}
+		.ui-datepicker .ui-datepicker-title .ui-datepicker-year{display:none;}
+		.ui-datepicker-calendar{width:100%;padding-top: 20px;}
+		.ui-datepicker-calendar > thead {display: none;}
+		.ui-datepicker-today .ui-state-default,
+		.ui-state-active, 
+		.ui-widget-content .ui-state-active, 
+		.ui-widget-header .ui-state-active, 
+		a.ui-button:active, 
+		.ui-button:active, 
+		.ui-button.ui-state-active:hover{background:none;}
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) a,
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) span{color:#f35600}
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) a,
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) span{color:#337be8}
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default, .ui-button,
+		html .ui-button.ui-state-disabled:hover,
+		html .ui-button.ui-state-disabled:active{position:relative;min-width:40px;height:30px;line-height:30px;display:block;font-size:15px;color:#181818;border:0;text-align:center;padding:0;margin:5px auto;}
+		
+		.ui-datepicker td{position:relative;padding:0;}
+
+		/* Holiday */
+		.dp-holiday:before,
+		.dp-holiday.dp-highlight:before,
+		.dp-holiday.ui-datepicker-current-day:before{position:absolute;left:50%;top:50%;margin:-13px 0 0 -13px;content:"";display:block;width:6px;height:6px;border-radius:50%;z-index:1;}
+
+		.dp-holiday.dp-highlight.ui-datepicker-current-day:before,
+		.dp-holiday.dp-highlight.dp-first:before,
+		.dp-holiday.dp-highlight.dp-end:before{margin-top:-19px;}
+		.dp-holiday:before{background:#3daadd;}
+		.dp-holiday:after{content:attr(title);position:absolute;left:0;bottom:0px;width:100%;font-size:10px;text-align:center;line-height:1;color:#3daadd;}
+
+		/* Depature date, Arrival date Active */
+		.ui-datepicker .ui-datepicker-today .ui-state-default,
+		.dp-highlight.pd-between.ui-datepicker-today .ui-state-default{color:#3daadd;font-weight:bold;}
+		.ui-datepicker .ui-datepicker-today .ui-state-default:before{content:"오늘";position:absolute;left:0;bottom:-3px;width:100%;font-size:10px;text-align:center;line-height:1;}
+		.dp-highlight.ui-datepicker-current-day.ui-datepicker-today .ui-state-default:before{display:none;}
+		.dp-highlight .ui-state-default{background:#f30774;color: #fff !important;font-weight: 600;}
+		.dp-highlight.pd-between .ui-state-default{color:#000 !important;background:#fef0f5;font-weight:normal;}
+
+		/* Depature date, Arrival date Triangle Icon  */
+		.dp-highlight.dp-first .ui-state-default:after{content:"";display:inline-block;position:absolute;right:-10px;top:0;width:0;height:0;border-top:20px solid transparent;border-left:10px solid #f30774;border-bottom:20px solid transparent;z-index:1;}
+		.dp-highlight.dp-end .ui-state-default:after{content:"";display:inline-block;position:absolute;left:-10px;top:0;width:0;height:0;border-top:20px solid transparent;border-right:10px solid #f30774;border-bottom:20px solid transparent;z-index:1;}
+
+		.dp-highlight.ui-datepicker-current-day .ui-state-default{height:40px;line-height:40px;margin:0 auto;}
+		.dp-highlight.ui-datepicker-current-day .ui-state-default,
+		.dp-highlight.dp-first .ui-state-default,
+		.dp-highlight.dp-end .ui-state-default{padding-top:6px;height:40px;line-height:1;margin:0 auto;}
+		.dp-highlight.ui-datepicker-current-day .ui-state-default:before,
+		.dp-highlight.dp-first .ui-state-default:before,
+		.dp-highlight.dp-end .ui-state-default:before{position:absolute;left:0;bottom:6px;width:100%;font-size:10px;color:#fff;text-align:center;line-height:1;opacity:0.8;}
+
+		.dp-highlight.ui-datepicker-current-day.ui-datepicker-today .ui-state-default:before,
+		.dp-highlight.dp-first.ui-datepicker-current-day.ui-datepicker-today .ui-state-default:before{display:block;}
+		.dp-highlight.ui-datepicker-current-day .ui-state-default:before,
+		.dp-highlight.dp-first .ui-state-default:before{content:"가는날";}
+		.dp-highlight.dp-end .ui-state-default:before{content:"오는날";}
+
+		.dp-highlight.ui-datepicker-current-day.dp-holiday:after,
+		.dp-highlight.dp-first.dp-holiday:after,
+		.dp-highlight.dp-end.dp-holiday:after,
+		.ui-datepicker-today.dp-holiday:after{display:none;}
+		</style>
+		<!-- // 스타일 -->
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="header">
+				<h1>여행 날짜 선택</h1>
+				<a class="btn-close" href="javascript:void(0);">X</a>
+				<ul class="travel-result">
+					<li class="where">
+						<span>GMP</span> ↔ <span>CJU</span>
+					</li>
+					<li class="when">
+						<span class="before">날짜를 선택해주세요.</span>
+						<span class="first"><!-- <em class="month">12</em>.<em class="day">13</em> --></span>
+						<input type="text" class="selectDay depature" size="10">
+						<span class="bridge">-</span>
+						<span class="end"><!-- <em class="month">12</em>.<em class="day">21</em> --></span>
+						<input type="text" class="selectDay arrival" size="10">
+					</li>
+					<li class="who">
+						<span>성인 <em>1</em></span>,
+						<span>일반석</span>
+					</li>
+				</ul>
+			</div>
+			<div class="calendar-wrap">
+				<div class="u-datepicker-weekend">
+					<ul>
+						<li>일</li>
+						<li>월</li>
+						<li>화</li>
+						<li>수</li>
+						<li>목</li>
+						<li>금</li>
+						<li>토</li>
+					</ul>
+				</div>
+				<div class="u-datepicker-calendar">
+					<div id="datepicker"></div>
+				</div><!-- //u-datepicker-calendar -->
+			</div><!-- //calendar-wrap -->
+		</div><!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var $result = $('.travel-result');
+		var $first = $result.find('.when .first');
+		var $end = $result.find('.when .end');
+		var $before = $result.find('.when .before');
+		var $bridge = $result.find('.when .bridge');
+		var holidays = {
+			"0522": {title:"석가탄신일", year:""},
+			"0525": {title:"석일", year:""},
+			"0606": {title:"현충일", year:""},
+			"0815": {title:"광복절", year:""},
+			"0815": {title:"광복절", year:""},
+			"20180613": {title:"지방선거일", year:"2018"},
+			"20180924": {title:"추석", year:"2018"},
+			"20180925": {title:"추석연휴", year:"2018"},
+			"20180926": {title:"대체휴일", year:"2018"},
+			"20190103": {title:"테스트", year:"2019"}
+		};
+		$('.u-datepicker-calendar').css('height', $(window).height()-114);
+		$('#datepicker').datepicker({
+			monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			minDate: '0',
+			//maxDate: '+362',
+			numberOfMonths: [24,1],
+			dateFormat: 'yy-mm-dd',
+			beforeShow: function() {
+				
+			},
+			beforeShowDay: function(date) {
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".selectDay.depature").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".selectDay.arrival").val());
+				var holiday = holidays[$.datepicker.formatDate("mmdd", date)];
+				if(!holiday){ holiday = holidays[$.datepicker.formatDate("yymmdd", date)] };
+				if(date1){
+					if(date.getTime() == date1.getTime()){
+						if(date2){
+							if(holiday){
+								return [true, 'dp-highlight dp-first dp-holiday', holiday.title];
+							}else{
+								return [true, 'dp-highlight dp-first'];
+							}
+						}else{
+							if(holiday){
+								return [true, 'dp-highlight dp-holiday', holiday.title];
+							}else{
+								return [true, 'dp-highlight'];
+							}
+						}
+					}else if(date2){
+						if(date.getTime() == date2.getTime()){
+							if(holiday){
+								return [true, 'dp-highlight dp-end dp-holiday', holiday.title];
+							}else{
+								return [true, 'dp-highlight dp-end'];
+							}
+						}else if(date > date1 && date < date2){
+							if(holiday){
+								return [true, 'dp-highlight pd-between dp-holiday', holiday.title];
+							}else{
+								return [true, 'dp-highlight pd-between'];
+							}
+						}
+					}
+				}
+				if(holiday){
+					return [true, "dp-holiday", holiday.title];
+				}else{
+					return [true, ''];
+				}
+				
+			},
+			onSelect: function(dateText, inst) {
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".selectDay.depature").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".selectDay.arrival").val());
+				var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+				var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+				var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+				
+				if(!date1 || date2){
+					$(".selectDay.depature").val(dateText);
+					$(".selectDay.arrival").val('');
+					$result.find('.when').addClass('active');
+					$before.hide();
+					$bridge.hide();
+					$first.html('<em class="month">'+month+'</em>.<em class="day">'+day+'</em>');
+					$end.html('');
+					$(this).datepicker();
+				}else{
+					if( selectedDate < date1 ) {
+						$(".selectDay.arrival").val( $(".selectDay.depature").val() );
+						$(".selectDay.depature").val(dateText);
+						$result.find('.when').addClass('active');
+						$before.hide();
+						$bridge.show();
+						$end.html($first.html());
+						$first.html('<em class="month">'+month+'</em>.<em class="day">'+day+'</em>');
+					}else{
+						if($(".selectDay.depature").val() == dateText){return}
+						$(".selectDay.arrival").val(dateText);
+						$result.find('.when').addClass('active');
+						$before.hide();
+						$bridge.show();
+						$end.html('<em class="month">'+month+'</em>.<em class="day">'+day+'</em>');
+					}
+					$(this).datepicker();
+				}
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker_new.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

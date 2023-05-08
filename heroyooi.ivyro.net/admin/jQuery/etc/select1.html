@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/select1.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.select_box { position:relative; width:178px; height:28px; border:1px solid #ddd; border-radius:3px; background:#fff url("img/select_arrow.png") 160px center no-repeat; }
+		.select_box span.value { display:block; margin-left:10px; height:28px; line-height:28px; font-size:12px; color:#666; text-align:left; overflow:hidden; }
+		.select_box select { position:absolute; left:0; top:0px; padding-left:5px; width:100%; height:28px;line-height:28px; font-size:12px; color:#666; text-align:left; border:0; background:#fff; opacity:0; filter:alpha(opacity=0); }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="select_box">
+				<span class="value"></span>
+				<select name="" id="">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$(".select_box select").on("change",function(){
+			$(this).prev().html($(this).find("option:selected").text());
+		}).prev().html(function() {
+			return $(this).next().find("option:selected").text();
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/select1.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

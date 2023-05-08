@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/naver4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="maps.css">
+		<script type="text/javascript" src="../../../../openapi.map.naver.com/openapi/v3/mapsa8f1.js?clientId=S2RE33KrOn4dJ7mZFOYe"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.content { padding:10px; }
+		.info li { margin-top:10px; font-size:14px; color:#666; line-height:1.4; }
+		.info li:first-child { margin-top:0; }
+		.info li span { color:#f00; font-weight:bold; }
+		.info li a { color:#000; }
+		.info li a:hover { font-weight:bold; }
+
+		.map { margin-top:5px; width:1200px; height:600px; border:1px solid #ddd; }
+
+		/* Customize */
+		.spotly{border:0;}
+		.spotly .spmh_spot_arrow{display:none;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="content">
+				<ul class="info">
+					<li>1) 네이버 오픈API 이용신청(애플리케이션 등록) - 가입시 이용 목적에 <span>비로그인 오픈 API</span> 체크 <br />&nbsp;&nbsp;&nbsp;&nbsp;(<a href="https://developers.naver.com/products/login/api" target="_blank">https://developers.naver.com/products/login/api</a>)</li>
+					<li>2) head에 스크립트 연동 - 위에서 얻어낸 <span>클라이언트 아이디</span>를 넣어준다.<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=<span>클라이언트 아이디</span>"&gt;</script></li>
+					<li>3) JavaScript API v3 - 참고하여 네이버 지도를 개발한다. <br />&nbsp;&nbsp;&nbsp;&nbsp;(<a href="https://navermaps.github.io/maps.js/docs/tutorial-digest.example.html" target="_blank">https://navermaps.github.io/maps.js/docs/tutorial-digest.example.html</a>)</li>
+					<li>
+						5) 예II - 정보 창 표시하기
+						<div class="map" id="map2"></div>
+						<script type="text/javascript">
+						var cityhall = new naver.maps.LatLng(37.491038, 127.031430),
+							map = new naver.maps.Map('map2', {
+								center: cityhall.destinationPoint(0, 500),
+								zoom: 10
+							}),
+							marker = new naver.maps.Marker({
+								map: map,
+								position: cityhall
+							});
+
+						var contentString = [
+'<div class="spotly _infolay_frame ">  <h5 class="blind">요약 레이어</h5>  <div class="_infowindow_content"> <div class="spotly_header">  <div class="sh_fav"><a href="#" class="spm spm_lst_fav _layer_favorite nclicks(#IWTYPE#.bmkadd)" data-bookmark-key="place|1391276324" title="즐겨찾기 추가">즐겨찾기에 추가</a></div>  <div class="sh_flexible">   <h3 class="sh_h _title nclicks(#IWTYPE#.title)"><a href="/local/siteview.nhn?code=1391276324" target="_blank" data-adcr="sum_title">피플워크</a></h3>      <span class="sh_icset">      <a href="#" class="spm spm_spot_road _streetview nclicks(#IWTYPE#.streetpano)" title="거리뷰">거리뷰</a>      <a href="#" class="spm spm_spot_air _skyview nclicks(#IWTYPE#.skypano)" title="항공뷰">항공뷰</a>       </span>   </div> </div> <div class="spotly_container">   <div class="spotly_detail">   <div class="thumb nclicks(#IWTYPE#.image)">   <a href="https://map.naver.com/local/siteview.nhn?code=1391276324" target="_blank" data-adcr="sum_thumb"><img src="https://search.pstatic.net/common/?type=ofullfill&amp;size=110x110&amp;src=http%3A%2F%2Fldb.phinf.naver.net%2F20180720_262%2F1532063889275MaUSU_JPEG%2FAeEn2YETmx6mTuqEdwzWBDf0.jpg" width="55" height="55" alt="이미지"><span class="opac"></span></a>  </div>   <div class="spotly_flexible">   <dl class="default_dl">                                             <dt class="addr">서울특별시 강남구 강남대로 310 1105호</dt>                                              <dd class="info_road"><span class="spm spm_addr">지번주소</span> 서울특별시 강남구 역삼동 837-11 1105호</dd>                                                       <dd class="info_tel">      <span class="tel">02-6951-4933</span>       <span class="bar">|</span>       <span class="cate">인력공급,고용알선 &gt; 파견,헤드헌팅</span>     </dd>         </dl>   </div>  </div> <div class="spotly_btnset">    <a href="https://map.naver.com/local/siteview.nhn?code=1391276324" target="_blank" class="spm spm_spot_detail nclicks(#IWTYPE#.detail)" data-adcr="sum_detail">상세보기</a>       <div class="btn_like">         <div class="u_likeit_module">             <a href="#" class="u_likeit_btn" data-sid="MAP" data-did="MAP" data-cid="1391276324" data-likeit="1"><span class="u_ico"></span> <em class="u_cnt _cnt">1</em></a>         </div>     </div>       </div>  </div></div>  <div class="spotly_footer">   <div style="display:block">    <h5 class="blind">옵션</h5>    <ul class="common_act">     <li class="receive _share" title="보내기" unselectable="" style="user-select: text;"><a href="#" class="naver-splugin _spi_btn_release" data-style="unity" data-option="{layerPosition:outside-bottom, align:left}" data-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-prevent-short-url="off" data-use-short-url="on" data-mail-display="on" data-mail-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-mail-title="피플워크" data-blog-display="on" data-blog-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-blog-title="피플워크" data-blog-source-type="75" data-blog-source-title="지도" data-blog-source-form="2" data-post-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-post-title="<피플워크> 피플워크" data-cafe-display="on" data-cafe-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-cafe-title="피플워크" data-cafe-source-type="75" data-cafe-source-title="지도" data-cafe-source-form="2" data-memo-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-memo-title="피플워크 서울특별시 강남구 강남대로 310 1105호 02-6951-4933" ata-bookmark-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-bookmark-title="피플워크" data-twitter-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-twitter-title="피플워크 서울특별시 강남구 강남대로 310 1105호 02-6951-4933" data-facebook-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-facebook-title="피플워크  서울특별시 강남구 강남대로 310 1105호 02-6951-4933" data-band-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-band-title="피플워크 서울특별시 강남구 강남대로 310 1105호 02-6951-4933" data-pholar-url="https://map.naver.com/?pinId=1391276324&amp;dlevel=11&amp;enc=b64&amp;pinType=site&amp;y=f5b017db5a5fa21b94577e13b66363c6&amp;x=a60562fe969500e9397b8c61edcefaa4" data-pholar-title="피플워크" data-pholar-contents="서울특별시 강남구 강남대로 310 1105호 02-6951-4933" splugin-id="7774912601">보내기</a></li>     <li class="print"><a href="#" class="spm spm_ca_print _print nclicks(#IWTYPE#.print)" title="새 창">인쇄</a></li>     <li class="zoom"><a href="#" class="spm spm_ca_zoom _zoom_default nclicks(#IWTYPE#.enlarge)" title="확대">확대</a></li>    </ul>   </div>   <div class="sf_act">    <a href="#" class="spm spm_spot_report2_v2 _request_modify nclicks(#IWTYPE#.report)" title="새 창">정보수정 제안</a>    <a href="#" class="spm spm_sc_start2 _direction_start nclicks(#IWTYPE#.from)" data-adcr="sum_to_start">출발지로 설정</a>    <a href="#" class="spm spm_sc_end2 _direction_end nclicks(#IWTYPE#.to)" data-adcr="sum_to_dest">도착지로 설정</a>   </div>  </div>  <div class="spotly_act">   <a href="#" class="spm spm_spot_close nclicks(#IWTYPE#.close)" title="레이어 닫기">레이어 닫기</a>  </div>  <div class="spmh spmh_spot_arrow _arrow"></div>  <div class="spotly_oc"></div> </div>'
+							].join('');
+
+						var infowindow = new naver.maps.InfoWindow({
+							content: contentString
+						});
+
+						naver.maps.Event.addListener(marker, "click", function(e) {
+							if (infowindow.getMap()) {
+								infowindow.close();
+							} else {
+								infowindow.open(map, marker);
+							}
+						});
+
+						infowindow.open(map, marker);
+						</script>
+					</li>
+				</ul>
+			</div>
+			<!-- // content -->
+		</div>
+		<!-- // wrap -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/naver4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

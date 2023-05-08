@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/app.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.app { margin-top:100px; display:block; width:80px; height:30px; line-height:30px; background:#333; font-size:12px; color:#fff; text-align:center; border-radius:3px; -webkit-border-radius:3px; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<a href="#" class="app">APP 설치</a>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$('.app').on('click', function(){
+			if( /Android/i.test(navigator.userAgent)) {
+				// 안드로이드
+				alert('안드로이드는 준비중입니다.');
+				//$(this).attr('href','market://details?id=com.meh.theridge354');
+
+			} else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+				// iOS 아이폰, 아이패드, 아이팟
+				alert('iOS는 준비중입니다.');
+			} else {
+				// 그 외 디바이스
+				alert('그 외 디바이스는 준비중입니다.');
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/app.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

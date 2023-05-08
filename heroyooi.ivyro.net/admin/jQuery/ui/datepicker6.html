@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker6.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery-ui.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		*{box-sizing:border-box;}
+		.ck-date{font-size:11px;}
+		.date-wrap{position:relative;width:720px;margin:0 auto;}
+		.date-wrap #datepicker{width:100%;}
+		.date-wrap .ui-datepicker.ui-datepicker-multi{width:100% !important;}
+		.date-wrap .st-wrap{margin-bottom:10px;width:100%;overflow:hidden;}
+		.date-wrap .st-inner{float:right;}
+		.date-wrap .st-wrap span{position:relative;display:inline-block;padding-left:15px;font-size:12px;margin-left:10px;}
+		.date-wrap .st-wrap span:before{position: absolute;left:0;top:0;content:"";display:block;width:8px;height:8px;border:1px solid #ddd;}
+		.date-wrap .st-wrap span.st1{color:#e9000d}
+		.date-wrap .st-wrap span.st2{color:#1365ef}
+		.date-wrap .st-wrap span.st3{color:#368aec}
+		.date-wrap .st-wrap span.st4{color:#000000}
+		.date-wrap .st-wrap span.st1:before{background: #feedf5;}
+		.date-wrap .st-wrap span.st2:before{background: #bed8fb;}
+		.date-wrap .st-wrap span.st3:before{background: #ecf5fe;}
+		.date-wrap .st-wrap span.st4:before{background: #f3f3f3;}
+
+		.date-wrap .ui-datepicker-multi .ui-datepicker-group table{width:100%;}
+		.date-wrap .ui-datepicker-multi .ui-datepicker-group-last{border-left:1px solid #eee;}
+		.date-wrap .ui-datepicker td{position: relative;}
+		.date-wrap .ui-datepicker td.date-st1:before,
+		.date-wrap .ui-datepicker td.date-st2:before,
+		.date-wrap .ui-datepicker td.date-st3:before,
+		.date-wrap .ui-datepicker td.date-st4:before{position:absolute;left:3px;bottom:3px;content:attr(title)'만원';font-size:10px;font-weight:bold;letter-spacing:-.5px;text-align:left;}
+		
+		.date-wrap .ui-datepicker td span,
+		.date-wrap .ui-datepicker td a{position: relative;border:0;background:none;display:block;height:60px;}
+		.date-wrap .ui-state-active,
+		.date-wrap .ui-widget-content .ui-state-active,
+		.date-wrap .ui-widget-header .ui-state-active{color:#454545;}
+
+		.date-saturday a {color:#006fb8 !important;}
+		.date-sunday a {color:#ec3636 !important;}
+
+		.date-wrap .date-st1{background:#feedf5 !important;}
+		.date-wrap .date-st2{background:#bed8fb !important;}
+		.date-wrap .date-st3{background:#ecf5fe !important;}
+		.date-wrap .date-st4{background:#f3f3f3 !important;}
+
+		.date-wrap .active{background:#ea3a85 !important;}
+		.date-wrap .active .ui-state-default,
+		.date-wrap .active .ui-widget-content .ui-state-default,
+		.date-wrap .active .ui-widget-header .ui-state-default{background:none;border:0;color:#fff;}
+
+		.date-wrap .ui-datepicker td.active:before{position:absolute;left:3px;bottom:3px;content:attr(title)'만원';font-size:10px;font-weight:bold;letter-spacing:-.5px;text-align:left;color:#fff;}
+		.date-wrap .ui-datepicker td.st4{pointer-events:none;}
+
+		.date-wrap .ui-datepicker td.low-price{background:gold;}
+		.date-wrap .ui-datepicker td.low-price:before{position:absolute;left:3px;bottom:3px;content:attr(title)'만원';font-size:10px;font-weight:bold;letter-spacing:-.5px;text-align:left;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="date-wrap">
+			<div class="st-wrap">
+				<div class="st-inner">
+					<span class="st1">예약가능</span>
+					<span class="st2">출발가능</span>
+					<span class="st3">대기예약</span>
+					<span class="st4">예약마감</span>
+				</div>
+			</div>
+			<div id="datepicker"></div>
+			<div class="ck-date">
+				<p class="ck-first"><input type="text" class="selectDay"></p>
+				<p class="ck-second"><input type="text" class="selectDay"></p>
+				<p class="ck-third"><input type="text" class="selectDay"></p>
+			</div>
+		</div>
+
+		<span class="ev">1</span>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var st1Days = { //예약가능
+			"20180716": {price:"150"},
+			"20180717": {price:"151"},
+			"20180718": {price:"152"},
+			"20180719": {price:"153"},
+			"20180720": {price:"155"},
+			"20180721": {price:"154"},
+			"20180722": {price:"157"},
+			"20180723": {price:"158"},
+			"20180725": {price:"15"},
+			"20180726": {price:"155"},
+			"20180727": {price:"156"},
+			"20180728": {price:"157"}
+		};
+		var st2Days = { //출발가능
+			"20180729": {price:"999"},
+			"20180730": {price:"888"},
+			"20180801": {price:"777"},
+			"20180802": {price:"666"}
+		};
+		var st3Days = { //대기예약
+			"20180803": {price:"1999"},
+			"20180804": {price:"1888"},
+			"20180805": {price:"1777"},
+			"20180806": {price:"1000"},
+			"20180807": {price:"1130"},
+			"20180808": {price:"1620"},
+			"20180809": {price:"20000"}
+		};
+		var lowPrices = { //월별 최저가
+			"20180725": {price: "15"}, 
+			"20180806": {price: "1000"}
+		};
+
+		$('#datepicker').datepicker({
+			showMonthAfterYear: true,
+			yearSuffix: '.',
+			monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+			minDate: '1',
+			numberOfMonths: 2,
+			dateFormat: 'yy-mm-dd',
+			beforeShowDay: function(date){
+				var result = null;
+				var addClassName = '';
+				var st1 = st1Days[$.datepicker.formatDate("yymmdd", date)];
+				var st2 = st2Days[$.datepicker.formatDate("yymmdd", date)];
+				var st3 = st3Days[$.datepicker.formatDate("yymmdd", date)];
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".ck-first .selectDay").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".ck-second .selectDay").val());
+				var date3 = $.datepicker.parseDate('yy-mm-dd', $(".ck-third .selectDay").val());
+				var low = lowPrices[$.datepicker.formatDate("yymmdd", date)];
+
+				if(st1){
+					if(date.getDay()==0){
+						result = [true, "date-sunday date-st1", st1.price];
+					}
+					if(date.getDay()==1 || date.getDay()==2 || date.getDay()==3 || date.getDay()==4 || date.getDay()==5){
+						result = [true, "date-st1", st1.price];
+					}
+					if(date.getDay()==6){
+						result = [true, "date-saturday date-st1", st1.price];
+					}
+				}
+				if(st2){
+					if(date.getDay()==0){
+						result = [true, "date-sunday date-st2", st2.price];
+					}
+					if(date.getDay()==1 || date.getDay()==2 || date.getDay()==3 || date.getDay()==4 || date.getDay()==5){
+						result = [true, "date-st2", st2.price];
+					}
+					if(date.getDay()==6){
+						result = [true, "date-saturday date-st2", st2.price];
+					}
+				}
+				if(st3){
+					if(date.getDay()==0){
+						result = [true, "date-sunday date-st3", st3.price];
+					}
+					if(date.getDay()==1 || date.getDay()==2 || date.getDay()==3 || date.getDay()==4 || date.getDay()==5){
+						result = [true, "date-st3", st3.price];
+					}
+					if(date.getDay()==6){
+						result = [true, "date-saturday date-st3", st3.price];
+					}
+				}
+				if(!result){
+					switch(date.getDay()){
+						case 0:
+							result = [false, "st4 date-sunday"];
+							break;
+						case 6:
+							result = [false, "st4 date-saturday"];
+							break;
+						default:
+							result = [false, "st4"];
+							break;
+					}
+				}
+				if(low){
+					result = [true, "low-price", low.price];
+				}
+				if(date1){
+					if(date.getTime() == date1.getTime()){
+						if(st1){
+							result = [true, "active active1 data-st1", st1.price];
+						}else if(st2){
+							result = [true, "active active1 data-st2", st2.price];
+						}else if(st3){
+							result = [true, "active active1 data-st3", st3.price];
+						}else if(low){
+							result = [true, "active active1 low-price", low.price];
+						}else{
+							result = [true, "active active1"];
+						}
+					}
+				}
+				if(date2){
+					if(date.getTime() == date2.getTime()){
+						if(st1){
+							result = [true, "active active2 data-st1", st1.price];
+						}else if(st2){
+							result = [true, "active active2 data-st2", st2.price];
+						}else if(st3){
+							result = [true, "active active2 data-st3", st3.price];
+						}else if(low){
+							result = [true, "active active2 low-price", low.price];
+						}else{
+							result = [true, "active active2"];
+						}
+					}
+				}
+				if(date3){
+					if(date.getTime() == date3.getTime()){
+						if(st1){
+							result = [true, "active active3 data-st1", st1.price];
+						}else if(st2){
+							result = [true, "active active3 data-st2", st2.price];
+						}else if(st3){
+							result = [true, "active active3 data-st3", st3.price];
+						}else if(low){
+							result = [true, "active active3 low-price", low.price];
+						}else{
+							result = [true, "active active3"];
+						}
+					}
+				}
+
+				return result;
+			},
+			onSelect: function(dateText, inst){
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".ck-first .selectDay").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".ck-second .selectDay").val());
+				var date3 = $.datepicker.parseDate('yy-mm-dd', $(".ck-third .selectDay").val());
+				var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+				var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+				var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+
+				if(!date1 && !date2 && !date3){
+					$(".ck-first .selectDay").val(dateText);
+					$(this).datepicker();
+				}else if(date1 && !date2 && !date3){
+					if(dateText == $(".ck-first .selectDay").val()){
+						$(".ck-first .selectDay").val('');
+						return false;
+					}
+					$(".ck-second .selectDay").val(dateText);
+					$(this).datepicker();
+				}else if(!date1 && date2 && !date3){
+					if(dateText == $(".ck-second .selectDay").val()){
+						$(".ck-second .selectDay").val('');
+						return false;
+					}
+					$(".ck-first .selectDay").val(dateText);
+					$(this).datepicker();
+				}else if(!date1 && !date2 && date3){
+					if(dateText == $(".ck-third .selectDay").val()){
+						$(".ck-third .selectDay").val('');
+						return false;
+					}
+					$(".ck-first .selectDay").val(dateText);
+					$(this).datepicker();
+				}else if(date1 && date2 && !date3){
+					if(dateText == $(".ck-first .selectDay").val()){
+						$(".ck-first .selectDay").val('');
+						return false;
+					}
+					if(dateText == $(".ck-second .selectDay").val()){
+						$(".ck-second .selectDay").val('');
+						return false;
+					}
+					$(".ck-third .selectDay").val(dateText);
+					$(this).datepicker();
+				}else if(date1 && !date2 && date3){
+					if(dateText == $(".ck-first .selectDay").val()){
+						$(".ck-first .selectDay").val('');
+						return false;
+					}
+					if(dateText == $(".ck-third .selectDay").val()){
+						$(".ck-third .selectDay").val('');
+						return false;
+					}
+					$(".ck-second .selectDay").val(dateText);
+					$(this).datepicker();
+				}else if(!date1 && date2 && date3){
+					if(dateText == $(".ck-second .selectDay").val()){
+						$(".ck-second .selectDay").val('');
+						return false;
+					}
+					if(dateText == $(".ck-third .selectDay").val()){
+						$(".ck-third .selectDay").val('');
+						return false;
+					}
+					$(".ck-first .selectDay").val(dateText);
+					$(this).datepicker();
+				}else if(date1 && date2 && date3){
+					if(dateText == $(".ck-first .selectDay").val()){
+						$(".ck-first .selectDay").val('');
+						return false;
+					}else if(dateText == $(".ck-second .selectDay").val()){
+						$(".ck-second .selectDay").val('');
+						return false;
+					}else if(dateText == $(".ck-third .selectDay").val()){
+						$(".ck-third .selectDay").val('');
+						return false;
+					}else{
+						alert('3개 이상 선택할 수 없습니다.');
+					}
+				}
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker6.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/map.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/swiper.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/swiper.min.js"></script>
+		<script type="text/javascript" src="../common/js/smart-zoom.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap, img{width:100%;}
+		h1{padding:10px;font-size:28px;}
+		.result{position:fixed;left:10px;top:60px;background:#fff;padding:10px;border:1px solid #000;font-size:12px;border-radius:3px;}
+		.download{display:block;font-size:12px;background:#000;padding:10px;width:130px;color:#fff;text-align:center;border-radius:3px;margin-top:10px;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<h1>반응형 맵좌표 및 호버효과</h1>
+
+			<a href="#"><img src="img/map.gif" alt="대한민국 지도" usemap="#map.gif" style="border: 0;" /></a>
+
+			<map name="map.gif">
+				<area shape="poly" coords="204,23,211,31,214,40,203,47,190,42,181,40,182,29,196,29,200,23" href="#" target="" alt="서울" />
+				<area shape="poly" coords="161,33,154,31,154,22,154,13,165,10,172,26,176,32,183,37,190,40,182,45,171,52,167,41,157,42,149,39,151,34" href="#" target="" alt="인천" />
+				<area shape="poly" coords="176,51,175,59,174,70,186,80,202,78,208,78,221,80,225,71,235,70,243,55,243,41,234,28,226,24,229,10,223,3,207,1,185,1,178,11,175,24,190,26,201,19,210,22,219,31,216,45,203,51,192,49,187,42,182,45" href="#" target="" alt="경기" />
+				<area shape="poly" coords="227,1,233,7,234,19,237,32,251,41,247,53,245,69,255,60,265,60,290,65,315,69,337,61,336,50,318,30,304,7,281,4,258,2,241,2" href="#" target="" alt="강원" />
+				<area shape="poly" coords="339,63,320,73,306,72,290,72,282,91,270,91,249,100,254,126,256,139,256,163,273,173,277,157,284,142,306,137,315,160,303,171,294,177,305,181,319,167,336,164,342,171,351,151,346,91,340,73" href="#" target="" alt="경북" />
+				<area shape="poly" coords="298,143,297,143,282,148,280,168,282,182,295,174,308,159,308,144" href="#" target="" alt="대구" />
+				<area shape="poly" coords="323,175,309,183,326,190,341,192,345,177,329,168" href="#" target="" alt="울산" />
+				<area shape="poly" coords="325,195,306,206,295,220,309,220,339,202,334,196" href="#" target="" alt="부산" />
+				<area shape="poly" coords="243,162,235,180,232,203,244,228,265,240,295,239,296,211,312,197,315,189,296,182,284,182,265,176,254,166" href="#" target="" alt="경남" />
+				<area shape="poly" coords="245,239,233,262,193,274,138,274,135,239,139,212,159,197,163,214,181,228,197,224,196,209,184,205,171,207,176,198,195,205,202,211,228,203" href="#" target="" alt="전남" />
+				<area shape="poly" coords="192,214,179,227,176,216,180,206,186,204" href="#" target="" alt="광주" />
+				<area shape="poly" coords="160,189,164,165,170,147,196,144,214,144,230,157,249,143,252,156,234,168,232,193,221,202,204,199,181,194,168,187" href="#" target="" alt="전북" />
+				<area shape="poly" coords="161,81,181,78,192,85,221,87,224,101,212,109,215,124,215,142,225,136,231,143,223,155,208,151,192,136,169,134,156,113,135,95,143,80" href="#" target="" alt="충남" />
+				<area shape="poly" coords="227,84,225,91,225,108,218,112,241,117,236,124,233,138,245,141,251,132,247,112,245,94,256,90,276,87,291,78,285,65,259,62,245,67" href="#" target="" alt="충북" />
+				<area shape="poly" coords="219,113,231,109,238,113,233,128,224,134,213,133,209,115,222,110" href="#" target="" alt="대전" />
+				<area shape="poly" coords="170,315,187,323,186,330,162,340,147,340,142,324,158,322" href="#" target="" alt="제주" />
+			</map>
+
+			<div class="result">결과: <span></span></div>
+			<a class='download' href="imapic.exe" target="_blank">맵좌표 프로그램 다운로드</a>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript" src="../common/js/jquery.rwdImageMaps.js"></script>
+		<script type="text/javascript">
+		$('img[usemap]').rwdImageMaps();
+		$('map area').on('mouseenter', function(){
+			$('.result span').text($(this).attr('alt'));
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/map.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

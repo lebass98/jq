@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/text/04.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.color.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.animateNumber.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap p.number { margin-bottom:200px; padding-top:200px; font-weight:bold; }
+		#wrap p.link a { font-size:12px; color:#333; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<p class="number">0 %</p>
+			<p class="link"><a href="https://github.com/aishek/jquery-animateNumber" target="_blank">https://github.com/aishek/jquery-animateNumber</a></p>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var decimal_places = 1;
+		var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
+
+		$('#wrap p.number').animateNumber(
+			{
+				number: 80 * decimal_factor,
+				color: '#f00',
+				'font-size': '30px',
+
+				numberStep: function(now, tween) {
+					var floored_number = Math.floor(now) / decimal_factor,
+						target = $(tween.elem);
+					if (decimal_places > 0) {
+						floored_number = floored_number.toFixed(decimal_places);
+					}
+					target.text(floored_number + ' %');
+				}
+			},
+			15000
+		)
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/text/04.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

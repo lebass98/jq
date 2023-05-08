@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/text/05.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../common/js/blinker.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap p.effect { margin-top:30px; font-weight:bold; color:#555; cursor:pointer; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<p class="effect"><span>W</span><span>e</span><span>b</span> <span>D</span><span>e</span><span>v</span><span>l</span><span>o</span><span>p</span><span>e</span><span>r</span></p>
+			<p class="effect"><span>W</span><span>e</span><span>b</span> <span>P</span><span>u</span><span>b</span><span>l</span><span>i</span><span>s</span><span>h</span><span>e</span><span>r</span></p>
+			<p class="effect"><span>W</span><span>e</span><span>b</span> <span>D</span><span>e</span><span>s</span><span>i</span><span>g</span><span>n</span><span>e</span><span>r</span></p>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$('p.effect').each(function(){
+			$(this).blinker({
+				interval: 300,
+				endcolor: '#555',
+				colors: [
+					'#e74c3c',
+					'#f1c40f',
+					'#3498db',
+					'#9b59b6',
+					'#1abc9c',
+					'#e67e22',
+					'#95a5a6',
+					'#34495e',
+					'#2ecc71',
+					'#c0392b'
+				]
+			});
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/text/05.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

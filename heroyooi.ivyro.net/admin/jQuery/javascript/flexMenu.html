@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/flexMenu.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<style type="text/css">
+		.menu-wrap { width:100%; height:30px; border-bottom:1px solid #ddd; overflow:hidden; }
+		nav.menu { height:50px; overflow-x:auto; overflow-y:hidden; }
+		nav.menu ul { font-size:0; }
+		nav.menu li { display:inline-block; }
+		nav.menu li a { padding:0 10px; display:block; height:30px; line-height:30px; font-size:14px; color:#666; border-radius:5px; }
+		nav.menu li a.selected { font-weight:bold; color:#000; background:#eee; }
+		</style>
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="menu-wrap">
+			<nav class="menu">
+				<ul>
+					<li><a href="#">All</a></li>
+					<li><a href="#">자유자유자유자유게시판</a></li>
+					<li><a href="#" class="selected">공지사항</a></li>
+					<li><a href="#">갤러리 게시판</a></li>
+					<li><a href="#">신고게시판</a></li>
+					<li><a href="#">중고장터</a></li>
+					<li><a href="#">맛집탐방</a></li>
+					<li><a href="#">피커톡톡톡톡톡톡톡톡</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var $idx = [],
+			 $wrap = $('.menu-wrap'),
+			 $navi = $wrap.find('nav'),
+			 $ul = $wrap.find('ul'),
+			 $li = $wrap.find('li'),
+			 $a = $wrap.find('a'),
+			 $num = $li.length;
+		for(var i=0; i<$num; i++){
+			$idx.push($li.eq(i).width());
+		}
+		$ul.css('width', sum($idx));
+
+		for(var j=0; j<$num; j++){
+			if($a.eq(j+1).hasClass('selected')){
+				$navi.scrollLeft( sl_func(j+1) );
+			}
+		}
+		function sum(arr){
+			var su_result =0;
+			for(var a=0; a<arr.length; a++){
+				su_result += arr[a];
+			}
+			return su_result;
+		}
+		function sl_func(cnt){
+			var sl_result = 0;
+			for(var b=0; b<cnt; b++){
+				sl_result += $li.eq(b).width();
+			}
+			return sl_result;
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/flexMenu.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

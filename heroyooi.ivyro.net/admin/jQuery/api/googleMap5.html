@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/googleMap5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		@import url('../../../../fonts.googleapis.com/earlyaccess/notosanskr.css');
+		*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+		em{font-style:normal}
+		input{font-family:"Noto Sans KR";}
+		.map-wrap{position:relative;width:100%;font-family:"Noto Sans KR";}
+		.map-wrap #map{width:100%;height:100%}
+		.map-wrap div.mapSearch{position:absolute;left:15px;top:15px;right:15px;border:1px solid #c8c8c8;background:#fff;padding:7px 15px 7px 45px}
+		.map-wrap div.mapSearch input{border:0;outline:none}
+		.map-wrap div.mapSearch input.map_sch_bar{width:100%;font-size:17px}
+		.map-wrap div.mapSearch input.map_sch_btn{position: absolute;left:15px;top:10px;width:21px;height:21px;background:url('img/icon_map_sch.png') 0 0 no-repeat;background-size:auto 21px;text-indent:-20000px}
+
+		.map-wrap div.mapContent{position:fixed;left:15px;bottom:85px;right:15px;display:none}
+		.map-wrap div.mapContent dl{position:relative;width:100%;background:#fff;border:1px solid #c8c8c8}
+		.map-wrap div.mapContent dl:after{content:"";display:block;clear:both}
+		.map-wrap div.mapContent dt{float:left;width:41.5%}
+		.map-wrap div.mapContent dt img{width:100%}
+		.map-wrap div.mapContent dd{float:right;width:58.5%;padding:10px}
+		.map-wrap div.mapContent dd p.tit{font-size:14px;font-weight:500}
+		.map-wrap div.mapContent dd ul.opt{padding-top:7px;font-size:0}
+		.map-wrap div.mapContent dd ul.opt li{display:inline-block;font-size:11px;color:#444;padding-left:6px;margin-left:5px;background:url('img/icon_map_line.jpg') 0 3px no-repeat;background-size:1px auto}
+		.map-wrap div.mapContent dd ul.opt li:first-child{padding-left:0;margin-left:0;background:none}
+		.map-wrap div.mapContent dd ul.opt li em{font-family:'Roboto';font-weight:bold}
+		.map-wrap div.mapContent dd p.price{position:absolute;right:10px;bottom:10px;font-size:12px;}
+		.map-wrap div.mapContent dd p.price em{font-family:'Roboto';font-weight:bold;font-size:19px;color:#d40000}
+		.map-wrap div.mapContent a.btn-close{position: absolute;right:0;top:-25px;display:block;width:25px;}
+		.map-wrap a.btn-list{position: fixed;left:30px;bottom:20px;right:30px;display:block;line-height:45px;height:45px;border:0;font-size:17px;color:#fff !important;text-align:center;background:#f24407;
+		box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.17);
+		-webkit-box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.17);
+		-moz-box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.17);
+		-o-box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.17);}
+
+		/* Customize */
+		.gmnoprint[controlheight="55"]{display:none}
+		.gm-style-mtc{display:none;}
+		.gm-svpc{display:none}
+		button[title="전체 화면보기로 전환"]{display:none;}
+
+		.gmnoprint[style*="z-index: 1000001; position: absolute; right: 52px; bottom: 0px;"]{display:none}
+		div[style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"]{display:none}
+		.gmnoprint[style*="z-index: 1000001; position: absolute; right: 0px; bottom: 0px;"]{display:none}
+		.gmnoprint[style*="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;"]{display:none}
+
+		img[src*="img/tooltip_bg.png"]{display:none}
+		div[style*="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"] div{position:relative;top:5px;color:#fff !important;padding:10px 12px;background:#553f32;font-size:15px;}
+		div[style*="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"]:after{position: relative;top:5px;margin:0 auto;content:"";display:block;width:16px;height:9px;background:url('img/icon_map_edge1.png') 0 0 no-repeat;background-size:auto 9px}
+		div.on[style*="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"] div{background:#f14406;}
+		div.on[style*="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"]:after{background:url('img/icon_map_edge2.png') 0 0 no-repeat;background-size:auto 9px}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+	<div class="map-wrap">
+		<div id="map"></div>
+		<div class="mapSearch">
+			<input type="text" name="" class="map_sch_bar" placeholder="검색">
+			<input type="button" value="검색 버튼" class="map_sch_btn">
+		</div>
+		<div class="mapContent">
+			<a href="#" class="btn-close"><img src="img/icon_map_close.png" alt=""></a>
+			<dl>
+				<dt><img src="#" alt=""></dt>
+				<dd>
+					<p class="tit"></p>
+					<ul class="opt">
+						<li><em></em>성급</li>
+						<li><em></em>점</li>
+						<li><em></em>개 후기</li>
+					</ul>
+					<p class="price"><em></em>원~ / 1박</p>
+				</dd>
+			</dl>
+		</div><!-- // mapContent -->
+		<a href="#" class="btn-list">목록</a>
+	</div>
+	<!-- // map-wrap -->
+
+	<script>
+	$('.map-wrap').css('height', $(window).height());
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+			center: new google.maps.LatLng(-33.863276, 151.207977),
+			zoom: 13
+		});
+
+		// Change this depending on the name of your PHP or XML file
+		downloadUrl('mapmarkers.xml', function(data) {
+			var xml = data.responseXML;
+			var markers = xml.documentElement.getElementsByTagName('marker');
+			Array.prototype.forEach.call(markers, function(markerElem) {
+				var id = markerElem.getAttribute('id');
+				var src = markerElem.getAttribute('src');
+				var name = markerElem.getAttribute('name');
+				var star = markerElem.getAttribute('star');
+				var score = markerElem.getAttribute('score');
+				var review = markerElem.getAttribute('review');
+				var label = markerElem.getAttribute('label');
+				var point = new google.maps.LatLng(
+					parseFloat(markerElem.getAttribute('lat')),
+					parseFloat(markerElem.getAttribute('lng')));
+				var myIcon = new google.maps.MarkerImage("img/tooltip_bg.png", null, null, null, new google.maps.Size(101,43));
+				var marker = new google.maps.Marker({
+					map: map,
+					icon: myIcon,
+					position: point,
+					label: label + '원'
+				});
+				marker.addListener('click', function() {
+					// map.setZoom(14);
+					var $label = $('div.gm-style').children().children('div').eq(0).find('div[style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"]');
+					var $area = $('div.gm-style').children().children('div').eq(3).find('div.gmnoprint');
+					$label.removeClass('on');
+					$label.eq(id-2).addClass('on');
+
+					$('.mapContent p.tit').text(name);
+					$('.map-wrap div.mapContent dt img').attr('src', src);
+					$('.map-wrap div.mapContent dd ul.opt li em').eq(0).text(star);
+					$('.map-wrap div.mapContent dd ul.opt li em').eq(1).text(score);
+					$('.map-wrap div.mapContent dd ul.opt li em').eq(2).text(review);
+					$('.map-wrap div.mapContent dd p.price em').text(label);
+					$('.mapContent').show();
+
+					map.setCenter(marker.getPosition());
+				});
+
+				/*
+				map.addListener('zoom_changed', function() {
+					console.log('Zoom: ' + map.getZoom());
+				});
+				map.addListener('center_changed', function() {
+					
+				});
+				*/
+			});
+		});
+	}
+
+	$('.map-wrap div.mapContent a.btn-close').on('click', function(){
+		$('div.gm-style').children().children('div').eq(0).find('div[style="display: table-cell; vertical-align: middle; white-space: nowrap; text-align: center;"]').removeClass('on');
+		$('.mapContent').hide();
+		return false;
+	});
+
+	function downloadUrl(url, callback) {
+		var request = window.ActiveXObject ?
+			new ActiveXObject('Microsoft.XMLHTTP') :
+			new XMLHttpRequest;
+
+		request.onreadystatechange = function() {
+			if (request.readyState == 4) {
+				request.onreadystatechange = doNothing;
+				callback(request, request.status);
+			}
+		};
+
+		request.open('http://heroyooi.ivyro.net/admin/jQuery/api/GET', url, true);
+		request.send(null);
+	}
+
+	function doNothing() {}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh5jFaf4d6iFtd4kUnqoA3uXY5gcnJbjI&amp;callback=initMap"></script>
+<!--
+참조 URL
+https://developers.google.com/maps/documentation/javascript/mysql-to-maps?hl=ko
+-->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/googleMap5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

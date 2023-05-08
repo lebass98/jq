@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/study/data.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link type="text/css" rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+		<link type="text/css" rel="stylesheet" href="https://codemirror.net/2/theme/monokai.css">
+		<!--
+		CodeMirror Theme : https://codemirror.net/demo/theme.html
+		-->
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/lib/codemirror.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/javascript/javascript.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/addon/selection/active-line.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/xml/xml.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+		<script type="text/javascript" src="common.js"></script>
+		<!-- 스타일 -->
+		<style type="text/css">
+		.studyArea span.example{display:inline-block;margin-top:10px;text-transform:uppercase;font-family:'맑은 고딕','Malgun Gothic', sans-serif;}
+		hr{margin-top:30px;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap" class="study">
+			<h1>jQuery 데이터 메쏘드</h1>
+
+<h2>1) 데이터 저장</h2>
+<div class="studyArea">
+<span class="repo1 example">repository example 1</span>
+<script>
+$('.repo1').data("name", "publishing paulpotts");
+$('.repo1').data("homepage", "http://heroyooi.ivyro.net/");
+$('.repo1').data("skills", ['html', 'css3', 'javascript', 'jQuery']);
+console.log( $('.repo1').data("name") ) // publishing paulpotts
+</script>
+</div>
+
+<div class="studyArea">
+<span class="repo2 example" 
+   data-name="성연욱"
+   data-age="34"
+   data-address="서울시 동작구 사당로 28가길 9"
+   data-mobile="010-4147-5948"
+   data-options='{"religion": "기독교" , "height": 172, "weight": 70}'
+   data-church-name="엘벧엘교회"
+   data-church-address="서울특별시 동작구 동작대로9길 8-5"
+   data-church-tel="02-522-3280"
+>repository example 2</span>
+</div>
+<p class="info"><span>※ data-options가 저장되는 부분이 codemirror에서 잘못 랜더링 되므로, 이 부분은 페이지 소스 보기로 보셔야합니다.</span></p>
+
+<hr>
+
+<h2>2) 데이터 읽기</h2>
+<div class="studyArea">
+<script>
+var age = $('.repo2').data("age");
+
+var churchName = $('.repo2').data("churchName");
+// camelCase형태의 key값으로 데이터를 저장하였다면 HTML 에는 snake-case형태로 데이터가 저장된다.
+
+var options1 = $('.repo2').data("options").religion;
+
+console.log(age); // 34
+console.log(churchName); // 엘벧엘교회
+console.log(options1); // 기독교
+
+var repo2Data = $('.repo2').data();
+console.log( Object.keys(repo2Data).length ); // 8 (데이터 갯수)
+</script>
+</div>
+
+<hr>
+
+<h2>3) 데이터 삭제</h2>
+<div class="studyArea">
+<script>
+console.log( $('.repo1').data("skills") ); // (4) ["html", "css3", "javascript", "jQuery"]
+$('.repo1').removeData("skills");
+console.log( $('.repo1').data("skills") ); // undefined
+
+console.log( $('.repo2').data("mobile") ); // 010-4147-5948
+$('.repo2').removeData("mobile"); // HTML에 data-*로 저장된 data들은 removeData()를 이용하여도 지워지지 않는다.
+console.log( $('.repo2').data("mobile") ); // 010-4147-5948
+$('.repo2').data("mobile", null); // 그래서 저장되어있는 값을 null로 바꿔주는 것으로 해결이 가능하다.
+console.log( $('.repo2').data("mobile") ); // null
+</script>
+</div>
+		</div>
+		<!-- // wrap -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/study/data.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

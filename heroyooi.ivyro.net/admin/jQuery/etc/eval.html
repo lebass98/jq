@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/eval.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.star-score-check{ margin:0 0 0 0; direction:rtl; font-size:0; text-align:left; }
+		.star-score-check > button { overflow:visible; display:inline-block; padding:0; border:none; font-size:0; line-height:0; background-color:#ccc; background-repeat:no-repeat; background-position:0 50%; }
+		.star-score-check > button.even { background-position:-18px 50%; margin-right:10px; }
+		.star-score-check > button.even:first-child { margin-right:0; }
+		.star-score-check > button { width:18px; height:34px; background-image:url("img/star_bg_big.png"); }
+		.star-score-check > button.active { background-color:#7184ea; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="star-score-check" data-score="0" data-target="#point_price">
+				<button type="button" value="10" class="even" onClick="ck_star('5')";>10점</button>
+				<button type="button" value="9" class="" onClick="ck_star('4.5')";>9점</button>
+				<button type="button" value="8" class="even" onClick="ck_star('4')";>8점</button>
+				<button type="button" value="7" class="" onClick="ck_star('3.5')";>7점</button>
+				<button type="button" value="6" class="even" onClick="ck_star('3')";>6점</button>
+				<button type="button" value="5" class="" onClick="ck_star('2.5')";>5점</button>
+				<button type="button" value="4" class="even" onClick="ck_star('2')";>4점</button>
+				<button type="button" value="3" class="" onClick="ck_star('1.5')";>3점</button>
+				<button type="button" value="2" class="even" onClick="ck_star('1')";>2점</button>
+				<button type="button" value="1" class="" onClick="ck_star('0.5')";>1점</button>
+				<input type="hidden" name="star" id="star" />
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$.fn.starScore = function( options ) {
+			var defaults = {
+					target : ''
+				}, // default config info.
+				config = $.extend(true, defaults, options),     // extend default config form options.
+				clsName = 'active';
+			return this.each(function (i, v) {
+				var $score = $(v),
+				$input = $($score.data('target'));
+				$score.find('button').bind('click mouseover', eventHandler);
+				$score.bind('mouseleave', function() {
+					var val = $score.data('score') || 0;
+					if(val == 0) {
+						$score.find('button').removeClass(clsName);
+					} else {
+						$score.find('button').each(function (i, v) {
+							var $btn = $(this);
+							if(val == $btn.val()){
+								btnActive($btn);
+								return;
+							}
+						});
+					}
+				});
+				function eventHandler(e) {
+					var $btn = $(this);
+
+					btnActive($btn);
+					if(e.type == 'click'){
+						setValue($btn.val());
+					}
+					return false;
+				}
+				function btnActive ($b) {
+					$b.addClass(clsName).nextAll().addClass(clsName);
+					$b.prevAll().removeClass(clsName);
+				}
+				function setValue (val) {
+					$score.data('score', val);
+					$input.val(val);
+				}
+			});
+		};
+
+		$('.star-score-check').starScore();
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/eval.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

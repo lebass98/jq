@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/slider_range.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery-ui.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.ui.touch-punch.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		@import url('../../../../fonts.googleapis.com/earlyaccess/notosanskr.css');
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+		#wrap{padding:60px 0;width:90%;font-family:'Noto Sans KR';font-weight:300}
+		#slider-range{margin-top:10px}
+		input[type="submit"]{display:none}
+		em{font-family:'Roboto';font-style:normal;font-weight:bold;color:#f14406}
+		.link{margin-top:30px;display:inline-block;font-size:12px;font-weight:500;color:#000}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<p>1박 기준 I <span id="amount"></span></p>
+			<div id="slider-range"></div>
+			<form method="post" action="#">
+				<input type="hidden" id="amount1">
+				<input type="hidden" id="amount2">
+				<input type="submit" name="submit_range" value="Submit">
+			</form>
+
+			<a href="http://jqueryui.com/slider/#range" target="_blank" class="link">jQuery UI Slider 바로가기</a>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$(function() {
+			$( "#slider-range" ).slider({
+				range: true,
+				min: 0,
+				max: 3000000,
+				values: [ 189100, 2135000 ],
+				step: 10000,
+				slide: function( event, ui ) {
+					$("#amount").html("최저 <em>"+nCommas(ui.values[ 0 ])+"</em>원 - 최고 <em>"+nCommas(ui.values[1])+"</em>원");
+					$("#amount1").val(ui.values[0]);
+					$("#amount2").val(ui.values[1]);
+				}
+			});
+			$("#amount").html("최저 <em>"+nCommas($("#slider-range").slider("values",0))+"</em>원 - 최고 <em>"+nCommas($("#slider-range").slider("values", 1))+"</em>원");
+			function nCommas(x) {
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/slider_range.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

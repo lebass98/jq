@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/naver.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../../../../openapi.map.naver.com/openapi/v3/mapsa8f1.js?clientId=S2RE33KrOn4dJ7mZFOYe"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.content { padding:10px; }
+		.info li { margin-top:10px; font-size:14px; color:#666; line-height:1.4; }
+		.info li:first-child { margin-top:0; }
+		.info li span { color:#f00; font-weight:bold; }
+		.info li a { color:#000; }
+		.info li a:hover { font-weight:bold; }
+
+		.map { margin-top:5px; width:300px; height:300px; border:1px solid #ddd; }
+		.iw_inner { width:200px; padding:10px; font-size:12px; }
+		.iw_inner h3 { margin-bottom:10px; font-size:20px; color:#222; }
+		.iw_inner a { margin-top:10px; display:block; color:#499df2 !important; font-size:11px; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="content">
+				<ul class="info">
+					<li>1) 네이버 오픈API 이용신청(애플리케이션 등록) - 가입시 이용 목적에 <span>비로그인 오픈 API</span> 체크 <br />&nbsp;&nbsp;&nbsp;&nbsp;(<a href="https://developers.naver.com/products/login/api" target="_blank">https://developers.naver.com/products/login/api</a>)</li>
+					<li>2) head에 스크립트 연동 - 위에서 얻어낸 <span>클라이언트 아이디</span>를 넣어준다.<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=<span>클라이언트 아이디</span>"&gt;</script></li>
+					<li>3) JavaScript API v3 - 참고하여 네이버 지도를 개발한다. <br />&nbsp;&nbsp;&nbsp;&nbsp;(<a href="https://navermaps.github.io/maps.js/docs/tutorial-digest.example.html" target="_blank">https://navermaps.github.io/maps.js/docs/tutorial-digest.example.html</a>)</li>
+					<li>
+						4) 예I - 마커 그림자 표시하기
+						<div class="map" id="map1"></div>
+						<script type="text/javascript">
+						var position = new naver.maps.LatLng(37.4990115,126.9498063);
+
+						var map = new naver.maps.Map('map1', {
+							center: position,
+							zoom: 11
+						});
+
+						var markerOptions = {
+							position: position,
+							map: map,
+							icon: {
+								url: 'img/naver/pin_default.png',
+								size: new naver.maps.Size(22, 35),
+								origin: new naver.maps.Point(0, 0),
+								anchor: new naver.maps.Point(11, 35)
+							},
+							shadow: {
+								url: 'img/naver/shadow-pin_default.png',
+								size: new naver.maps.Size(40, 35),
+								origin: new naver.maps.Point(0, 0),
+								anchor: new naver.maps.Point(11, 35)
+							}
+						};
+
+						var marker = new naver.maps.Marker(markerOptions);
+						</script>
+					</li>
+					<li>
+						5) 예II - 정보 창 표시하기
+						<div class="map" id="map2"></div>
+						<script type="text/javascript">
+						var cityhall = new naver.maps.LatLng(37.5666805, 126.9784147),
+							map = new naver.maps.Map('map2', {
+								center: cityhall.destinationPoint(0, 500),
+								zoom: 10
+							}),
+							marker = new naver.maps.Marker({
+								map: map,
+								position: cityhall
+							});
+
+						var contentString = [
+								'<div class="iw_inner">',
+								'   <h3>서울특별시청</h3>',
+								'   <p>서울특별시 중구 태평로1가 31 | 서울특별시 중구 세종대로 110 서울특별시청<br />',
+								'       02-120 | 공공,사회기관 &gt; 특별,광역시청<br />',
+								'       <a href="http://www.seoul.go.kr" target="_blank">www.seoul.go.kr/</a>',
+								'   </p>',
+								'</div>'
+							].join('');
+
+						var infowindow = new naver.maps.InfoWindow({
+							content: contentString
+						});
+
+						naver.maps.Event.addListener(marker, "click", function(e) {
+							if (infowindow.getMap()) {
+								infowindow.close();
+							} else {
+								infowindow.open(map, marker);
+							}
+						});
+
+						infowindow.open(map, marker);
+						</script>
+					</li>
+				</ul>
+			</div>
+			<!-- // content -->
+		</div>
+		<!-- // wrap -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/naver.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

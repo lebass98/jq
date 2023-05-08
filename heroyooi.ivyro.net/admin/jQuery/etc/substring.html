@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/substring.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		p { padding:10px; font-size:14px; }
+		.menu { width:100%; background:#f7f7f7; border-top:1px solid #ddd; border-bottom:1px solid #ddd; }
+		.menu:after { content:""; display:block; clear:both; }
+		.menu li { float:left; width:25%; }
+		.menu li a { display:block; height:30px; line-height:30px; border-left:1px solid #ddd; font-size:14px; font-weight:bold; color:#000; text-align:center; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<p>* 8자가 넘으면 <strong>substring</strong>으로 메뉴명을 자릅니다.</p>
+		<ul class="menu">
+			<li><a href="#">스토어</a></li>
+			<li><a href="#">Only One 듀오락</a></li>
+			<li><a href="#">스토리</a></li>
+			<li><a href="#">이벤트</a></li>
+		</ul>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$('.menu li a').each(function(){
+			var sentence = $(this).text();
+			var result = sentence.substring(0, 8);
+			$(this).text( result )
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/substring.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

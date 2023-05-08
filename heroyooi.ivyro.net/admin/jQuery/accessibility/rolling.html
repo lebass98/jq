@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/accessibility/rolling.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.skip-navi { position:absolute; left:0; top:0; z-index:999; width:100%; text-align:center; }
+		.skip-navi a { position:absolute; left:-999px; top:-999px; }
+		.skip-navi a:focus, .skip-navi a:active, .skip-navi a:hover { display:block; left:0; top:0; padding:7px 10px 5px; background:#000; color:#fff; font-weight:bold; font-size:14px; }
+
+		#rolling-banner { position:relative; width:912px; height:559px; border:1px solid #dddddd; }
+		#rolling-banner dt { position:absolute;bottom:20px;right:20px;z-index:10; }
+		#rolling-banner dt.dt1 { right:115px; }
+		#rolling-banner dt.dt2 { right:96px; }
+		#rolling-banner dt.dt3 { right:77px; }
+		#rolling-banner dt.dt4 { right:58px; }
+		#rolling-banner dt.dt5 { right:39px; }
+		#rolling-banner dt.dt6 { right:20px; }
+		#rolling-banner dd { position:absolute; left:0; top:0; display:none; }
+		#rolling-banner dd.first_dd { display:block; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="skip-navi">
+			<a href="#container">본문 바로가기</a>
+			<a href="#gnb">주메뉴 바로가기</a>
+		</div>
+		<div id="wrap">
+			<div id="rolling-banner">
+				<dl>
+					<dt class="dt1"><a href="#" class="on"><img src="img/banner/btn_on.jpg" alt="버튼" /></a></dt>
+					<dd class="first_dd"><a href="#"><img src="img/banner/visual1.jpg" alt="해피라인스 대표사진1" /></a></dd>
+					<dt class="dt2"><a href="#"><img src="img/banner/btn.jpg" alt="버튼" /></a></dt>
+					<dd><a href="#"><img src="img/banner/visual2.jpg" alt="해피라인스 대표사진2" /></a></dd>
+					<dt class="dt3"><a href="#"><img src="img/banner/btn.jpg" alt="버튼" /></a></dt>
+					<dd><a href="#"><img src="img/banner/visual3.jpg" alt="해피라인스 대표사진3" /></a></dd>
+					<dt class="dt4"><a href="#"><img src="img/banner/btn.jpg" alt="버튼" /></a></dt>
+					<dd><a href="#"><img src="img/banner/visual4.jpg" alt="해피라인스 대표사진4" /></a></dd>
+					<dt class="dt5"><a href="#"><img src="img/banner/btn.jpg" alt="버튼" /></a></dt>
+					<dd><a href="#"><img src="img/banner/visual5.jpg" alt="해피라인스 대표사진5" /></a></dd>
+				</dl>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$("#rolling-banner dt a").on("click focus",function(){
+			$("#rolling-banner .on img").attr("src",$("#rolling-banner .on img").attr("src").replace("http://heroyooi.ivyro.net/admin/jQuery/accessibility/_on.jpg",".jpg"));
+			$("#rolling-banner .on").parent().next().stop().fadeOut("fast");
+
+			$("#rolling-banner .on").removeClass("on");
+			$(this).addClass("on");
+			
+			$(">img",this).attr("src",$(">img",this).attr("src").replace(".jpg","http://heroyooi.ivyro.net/admin/jQuery/accessibility/_on.jpg"));
+			$(this).parent().next().stop().fadeIn("fast");
+
+			return false;
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/accessibility/rolling.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

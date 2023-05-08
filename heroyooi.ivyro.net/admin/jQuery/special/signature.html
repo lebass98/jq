@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/special/signature.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Full-Window · Signature Pad</title>
+  <style>
+	* {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
+	html, body {
+		min-height: 100%;
+		height: 100%;
+		max-width: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
+	html, body, form {
+		margin: 0px;
+	}
+	html, form {
+		padding: 0px;
+	}
+	html, body, fieldset {
+		background: #aaa;
+	}
+	fieldset {
+		position: absolute;
+		border: 5px solid #aaa;
+		background: #aaa;
+		right: 0px;
+		bottom: 0px;
+	}
+	canvas {
+		outline: 5px solid #aaa;
+		background: #fff;
+	}
+	input[type=submit], input[type=reset] {
+		font-size: larger;
+	}
+  </style>
+  <link rel="stylesheet" href="css/jquery.signaturepad.css">
+  <!--[if lt IE 9]><script src="js/flashcanvas.js"></script><![endif]-->
+  <script src="../../../../ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<form method="POST" action="#">
+		<canvas class="pad"></canvas>
+		<fieldset>
+			<input type="reset" value="clear" />
+			<input type="button" onclick="document.execCommand('saveAs')" value="이미지 저장" />
+		</fieldset>
+	</form>
+
+  <!--
+  https://github.com/thread-pond/signature-pad
+  https://github.com/thread-pond/signature-pad/blob/master/documentation.md#converting-to-an-image
+  -->
+  <script src="js/jquery.signaturepad.js"></script>
+  <script>
+  (function(window) {
+    var $canvas,
+        onResize = function(event) {
+          $canvas.attr({
+            height: window.innerHeight,
+            width: window.innerWidth
+          });
+        };
+
+    $(document).ready(function() {
+      $canvas = $('canvas');
+      window.addEventListener('orientationchange', onResize, false);
+      window.addEventListener('resize', onResize, false);
+      onResize();
+
+      var api = $('form').signaturePad({
+        drawOnly: true,
+        defaultAction: 'drawIt',
+        validateFields: false,
+        lineWidth: 0,
+        output: null,
+        sigNav: null,
+        name: null,
+        typed: null,
+        clear: 'input[type=reset]',
+        typeIt: null,
+        drawIt: null,
+        typeItDesc: null,
+        drawItDesc: null
+      });
+
+      var sig = api.getSignature();
+      $('.img-save').on('click', function(e){
+        e.preventDefault();
+        $(document).bind('contextmenu');
+      });
+    });
+  }(this));
+  </script>
+  <script src="http://heroyooi.ivyro.net/admin/jQuery/special/js/assets/json2.min.js"></script>
+</body>

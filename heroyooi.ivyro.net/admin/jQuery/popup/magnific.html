@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/popup/magnific.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.min.js"></script>
+
+		<!-- 플러그인 연동 -->
+		<link rel="stylesheet" href="css/magnific-popup.css">
+		<script src="js/jquery.magnific-popup.min.js"></script>
+
+		<!-- 데모 화면 -->
+		<style type="text/css">
+		body{height:100%;font-family:'NanumSqaure';}
+		#wrap{width:100%;height:30000px;}
+		.demo-sec{padding:10px;background:#eee;margin:10px;border:1px solid #ddd;border-radius:3px;}
+		.demo-sec h2{margin-bottom:10px;text-transform:uppercase;font-size:18px;}
+		.demo-sec a{color:#000;font-size:12px;}
+		.demo-sec a span{color:red;}
+		.demo-sec a em{color:blue;font-style:normal;}
+		</style>
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="demo-sec">
+				<h2>Single image lightbox</h2>
+				<a class="image-popup-vertical-fit" href="../../../../farm9.staticflickr.com/8241/8589392310_7b6127e243_b.jpg" title="Caption. Can be aligned to any side and contain any HTML."><img src="../../../../farm9.staticflickr.com/8241/8589392310_7b6127e243_s.jpg" width="75" height="75" /></a>
+				<a class="image-popup-fit-width" href="../../../../farm9.staticflickr.com/8379/8588290361_ecf8c27021_b.jpg" title="This image fits only horizontally.">
+					<img src="../../../../farm9.staticflickr.com/8379/8588290361_ecf8c27021_s.jpg" width="75" height="75" />
+				</a>
+				<a class="image-popup-no-margins" href="../../../../farm4.staticflickr.com/3721/9207329484_ba28755ec4_o.jpg">
+					<img src="../../../../farm4.staticflickr.com/3721/9207329484_ba28755ec4_o.jpg" width="107" height="75" />
+				</a>
+			</div>
+			<script>
+			$('.image-popup-vertical-fit').magnificPopup({
+				type: 'image',
+				closeOnContentClick: true,
+				mainClass: 'mfp-img-mobile',
+				image: {
+					verticalFit: true
+				}
+			});
+
+			$('.image-popup-fit-width').magnificPopup({
+				type: 'image',
+				closeOnContentClick: true,
+				image: {
+					verticalFit: false
+				}
+			});
+
+			$('.image-popup-no-margins').magnificPopup({
+				type: 'image',
+				closeOnContentClick: true,
+				closeBtnInside: false,
+				fixedContentPos: true,
+				mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+				image: {
+					verticalFit: true
+				},
+				zoom: {
+					enabled: true,
+					duration: 300 // don't foget to change the duration also in CSS
+				}
+			});
+			</script>
+
+			<div class="demo-sec">
+				<h2>Lightbox gallery</h2>
+				<div class="popup-gallery">
+					<a href="../../../../farm9.staticflickr.com/8242/8558295633_f34a55c1c6_b.jpg" title="The Cleaner"><img src="../../../../farm9.staticflickr.com/8242/8558295633_f34a55c1c6_s.jpg" width="75" height="75" /></a>
+					<a href="../../../../farm9.staticflickr.com/8382/8558295631_0f56c1284f_b.jpg" title="Winter Dance"><img src="../../../../farm9.staticflickr.com/8382/8558295631_0f56c1284f_s.jpg" width="75" height="75" /></a>
+					<a href="../../../../farm9.staticflickr.com/8225/8558295635_b1c5ce2794_b.jpg" title="The Uninvited Guest"><img src="../../../../farm9.staticflickr.com/8225/8558295635_b1c5ce2794_s.jpg" width="75" height="75" /></a>
+					<a href="../../../../farm9.staticflickr.com/8383/8563475581_df05e9906d_b.jpg" title="Oh no, not again!"><img src="../../../../farm9.staticflickr.com/8383/8563475581_df05e9906d_s.jpg" width="75" height="75" /></a>
+					<a href="../../../../farm9.staticflickr.com/8235/8559402846_8b7f82e05d_b.jpg" title="Swan Lake"><img src="../../../../farm9.staticflickr.com/8235/8559402846_8b7f82e05d_s.jpg" width="75" height="75" /></a>
+					<a href="../../../../farm9.staticflickr.com/8235/8558295467_e89e95e05a_b.jpg" title="The Shake"><img src="../../../../farm9.staticflickr.com/8235/8558295467_e89e95e05a_s.jpg" width="75" height="75" /></a>
+					<a href="../../../../farm9.staticflickr.com/8378/8559402848_9fcd90d20b_b.jpg" title="Who's that, mommy?"><img src="../../../../farm9.staticflickr.com/8378/8559402848_9fcd90d20b_s.jpg" width="75" height="75" /></a>
+				</div>
+				<script>
+				$('.popup-gallery').magnificPopup({
+					delegate: 'a',
+					type: 'image',
+					tLoading: 'Loading image #%curr%...',
+					mainClass: 'mfp-img-mobile',
+					gallery: {
+					enabled: true,
+					navigateByImgClick: true,
+					preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+					},
+					image: {
+						tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+						titleSrc: function(item) {
+							return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+						}
+					}
+				});
+				</script>
+			</div>
+
+			<div class="demo-sec">
+				<h2>Zoom gallery</h2>
+				<div class="zoom-gallery">
+					<a href="../../../../farm4.staticflickr.com/3763/9204547649_0472680945_o.jpg" data-source="http://500px.com/photo/32736307" title="Into The Blue" style="width:193px;height:125px;">
+						<img src="../../../../farm4.staticflickr.com/3763/9204547649_7de96ee188_t.jpg" width="193" height="125" />
+					</a>
+					<a href="../../../../farm3.staticflickr.com/2856/9207329420_7f2a668b06_o.jpg" data-source="http://500px.com/photo/32554131" title="Light Sabre" style="width:82px;height:125px;">
+						<img src="../../../../farm3.staticflickr.com/2856/9207329420_e485948b01_t.jpg" width="82px" height="125" />
+					</a>
+				</div>
+				<script>
+				$('.zoom-gallery').magnificPopup({
+					delegate: 'a',
+					type: 'image',
+					closeOnContentClick: false,
+					closeBtnInside: false,
+					mainClass: 'mfp-with-zoom mfp-img-mobile',
+					image: {
+						verticalFit: true,
+						titleSrc: function(item) {
+							return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
+						}
+					},
+					gallery: {
+						enabled: true
+					},
+					zoom: {
+						enabled: true,
+						duration: 300, // don't foget to change the duration also in CSS
+						opener: function(element) {
+							return element.find('img');
+						}
+					}
+				});
+				</script>
+			</div>
+
+			<div class="demo-sec">
+				<h2>Popup with video or map</h2>
+				<a class="popup-youtube" href="http://www.youtube.com/watch?v=0O2aH4XLbto">Open YouTube video</a><br>
+				<a class="popup-vimeo" href="https://vimeo.com/45830194">Open Vimeo video</a><br>
+				<a class="popup-gmaps" href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom">Open Google Map</a>
+				<script>
+				$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+					disableOn: 700,
+					type: 'iframe',
+					mainClass: 'mfp-fade',
+					removalDelay: 160,
+					preloader: false,
+
+					fixedContentPos: false
+				});
+				</script>
+			</div>
+
+			<div class="demo-sec">
+				<h2>Dialog with CSS animation</h2>
+				<a class="popup-with-zoom-anim" href="#small-dialog">Open with fade-zoom animation <span>{fixedContentPos: true}</span></a><br>
+				<a class="popup-with-move-anim" href="#small-dialog">Open with fade-slide animation <span>{fixedContentPos: false}</span></a>
+
+				<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
+				<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+					<h1>Dialog example</h1>
+					<p>This is dummy copy. It is not meant to be read. It has been placed here solely to demonstrate the look and feel of finished, typeset text. Only for show. He who searches for meaning here will be sorely disappointed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex cumque cum illum eius? Architecto, cum, officia, maiores et illum incidunt cupiditate distinctio laudantium itaque eos natus minima perspiciatis harum magnam dicta nisi iste corrupti voluptatem soluta sed omnis eaque doloribus! Maxime, ipsam voluptate eum perferendis provident officia ratione nihil possimus? Deleniti, harum, eaque vero nemo ipsum quod itaque distinctio alias tenetur molestias error accusamus repellat eos totam assumenda quam vel. Commodi, quidem eveniet tempore totam provident recusandae dolor. Laboriosam, ea autem vitae maiores ut facilis? Dolores, delectus, accusamus quis laboriosam modi velit ducimus possimus fuga quasi maxime praesentium et perspiciatis molestiae sed ipsa id laudantium. Atque, quis, veritatis, sequi quaerat voluptatem saepe dicta blanditiis in magni obcaecati tenetur repellendus nisi labore necessitatibus ullam mollitia repellat itaque expedita aliquam nesciunt aspernatur eos asperiores odit aperiam reiciendis sit culpa quasi optio eveniet ad autem rerum temporibus laboriosam. Asperiores, dignissimos, hic, tempore reprehenderit explicabo quasi quos ducimus consequuntur odio mollitia magni repudiandae officia soluta similique veritatis ad deserunt harum provident reiciendis ipsam minus dolorem repellendus veniam quibusdam assumenda est cupiditate aspernatur velit omnis quo laboriosam voluptate maxime dicta. Saepe, distinctio, expedita, est, optio nesciunt similique consequatur vero labore doloribus laboriosam incidunt dicta iste. Unde, aliquam, quam, nisi, quis maxime reprehenderit atque at repudiandae temporibus molestiae doloremque quo voluptates quos iusto totam magni ea veritatis provident molestias ratione odit expedita reiciendis veniam dicta nam libero labore quae officiis amet dolorum. Omnis, expedita, nulla blanditiis dolore consectetur deserunt eligendi. Ea, minus, et, aspernatur, rerum est quis dolorum ut similique debitis deserunt eos mollitia ad iste vero ducimus placeat magni illo fuga porro aut exercitationem dolorem consequatur magnam ipsam accusantium corrupti commodi architecto! Tempora, facilis, quo, consectetur, nemo minus maxime ipsum magni quod explicabo vel omnis deserunt suscipit rerum et aspernatur quam earum totam ad unde.</p>
+				</div>
+				<link rel="stylesheet" href="css/dialog-animation.css">
+				<script>
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+
+					fixedContentPos: true,
+					fixedBgPos: true,
+
+					overflowY: 'auto',
+
+					closeBtnInside: true,
+					preloader: false,
+					
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+				});
+
+				$('.popup-with-move-anim').magnificPopup({
+					type: 'inline',
+
+					fixedContentPos: false,
+					fixedBgPos: true,
+
+					overflowY: 'auto',
+
+					closeBtnInside: true,
+					preloader: false,
+					
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-slide-bottom'
+				});
+				</script>
+			</div>
+
+			<div class="demo-sec">
+				<h2>Popup with form</h2>
+				<!-- link that opens popup -->
+				<a class="popup-with-form" href="#test-form">Open form</a>
+
+				<!-- form itself -->
+				<form id="test-form" class="mfp-hide white-popup-block">
+					<h1>Form</h1>
+					<fieldset style="border:0;">
+						<p>Lightbox has an option to automatically focus on the first input. It's strongly recommended to use <code>inline</code> popup type for lightboxes with form instead of <code>ajax</code> (to keep entered data if the user accidentally refreshed the page).</p>
+						<ol>
+							<li>
+								<label for="name">Name</label>
+								<input id="name" name="name" type="text" placeholder="Name" required="">
+							</li>
+							<li>
+								<label for="email">Email</label>
+								<input id="email" name="email" type="email" placeholder="example@domain.com" required="">
+							</li>
+							<li>
+								<label for="phone">Phone</label>
+								<input id="phone" name="phone" type="tel" placeholder="Eg. +447500000000" required="">
+							</li>
+							<li>
+								<label for="textarea">Textarea</label><br>
+								<textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
+							</li>
+						</ol>
+					</fieldset>
+				</form>
+				<script>
+				$('.popup-with-form').magnificPopup({
+					type: 'inline',
+					preloader: false,
+					focus: '#name',
+
+					// When elemened is focused, some mobile browsers in some cases zoom in
+					// It looks not nice, so we disable it:
+					callbacks: {
+						beforeOpen: function() {
+							if($(window).width() < 700) {
+								this.st.focus = false;
+							} else {
+								this.st.focus = '#name';
+							}
+						}
+					}
+				});
+				</script>
+			</div>
+
+			<div class="demo-sec">
+				<h2>Ajax popup</h2>
+				<a class="simple-ajax-popup-align-top" href="ajax/test-ajax.html">Load content via ajax</a><br>
+				<a class="simple-ajax-popup" href="ajax/test-ajax-2.html">Load another content via ajax</a>
+				<script>
+				$('.simple-ajax-popup-align-top').magnificPopup({
+					type: 'ajax',
+					alignTop: true,
+					overflowY: 'scroll' // as we know that popup content is tall we set scroll overflow by default to avoid jump
+				});
+
+				$('.simple-ajax-popup').magnificPopup({
+					type: 'ajax'
+				});
+				</script>
+			</div>
+
+			<div class="demo-sec">
+				<h2>Modal popup</h2>
+				<a class="popup-modal" href="#test-modal">Open modal <span>{model: true}<em>로 설정 시 자동으로</em> closeOnBgClick = false; <em>로 설정됨.</em></span><br><em>※ bg를 눌러도 팝업이 사라지게 하고 싶으면 modal를 false로 설정해야한다.</em></a>
+
+				<div id="test-modal" class="mfp-hide white-popup-block">
+					<h1>Modal dialog</h1>
+					<p>You won't be able to dismiss this by usual means (escape or click button), but you can close it programatically based on user choices or actions. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, architecto quia sunt facere consectetur eveniet explicabo reiciendis iste nemo corporis laboriosam eos quidem excepturi officia dolores veritatis repudiandae commodi? Nam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, obcaecati, consequatur commodi quam ea optio voluptatibus voluptate maxime magni voluptatum aspernatur ab asperiores aliquid deserunt eius rem accusantium nihil quasi dolorem veritatis libero repellat labore ullam hic aperiam. Cupiditate, eligendi, sequi, praesentium illo consequatur fugit alias ut labore ipsum at tempore omnis dicta maiores impedit voluptates aspernatur incidunt! Eligendi, labore, ad, temporibus vel incidunt repudiandae doloribus esse commodi recusandae quasi ratione et dolores impedit aliquam nemo consectetur maiores culpa facilis rerum voluptatibus laboriosam quaerat dolore vitae cumque beatae sequi eum corporis quo inventore atque quis voluptatem at veniam ab a deleniti delectus repellat magnam fugit laborum? Facilis quam optio voluptates voluptas sapiente saepe enim hic eaque culpa alias. Nam, ipsam molestiae temporibus aspernatur explicabo vitae ex quaerat deleniti nemo reiciendis. Sequi, eos, est recusandae officia nobis fugiat inventore tempora porro et tempore consequuntur hic labore blanditiis placeat illo saepe iste distinctio sint veritatis dolore velit natus eligendi qui alias obcaecati. Ad, incidunt, ex, ducimus, odit nemo impedit distinctio amet illo quae maxime tenetur modi consequuntur ab aliquid tempore doloribus eveniet soluta voluptatem iusto mollitia velit dicta veritatis eum quibusdam sit voluptatibus enim natus in numquam commodi vel adipisci odio tempora magni dignissimos consectetur quam? Numquam, molestias, veritatis, doloremque, suscipit ipsa tempore cum facere modi voluptates impedit ratione voluptatibus. Tenetur, repellat, perspiciatis quidem veritatis ea non quas illo laboriosam dolores incidunt minima dolore ipsum illum maiores alias. Magni, eum, eaque, nam, quas explicabo praesentium mollitia aperiam unde aut et autem amet animi necessitatibus. Iste, ducimus, incidunt accusantium inventore nihil quas minima ratione velit saepe maxime cumque expedita corporis voluptatem suscipit quo. At, fugiat, vel consequatur eius voluptatibus tempore dolorem doloremque eveniet explicabo temporibus? Vero, cum iste natus quaerat cumque error. Reprehenderit hic neque veniam minus vel nostrum numquam natus doloribus officiis?</p>
+					<p><a class="popup-modal-dismiss" href="#">Dismiss</a></p>
+				</div>
+				<style>
+				.white-popup-block{position:relative;margin:30px auto;padding:20px;max-width:600px;background:#fff;}
+				.popup-modal-dismiss{position:absolute;right:10px;top:10px;color:#3169b3;text-decoration:underline;}
+				.white-popup-block h1{font-size:24px;font-weight:700;margin-bottom:10px;}
+				.white-popup-block p{line-height:1.6;}
+				</style>
+				<script>
+				$('.popup-modal').magnificPopup({
+					type: 'inline',
+					preloader: false,
+					focus: '#username',
+					modal: true
+				});
+				$(document).on('click', '.popup-modal-dismiss', function (e) {
+					e.preventDefault();
+					$.magnificPopup.close();
+				});
+				</script>
+			</div>
+
+			<div class="demo-sec">
+				<h2>Error handling</h2>
+				<!-- classes mfp-image and mfp-ajax define type of the popup -->
+				<a id="broken-image" class="mfp-image" href="http://heroyooi.ivyro.net/admin/jQuery/popup/undefined-image.jpg">Broken image</a><br>
+				<a id="broken-ajax" class="mfp-ajax" href="http://example.com/fakeg">Broken ajax request</a>
+				<script>
+				$('#broken-image, #broken-ajax').magnificPopup({});
+				</script>
+			</div>
+
+		</div>
+		<!-- // wrap -->
+
+		<!-- Github : https://github.com/dimsemenov/Magnific-Popup -->
+		<!-- Demo : https://dimsemenov.com/plugins/magnific-popup -->
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/popup/magnific.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

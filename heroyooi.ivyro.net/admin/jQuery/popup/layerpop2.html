@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/popup/layerpop2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.cookie.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.pop_wrap { position:absolute; left:10px; top:10px; z-index:10000; background:#000; width:1136px; }
+		.pop_wrap > ul { width:1136px; }
+		.pop_wrap > ul:after { content:""; display:block; clear:both; }
+		.pop_wrap > ul > li { float:left; }
+		.popup_close { padding:8px 15px 12px; background:#000; height:14px; }
+		.popup_close ul { float:right; height:14px; }
+		.popup_close li { float:left; }
+		.popup_close li.today { padding-right:18px; margin-right:17px; background:url('img/pop_line.jpg') right 2px no-repeat; }
+		.popup_close li a { font-size:14px; color:#fff; }
+		.popup_close li.close a { display:block; padding-right:14px; background:url('img/pop_close.jpg') right 4px no-repeat; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="pop_wrap" id="mpop">
+			<ul>
+				<li><img src="img/pop01.jpg" alt="" /></li>
+				<li><img src="img/pop02.jpg" alt="" /></li>
+				<li><img src="img/pop03.jpg" alt="" /></li>
+			</ul>
+			<div class="popup_close">
+				<ul>
+					<li class="today"><a href="#">오늘 하루 이창을 열지 않음</a></li>
+					<li class="close"><a href="#">창닫기</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- // pop_wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var pop_cookie = {
+			cookie_arr : null,
+			set : function (name,value,options){
+				options = options || {};
+				this.cookie_arr = [escape(name) + '=' + escape(value)];
+				//-- expires
+				if (options.expires){
+					if( typeof options.expires === 'object' && options.expires instanceof Date ){
+						var date = options.expires;
+						var expires = "expires=" + date.toUTCString();
+						this.cookie_arr.push (expires);
+					}
+				}else if (options.expires_day){
+					this.set_expires_date (options.expires_day , 24*60*60);
+				}else if (options.expires_hour)	{
+					this.set_expires_date (options.expires_hour , 60*60);
+				}
+				//-- domain
+				if (options.domain){
+					var domain = "domain=" + options.domain;
+					this.cookie_arr.push (domain);
+				}
+				//-- path
+				if (options.path){
+					var path = 'path=' + options.path;
+					this.cookie_arr.push (path);
+				}
+				//-- secure
+				if( options.secure === true ){
+					var secure = 'secure';
+					this.cookie_arr.push (secure);
+				}
+				document.cookie = this.cookie_arr.join('; ');
+				//console.log (this.cookie_arr.join('; '));
+			},
+			get : function (name){
+				var nameEQ = escape(name) + "=";
+				var ca = document.cookie.split(';');
+		 
+				for(var i=0;i < ca.length;i++)
+				{
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					if (c.indexOf(nameEQ) == 0) return unescape(c.substring(nameEQ.length,c.length));
+				}
+				return null;
+			},
+			del : function (name , options){
+				options = options || {};
+				options.expires_day = -1;
+				this.set ( name , '' , options );
+			},
+			set_expires_date : function (expires , time){
+				var date = new Date();
+				date.setTime(date.getTime()+(expires*time*1000));
+				var expires = "expires=" + date.toUTCString();
+				this.cookie_arr.push (expires);
+			}
+		};
+
+		if(pop_cookie.get('popview') == 'hidden'){
+			$('#mpop').hide();
+		}else{
+			$('#mpop').show();
+		}
+		$("#mpop li.close a").on("click",function(e){
+			$("#mpop").slideUp();
+			e.preventDefault();
+		});
+
+		var now = new Date(),
+			 year= now.getFullYear(),
+			 mon = now.getMonth(),
+			 day = now.getDate();
+
+		$("#mpop li.today a").on("click",function(e){
+			//$.cookie('popup', 'hidden', {expires : 1});
+			pop_cookie.set('popview', 'hidden', { expires : new Date( year, mon, day+1, 0, 0, 0 )} );
+			$("#mpop").slideUp();
+			e.preventDefault();
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/popup/layerpop2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

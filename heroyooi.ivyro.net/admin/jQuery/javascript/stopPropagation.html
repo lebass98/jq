@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/stopPropagation.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<style>
+		.evBox{width:150px;height:150px;background:gold;}
+		h1 a{display:inline-block;padding:5px 10px;background:#333;color:#fff;margin-top:10px;}
+		</style>
+		<script src="#"></script>
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$(function(){
+			$('h1').click(function(e){
+				$('.evBox').css('background', 'red');
+				e.preventDefault();
+			});
+			$('h1 a').click(function(e){
+				$('.evBox').css('background', 'blue');
+				e.stopPropagation();
+				e.preventDefault();
+			});
+		});
+		</script>
+		<!-- // 스크립트 -->
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="evBox"></div>
+		<h1><a href="#">이벤트 전달을 제거</a></h1>
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/stopPropagation.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

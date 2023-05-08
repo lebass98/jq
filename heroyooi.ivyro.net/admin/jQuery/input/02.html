@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/input/02.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		p.tit { padding-top:200px; font-weight:bold; }
+		.inp_wrap { margin-top:10px; height:20px; }
+		.inp_wrap label { float:left; display:block; height:20px; line-height:20px; }
+		.inp_wrap input { float:left; margin-left:10px; display:block; height:18px; vertical-align:middle; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<p class="tit">인풋박스1 값 입력 시 인풋박스2 비활성화</p>
+			<div class="inp_wrap">
+				<label for="inp1">인풋박스1</label>
+				<input type="text" name="inp1" id="inp1" placeholder="직접입력 (만원 단위)" />
+			</div>
+			<div class="inp_wrap">
+				<label for="inp2">인풋박스2</label>
+				<input type="text" name="inp2" id="inp2" />
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$('#inp1').on('input', function(){
+			if($(this).val().length != 0){
+				$('#inp2').val('').attr('disabled', 'disabled');
+			}else{
+				$('#inp2').val('').removeAttr('disabled');
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/input/02.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider1.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, address=no, email=no" /><!-- 아이폰, 아이패드에서 자동적으로 전화번호나 이메일 주소를 감지하고 링크가 되어버리는 경우 그 현상을 방지 -->
+		<link rel="shortcut icon" href="img/hanssem/favicon.ico">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.bxslider.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.bxslider.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+		.sec_slide_section { position:relative; background:#ebecee url('img/hanssem/con_shadow_bg.png') left top repeat-x; background-size:auto 4px; padding:11px 0 40px 0; }
+		.sec_slider_wrap { position:relative; width:180%; right:40%; }
+		.sec_slider { width:100%; }
+		.sec_slider:after { content:""; display:block; clear:both; }
+		.sec_slider li { position:relative; background:#fff; }
+		.sec_slider li > a {display:block;}
+		.sec_slider dt img { border:1px solid #e0e4e7; width:100%; }
+		.sec_slider dd {height:70px; padding:10px;}
+		.sec_slider dd p.tit { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient: vertical; overflow:hidden; height:32px; margin-bottom:6px; font-size:12px; color:#333; line-height:16px; text-overflow:ellipsis; word-wrap:break-word; }
+		.sec_slider dd p.con { font-size:12px; line-height:1.4; }
+		.sec_slider div.pro_price:after {display:block;clear:both;content:'';}
+		.sec_slider div.pro_price p { display:inline-block; vertical-align:middle; }
+		.sec_slider div.pro_price p.dc {float:left;width:28px;height:28px;margin-right:10px;padding:0;background:#ff1b1b;font-size:12px;font-family:'Roboto', sans-serif;font-weight:bold;color:#fff;line-height:28px;text-align:center;}
+		.sec_slider div.pro_price p.dc span { font-size:10px;font-family:'Roboto', sans-serif; }
+		.sec_slider div.pro_price p.before_price { display:block; margin-right:3px; font-size:10px; color:#999; vertical-align:middle; }
+		.sec_slider div.pro_price p.before_price span { font-family:'Roboto', sans-serif; font-size:10px; text-decoration:line-through; color:#999;  vertical-align:middle; }
+		.sec_slider div.pro_price p.after_price { display:block; font-size:11px; color:#333; vertical-align:middle; }
+		.sec_slider div.pro_price p.after_price span { font-family:'Roboto', sans-serif; font-weight:bold; font-size:15px; color:#333;  vertical-align:middle; }
+		.sec_slider div.pro_price .price_box {float:left;}
+		.sec_slider dl dd p.score {margin-top:6px;width: 70px;height: 11px;background: url('http://heroyooi.ivyro.net/admin/jQuery/slider/img/hanssem/main/star_icon_gray.png') 0 0 no-repeat;-webkit-background-size: 100%;background-size: 100%;position: relative;}
+		.sec_slider dl dd p.score span { font-family:'Roboto', sans-serif; font-size:11px; color:#999; }
+		.sec_slider dl dd p.score strong { display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%;overflow: hidden; }
+		.sec_slider dl dd p.score em { font-style: normal; display: block; position: absolute; top: -1px; left: 74px; }
+		.sec_slider dl dd p.score strong img { display: block;width: 70px;height: 11px; max-width: none;}
+
+		.sec_slider_num_wrap { position:absolute; bottom:7px; text-align:center; width:100%; }
+		.sec_slider_num { margin:0 auto; display:inline-block; background-color:rgba(0, 0, 0, 0.5); padding:5px 7px; border-radius:12px; }
+		.sec_slider_num span { vertical-align:middle; color:#fff; font-size:12px; color:#fff; }
+		.sec_slider_num span.bridge { display:inline-block; margin:0 4px; }
+		.sec_slider_num img { width:inherit; vertical-align:middle; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="sec_slide_section">
+			<div class="sec_slider_wrap">
+				<ul class="sec_slider">
+					<li>
+						<a href="#">
+							<dl>
+								<dt><img src="img/hanssem/pro_sample01.jpg" alt="" /></dt>
+								<dd>
+									<p class="tit">[MD추천] 한샘 바이엘 옷장세트 2000~3500 화이트 (7종/택1)</p>
+									<div class="pro_price">
+										<p class="dc">10<span>%</span></p>
+										<div class="price_box">
+											<p class="before_price"><span>200,000</span>원</p>
+											<p class="after_price"><span>149,000</span>원</p>
+										</div>
+									</div>
+								</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<dl>
+								<dt><img src="img/hanssem/pro_sample02.jpg" alt="" /></dt>
+								<dd>
+									<p class="tit">[MD추천] 한샘 바이엘 옷장세트 2000~3500 화이트 (7종/택1)</p>
+									<p class="con">대한민국 1% 비정상 가격 기획전</p>
+								</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<dl>
+								<dt><img src="img/hanssem/pro_sample03.jpg" alt="" /></dt>
+								<dd>
+									<p class="tit">[MD추천] 한샘 바이엘 옷장세트 2000~3500 화이트 (7종/택1)</p>
+									<div class="pro_price">
+										<p class="dc">10<span>%</span></p>
+										<p class="before_price"><span>200,000</span>원</p>
+										<p class="after_price"><span>149,000</span>원</p>
+									</div>
+								</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<dl>
+								<dt><img src="img/hanssem/pro_sample01.jpg" alt="" /></dt>
+								<dd>
+									<p class="tit">[MD추천] 한샘 바이엘 옷장세트 2000~3500 화이트 (7종/택1)</p>
+									<div class="pro_price">
+										<p class="dc">10<span>%</span></p>
+										<div class="price_box">
+											<p class="before_price"><span>200,000</span>원</p>
+											<p class="after_price"><span>149,000</span>원</p>
+										</div>
+									</div>
+								</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<dl>
+								<dt><img src="img/hanssem/pro_sample02.jpg" alt="" /></dt>
+								<dd>
+									<p class="tit">[MD추천] 한샘 바이엘 옷장세트 2000~3500 화이트 (7종/택1)</p>
+									<p class="con">대한민국 1% 비정상 가격 기획전</p>
+								</dd>
+							</dl>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<dl>
+								<dt><img src="img/hanssem/pro_sample03.jpg" alt="" /></dt>
+								<dd>
+									<p class="tit">[MD추천] 한샘 바이엘 옷장세트 2000~3500 화이트 (7종/택1)</p>
+									<div class="pro_price">
+										<p class="dc">10<span>%</span></p>
+										<p class="before_price"><span>200,000</span>원</p>
+										<p class="after_price"><span>149,000</span>원</p>
+									</div>
+								</dd>
+							</dl>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- // sec_slider_wrap -->
+			<div class="sec_slider_num_wrap">
+				<p class="sec_slider_num">
+					<span class="current_value"></span>
+					<span class="bridge"><img src="img/hanssem/slide_num_bar.png"></span>
+					<span class="total_value"></span>
+				</p>
+			</div>
+		</div>
+		<!-- // sec_slide_section -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		secSlider = $('.sec_slider').bxSlider({
+			auto: true,
+			pager: false,
+			minSlides: 4,
+			maxSlides: 4,
+			moveSlides: 1,
+			slideWidth: 149,
+			slideMargin: 9,
+			onSliderLoad: function(){
+				$('.bx-viewport').css({
+					'left': '25.5%',
+					'overflow': 'inherit'
+				});
+			},
+			onSlideBefore: function(){
+				var current = secSlider.getCurrentSlide()+1;
+				$('p.sec_slider_num .current_value').text( current );
+				$('p.sec_slider_num .total_value').text( slideQty );
+			}
+		});
+		var current = secSlider.getCurrentSlide()+1;
+		var slideQty = secSlider.getSlideCount();
+		$('p.sec_slider_num .current_value').text( current );
+		$('p.sec_slider_num .total_value').text( slideQty );
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider1.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

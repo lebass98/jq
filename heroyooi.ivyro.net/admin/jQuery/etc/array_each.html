@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/array_each.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		body { background:#48466d; }
+		#container { position:relative; width:800px; height:600px; margin:60px auto; }
+		#container .inner { position: absolute; width: 100%; height:100%; transition: all 1s; }
+		#container .inner div { position:absolute; width:200px; height:200px; line-height:200px; background:#46cdcf; border-radius:3px; text-align:center; font-size:18px; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
+		#container .inner div:first-child { left:0; top:0; }
+		#container .inner div:nth-child(2) { right:0; top:0; }
+		#container .inner div:nth-child(3) { left:0; bottom:0; }
+		#container .inner div:last-child { right:0; bottom:0; }
+		.menu { text-align:center; }
+		.menu button { font-size:24px; padding:10px 40px; background:#3d84a8; border:0; cursor:pointer; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="container">
+			<div class="inner">
+				<div style="transform: translate3d(0px, 400px, 0px);">상품1</div>
+				<div style="transform: translate3d(-600px, 0px, 0px);">상품2</div>
+				<div style="transform: translate3d(600px, 0px, 0px);">상품3</div>
+				<div style="transform: translate3d(0px, -400px, 0px);">상품4</div>
+			</div>
+		</div>
+		<div class="menu">
+			<button id="move">이동</button>
+		</div>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		(function($){
+			var rollingCss = [
+				['translate3d(0,400px,0)','translate3d(600px,400px,0)','translate3d(600px,0,0)','translate3d(0,0,0)'],
+				['translate3d(-600px,0,0)','translate3d(-600px,400px,0)','translate3d(0,400px,0)','translate3d(0,0,0)'],
+				['translate3d(600px,0,0)','translate3d(600px,-400px,0)','translate3d(0,-400px,0)','translate3d(0,0,0)'],
+				['translate3d(0,-400px,0)','translate3d(-600px,-400px,0)','translate3d(-600px,0,0)','translate3d(0,0,0)'],
+			],
+			div = $('.inner div'),
+			current = 1,
+			motion = function(){
+				div.each(function(i, el){
+					$(el).css('transform', rollingCss[i][current]);
+				});
+				current = current < div.length - 1 ? ++current : 0;
+			};
+
+			$('#move').on('click', function(){
+				motion();
+			});
+		}(window.jQuery));
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/array_each.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

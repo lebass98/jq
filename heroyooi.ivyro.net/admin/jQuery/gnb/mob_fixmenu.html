@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/mob_fixmenu.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/TweenMax.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		/* easing */
+		.e-i2{-webkit-transition:all .2s ease-in;
+		-moz-transition:all .2s ease-in;
+		-o-transition:all .2s ease-in;
+		transition:all .2s ease-in;}
+		.e-i3{-webkit-transition:all .3s ease-in;
+		-moz-transition:all .3s ease-in;
+		-o-transition:all .3s ease-in;
+		transition:all .3s ease-in;}
+		.e-o2{-webkit-transition:all .2s ease-out;
+		-moz-transition:all .2s ease-out;
+		-o-transition:all .2s ease-out;
+		transition:all .2s ease-out;}
+		.e-o3{-webkit-transition:all .3s ease-out;
+		-moz-transition:all .3s ease-out;
+		-o-transition:all .3s ease-out;
+		transition:all .3s ease-out;}
+		.e-c3{
+		-webkit-transition:all .3s cubic-bezier(.96, .04, .10, 1.01);
+		-moz-transition:all .3s cubic-bezier(.96, .04, .10, 1.01);
+		-o-transition:all .3s cubic-bezier(.96, .04, .10, 1.01);
+		transition:all .3s cubic-bezier(.96, .04, .10, 1.01);}
+
+		#header{position:fixed;left:0;top:0;width:100%;height:55px;border-bottom:1px solid #ddd;background:#fff;}
+		#header .gnbOpen{position:absolute;top:8px;right:10px;width:40px;height:40px;font-size:12px;color:#fff;text-align:center;background-color:#111;cursor:pointer;}
+
+		.bg{display:none; position:fixed; top:0; left:0; bottom:0; right:0; background:rgba(0,0,0,.75);z-index:995;}
+		#aside{position:fixed; top:0; left:-100%; width:85%; max-width:350px; height:100%; z-index:999999;}
+		#aside .scroll{width:100%; height:100%; background-color:rgba(255,255,255,1); position:relative; -webkit-overflow-scrolling:touch;}
+		#aside .gnb{width:100%;}
+		#aside .gnb>li{width:100%; border-bottom:1px solid #ddd;}
+		#aside .gnb>li>a{display:block; padding:15px 20px; width:100%; font-size:16px; color:rgba(68,68,68,1); font-weight:600; background:#fff; background-size:18px 12px;  text-decoration:none;
+		-webkit-transition:all .3s ease-in;
+		-moz-transition:all .3s ease-in;
+		-o-transition:all .3s ease-in;
+		transition:all .3s ease-in;}
+		#aside .gnb>li>a.on{color:#0E9874; background:#fff; background-size:18px 12px;}
+		#aside .sub{display:none; padding:10px 0; width:100%;  border-top:1px solid #ddd; background-color:#F8F8F8;}
+		#aside .sub>li{width:100%;}
+		#aside .sub>li>a{display:block; padding:10px 25px; width:100%; font-size:13px; color:#444; font-weight:600; text-decoration:none;
+		-webkit-transition:all .3s ease-in;
+		-moz-transition:all .3s ease-in;
+		-o-transition:all .3s ease-in;
+		transition:all .3s ease-in;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<div id="wrapper">
+			<header id="header">
+				<div class="in e-i3">
+					<div class="gnbOpen e-i3">메뉴<br />보기</div>
+				</div>
+			</header><!-- end : id : header -->
+
+			<div class="bg"></div>
+			<div id="aside">
+				<div class="scroll">
+					<h2 class="hide">주메뉴</h2>
+					<ul class="gnb" id="gnb">
+						<li><a href="javascript:void(0)">Who We Are</a>
+							<ul class="sub">
+								<li><a href="#self">Welcome to KNA</a></li>
+								<li><a href="#self">What We Aim for</a></li>
+								<li><a href="#self">Our History</a></li>
+								<li><a href="#self">Organization/Contacts</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">What We Do</a>
+							<ul class="sub">
+								<li><a href="#self">Cooperation</a></li>
+								<li><a href="#self">Communication</a></li>
+								<li><a href="#self">Connection</a></li>
+								<li><a href="#self">Contribution</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Who We Work With</a>
+							<ul class="sub">
+								<li><a href="#self">Membership</a></li>
+								<li><a href="#self">Related Organizations</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">News Center</a>
+							<ul class="sub">
+								<li><a href="#self">What We Are Up To</a></li>
+								<li><a href="#self">What Korea Is Up To</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Korean Nuclear Industry</a>
+							<ul class="sub">
+								<li><a href="#self">About Korean </a></li>
+								<li><a href="#self">Nuclear Industry</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Who We Are</a>
+							<ul class="sub">
+								<li><a href="#self">Welcome to KNA</a></li>
+								<li><a href="#self">What We Aim for</a></li>
+								<li><a href="#self">Our History</a></li>
+								<li><a href="#self">Organization/Contacts</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">What We Do</a>
+							<ul class="sub">
+								<li><a href="#self">Cooperation</a></li>
+								<li><a href="#self">Communication</a></li>
+								<li><a href="#self">Connection</a></li>
+								<li><a href="#self">Contribution</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Who We Work With</a>
+							<ul class="sub">
+								<li><a href="#self">Membership</a></li>
+								<li><a href="#self">Related Organizations</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">News Center</a>
+							<ul class="sub">
+								<li><a href="#self">What We Are Up To</a></li>
+								<li><a href="#self">What Korea Is Up To</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Korean Nuclear Industry</a>
+							<ul class="sub">
+								<li><a href="#self">About Korean </a></li>
+								<li><a href="#self">Nuclear Industry</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Who We Are</a>
+							<ul class="sub">
+								<li><a href="#self">Welcome to KNA</a></li>
+								<li><a href="#self">What We Aim for</a></li>
+								<li><a href="#self">Our History</a></li>
+								<li><a href="#self">Organization/Contacts</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">What We Do</a>
+							<ul class="sub">
+								<li><a href="#self">Cooperation</a></li>
+								<li><a href="#self">Communication</a></li>
+								<li><a href="#self">Connection</a></li>
+								<li><a href="#self">Contribution</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Who We Work With</a>
+							<ul class="sub">
+								<li><a href="#self">Membership</a></li>
+								<li><a href="#self">Related Organizations</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">News Center</a>
+							<ul class="sub">
+								<li><a href="#self">What We Are Up To</a></li>
+								<li><a href="#self">What Korea Is Up To</a></li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Korean Nuclear Industry</a>
+							<ul class="sub">
+								<li><a href="#self">About Korean </a></li>
+								<li><a href="#self">Nuclear Industry</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- end : class : scroll -->
+			</div><!-- end : id : aside -->
+
+			<div id="contents">
+				<div style="height:400px; background-color:red"></div>
+				<div style="height:400px; background-color:#111"></div>
+				<div style="height:400px; background-color:blue"></div>
+				<div style="height:400px; background-color:orange"></div>
+			</div>
+		</div>
+		<!-- // wrapper -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+//user-scalable off
+document.documentElement.addEventListener('touchstart', function (event) {
+	if (event.touches.length > 1) {
+		event.preventDefault();
+	}
+}, false);
+
+//ios safari cash delete
+$(window).bind("pageshow", function(event) {
+	if(event.originalEvent.persisted){
+		window.location.reload()
+	}
+});
+
+$(document).ready(function(){
+	var $btn = $(".gnbOpen"),
+	$gnb = $(".gnb>li>a"),
+	$layer = $("#aside"),
+	$close = $(".gClose"),
+	$bg = $(".bg");
+
+	$btn.on("click", function(e){
+		$("html, body").css({"overflow":"hidden"});
+		$("#aside .scroll").css({"overflow-y":"auto"});
+		TweenMax.to($layer, .5, {"left" :"0%", ease: Power3.easeInOut});
+		$bg.fadeIn();
+		$('html, body, .bg').on('touchmove scroll mousewheel DOMMouseScroll',function(e){
+			e.preventDefault();
+		}, false);
+		e.preventDefault();
+	});
+
+	$bg.on("click", function(e){
+		$("html, body").css({"overflow":""});
+		TweenMax.to($layer, .5, {"left" :"-100%", ease: Power3.easeInOut});
+		$(this).fadeOut();
+		$('html, body').off('touchmove scroll mousewheel DOMMouseScroll');
+		e.preventDefault();
+	});
+
+
+	$gnb.on("click", function(e){
+		var $sub = $(this).next("ul");
+		if($sub.is(":visible")){
+			$(this).removeClass("on");
+			$sub.slideUp();
+		} else {
+			$(".sub").slideUp();
+			$(".gnb>li>a").removeClass("on");
+			$(this).addClass("on");
+			$sub.slideDown();
+		};
+		e.preventDefault();
+	});
+});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/mob_fixmenu.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

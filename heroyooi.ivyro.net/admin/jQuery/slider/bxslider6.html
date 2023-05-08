@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider6.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:11:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.bxslider.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.bxslider.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Lato:300');
+		.mv_wrap { position:relative; width:100%; height:598px; overflow:hidden; }
+		.main_visual { position:relative; width:1980px; height:598px; left:50%; margin-left:-990px; }
+		.main_visual .bx-wrapper .bx-pager { bottom:-20px; padding-top:0; }
+		.main_visual .bx-wrapper .bx-pager.bx-default-pager a { width:14px; height:14px; background:url('images/pager_off.png') 0 0 no-repeat; border-radius:0; -webkit-border-radius:0; }
+		.main_visual .bx-wrapper .bx-pager.bx-default-pager a:hover,
+		.main_visual .bx-wrapper .bx-pager.bx-default-pager a.active { background:url('images/pager_on.png') 0 0 no-repeat; }
+		.mv_wrap a.btn_prev { position:absolute; left:50%; bottom:42px; margin-left:-440px; z-index:51; }
+		.mv_wrap a.btn_next { position:absolute; right:50%; bottom:42px; margin-right:-440px; z-index:51; }
+
+		.mc_wrap { width:100%; height:499px; background:url('images/mc_bg.jpg') 50% 0 no-repeat; overflow:hidden; }
+		.mv_control { padding-top:20px; width:100%; text-align:center; font-size:0; }
+		.mv_control li { display:inline-block; margin:0 3px; }
+		*:first-child + html .mv_control li { display:inline; }
+		.mv_control li a { display:block; width:14px; height:14px; background:url('images/pager_off.png') 0 0 no-repeat; text-indent:-20000px; }
+		.mv_control li a.active { background:url('images/pager_on.png') 0 0 no-repeat; }
+
+		.mc_wrap div.mc_tab_wrap { position:relative; margin-top:160px; width:100%; height:30px; }
+		.mc_wrap ul.mc_tab { position:absolute; left:50%; width:240px; margin-left:0; }
+		.mc_wrap ul.mc_tab:after { content:""; display:block; clear:both; }
+		.mc_wrap ul.mc_tab li { float:left; margin-left:10px; }
+		.mc_wrap ul.mc_tab li:first-child { margin-left:0; }
+		.mc_wrap ul.mc_tab li.active:first-child { margin-left:0; }
+		.mc_wrap ul.mc_tab li.active { margin-left:30px; }
+		.mc_wrap ul.mc_tab li a { position:relative; top:6px; font-family: 'Lato', sans-serif; font-size:20px; color:#5e5e5e; letter-spacing:-1px; transition:color 1s; -webkit-transition:color 1s; }
+		.mc_wrap ul.mc_tab li.active a { top:0; font-size:30px; color:#fc534c; letter-spacing:-3px; }
+		.mc_wrap span.mc_line { position:absolute; left:50%; top:15px; margin-left:-20px; display:block; width:41px; height:2px; background:#fc534c; }
+		.mc_wrap div.mc_panel { position:relative; left:50%; margin-left:-990px; margin-top:25px; width:1590px; height:215px; }
+		.mc_wrap div.mc_panel div { position:absolute; left:0; top:0; width:0; height:215px; overflow:hidden; }
+		.mc_wrap div.mc_panel div:first-child { width:1590px; }
+		.mc_wrap div.mc_panel div img { max-width:inherit; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+			<div id="container">
+				<div class="mv_wrap">
+					<div class="main_visual">
+						<ul>
+							<li><img src="images/mvis1.jpg" alt="" /></li>
+							<li><img src="images/mvis2.jpg" alt="" /></li>
+						</ul>
+					</div>
+					<a href="#" class="btn_prev"><img src="images/btn_prev.png" alt="" /></a>
+					<a href="#" class="btn_next"><img src="images/btn_next.png" alt="" /></a>
+				</div>
+				<!-- // mv_wrap -->
+				<div class="mc_wrap">
+					<ul class="mv_control">
+						<li><a href="#" class="active">1</a></li>
+						<li><a href="#">2</a></li>
+					</ul>
+					<div class="mc_tab_wrap">
+						<ul class="mc_tab">
+							<li class="active"><a href="#">01</a></li>
+							<li><a href="#">02</a></li>
+							<li><a href="#">03</a></li>
+							<li><a href="#">04</a></li>
+							<li><a href="#">05</a></li>
+							<li><a href="#">06</a></li>
+							<li><a href="#">07</a></li>
+						</ul>
+						<span class="mc_line"></span>
+					</div>
+					<!-- // mc_tab_wrap -->
+					<div class="mc_panel">
+						<div><img src="images/mc_con1.png" alt="" /></div>
+						<div><img src="images/mc_con2.png" alt="" /></div>
+						<div><img src="images/mc_con3.png" alt="" /></div>
+						<div><img src="images/mc_con4.png" alt="" /></div>
+						<div><img src="images/mc_con5.png" alt="" /></div>
+						<div><img src="images/mc_con6.png" alt="" /></div>
+						<div><img src="images/mc_con7.png" alt="" /></div>
+					</div>
+				</div>
+				<!-- // mc_wrap -->
+				<div class="mf_wrap"><img src="http://heroyooi.ivyro.net/admin/jQuery/slider/images/mf.jpg" alt="" /></div>
+			</div>
+			<!-- // container -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var mvis = $('.main_visual ul').bxSlider({
+			auto: true,
+			speed: 1000,
+			mode: 'fade',
+			controls: true,
+			pager: true,
+			onSlideBefore: function(){
+				var current = mvis.getCurrentSlide()+1;
+				$('.mv_control a').removeClass('active');
+				$('.mv_control a').eq(current-1).addClass('active');
+			}
+		});
+		$('.btn_prev').on('click', function(){
+			mvis.goToPrevSlide();
+			return false;
+		});
+		$('.btn_next').on('click', function(){
+			mvis.goToNextSlide();
+			return false;
+		});
+		$('.mv_control a').on('click', function(){
+			var idx = $('.mv_control a').index(this);
+			mvis.goToSlide(idx);
+			return false;
+		});
+
+		var rItem=$('.mc_wrap ul.mc_tab'),
+		rNum=0,
+		rTotal=rItem.find('li').length;
+
+		rItem.find('li').on('click', function(){
+			var rNum = rItem.find('li').index(this);
+			rItem.find('li').removeClass('active');
+			$(this).addClass('active');
+
+			$('.mc_panel div').stop(true).css({'width': 0});
+			$('.mc_panel div').eq(rNum).stop().animate({'width': 1590}, 800);
+			if(rNum==0){
+				rItem.stop().animate({'margin-left': 0}, 300);
+			}else if(rNum==1){
+				rItem.stop().animate({'margin-left': -47}, 300);
+			}else if(rNum==2){
+				rItem.stop().animate({'margin-left': -78}, 300);
+			}else if(rNum==3){
+				rItem.stop().animate({'margin-left': -110}, 300);
+			}else if(rNum==4){
+				rItem.stop().animate({'margin-left': -140}, 300);
+			}else if(rNum==5){
+				rItem.stop().animate({'margin-left': -171}, 300);
+			}else if(rNum==6){
+				rItem.stop().animate({'margin-left': -203}, 300);
+			}
+			return false;
+		});
+
+		function rolling(){
+			activeNum = rItem.find('li.active').index();
+			rNum = activeNum;
+			rNum++;
+			if(rNum>=rTotal){
+				rItem.find('li').eq(0).trigger('click');
+				rNum=0;
+			}else{
+				rItem.find('li').eq(rNum).trigger('click');
+			}
+			rAuto=setTimeout(rolling, 3000);
+		}
+		var rAuto=setTimeout(rolling, 3000);
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider6.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:11:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

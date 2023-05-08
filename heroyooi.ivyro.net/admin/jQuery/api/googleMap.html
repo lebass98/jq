@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/googleMap.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.content { padding:10px; }
+		.info li { margin-top:10px; font-size:14px; color:#666; line-height:1.4; }
+		.info li:first-child { margin-top:0; }
+		.info li span { color:#f00; font-weight:bold; }
+		.info li a { color:#000; }
+		.info li a:hover { font-weight:bold; }
+
+		#map { margin-top:5px; width:300px; height:300px; border:1px solid #ddd; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="content">
+				<ul class="info">
+					<li>1) 구글 지도 API <strong>"키 카져오기"</strong> 클릭 <br />&nbsp;&nbsp;&nbsp;&nbsp;(<a href="https://developers.google.com/maps/documentation/javascript/?hl=ko" target="_blank">https://developers.google.com/maps/documentation/javascript/?hl=ko</a>)</li>
+					<li>2) 프로젝트 만들기 → 사용자 인증 정보 → 키 값 생성</li>
+					<li>3) 아래와 같이 적용(소스보기로 확인)</li>
+					<li>
+					<div id="map"></div>
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh5jFaf4d6iFtd4kUnqoA3uXY5gcnJbjI&amp;signed_in=true"></script>
+					<script>
+						var map;
+						var seoulmarker = new google.maps.LatLng(37.547694, 127.057527);
+						var marker;
+						function initialize() {
+							var mapOptions = {
+								zoom: 17,
+									//key : "AIzaSyAvGvJ4jMUUi4Vfq-CAnm8CtITTq2Lr6wk",
+								center: seoulmarker ,
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+							};
+							map = new google.maps.Map(document.getElementById('map'),mapOptions);
+							var myIcon = new google.maps.MarkerImage("img/google/anker.png", null, null, null, new google.maps.Size(42,48)); // 원본 사이즈의 반
+							marker = new google.maps.Marker({
+								position: seoulmarker,
+								map: map,
+								
+								icon: myIcon
+							});
+						}
+						google.maps.event.addDomListener(window, 'load', initialize);
+					</script>
+					</li>
+				</ul>
+			</div>
+			<!-- // content -->
+		</div>
+		<!-- // wrap -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/googleMap.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

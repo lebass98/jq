@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/setInterval.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> jQuery </title>
+    <link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+    <script type="text/javascript" src="../common/js/jquery.min.js"></script>
+  </head>
+  <body>
+
+	<a href="../index-2.html" class="home">Home</a>
+	<style type="text/css">
+	.bnr{position:fixed;left:10px;height:50px;width:0;opacity:0;}
+	.bnr.bnr1{background:red;top:10px;}
+	</style>
+
+	<div id="wrap">
+		<div class="bnr bnr1"></div>
+	</div>
+	<!-- // wrap -->
+
+	<!-- 스크립트 -->
+	<script type="text/javascript">
+	var inter1;
+	var bnr1 = $(".bnr1");
+
+	function setinterCloud() {
+		bnr1.animate({'width': '200px', 'opacity': 1}, 1000, function(){
+			bnr1.animate({'width': 0, 'opacity': 0}, 1000);
+		});
+
+		inter1 = setInterval(function(){
+			bnr1.animate({'width': '200px', 'opacity': 1}, 1000, function(){
+				bnr1.animate({'width': 0, 'opacity': 0}, 1000);
+			});
+		}, 2000);
+	}
+
+	setinterCloud();
+	</script>
+	<!-- // 스크립트 -->
+
+  </body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/setInterval.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

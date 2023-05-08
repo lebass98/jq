@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/date.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.second { padding-top:30px; }
+		.tday { font-family:'Open Sans',sans-serif; color:#000; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body onload="startTime()">
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="tday">
+				<span class="day"></span>
+				<p>
+					<span class="year"></span>
+					<span class="month"></span>
+					<span class="date"></span>
+				</p>
+			</div>
+			<div id="clock"></div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		function startTime() {
+			var today = new Date();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+			var t = setTimeout(startTime, 500);
+		}
+		function checkTime(i) {
+			if (i < 10) {i = "0" + i}; // 숫자가 10보다 작을 경우 앞에 0을 붙여줌
+			return i;
+		}
+
+		var d = new Date(),
+		tYear = d.getFullYear(),
+		tMonth = d.getMonth()+1,
+		tDate = d.getDate(),
+		tDay = d.getDay(),
+		dDB = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+		mDB = ['January', 'Febuary', 'March', 'April',
+						'May', 'June', 'July', 'August',
+						'September', 'October', 'November', 'December'];
+
+		if(tDay) { $('.tday span.day').html(dDB[tDay-1]) }
+		$('.tday span.year').html(tYear + ',');
+		if(tMonth) $('.tday span.month').html( mDB[tMonth-1] + ',');
+		$('.tday span.date').html(tDate);
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/date.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

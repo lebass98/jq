@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/portfolio/02.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:19:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { width:100%; }
+		#filters { padding:10px 0; text-align:center; }
+		#filters a { display:inline-block; padding:5px 10px; background:#aaa; font-size:12px; font-weight:bold; color:#fff; border-radius:3px; -webkit-border-radius:3px; }
+		#filters a.active { background:#000; }
+		.sort_wrap { position:relative; max-width:800px; margin:0 auto 30px; overflow:hidden; }
+		#sortlist { position:relative; margin:0 auto; transition:all 0.4s ease-out; -webkit-transition:all 0.4s ease-out; -moz-transition:all 0.4s ease-out; }
+		#sortlist li { position:absolute; width:90px; height:90px; line-height:90px; font-size:12px; text-align:center; border-radius:3px; -webkit-border-radius:3px; transition: all 0.4s ease-out; -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; background:#eee; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<nav id="filters">
+				<a href="#" data-filter="all">All</a>
+				<a href="#" data-filter="black">Black</a>
+				<a href="#" data-filter="white">White</a>
+				<a href="#" data-filter="first-line">First Line</a>
+			</nav>
+			<div class="sort_wrap">
+				<ul id="sortlist">
+					<li id="dsortlist" data-filter="black">1 b</li>
+					<li data-filter="black white first-line">2 bwf</li>
+					<li data-filter="black">3 b</li>
+					<li data-filter="black first-line">4 bf</li>
+					<li data-filter="black">5 b</li>
+					<li data-filter="black white">6 bw</li>
+					<li data-filter="black white first-line">7 bwf</li>
+					<li data-filter="black">8 b</li>
+					<li data-filter="black">9 b</li>
+					<li data-filter="black first-line">10 bf</li>
+					<li data-filter="black">11 b</li>
+					<li data-filter="white first-line">12 wf</li>
+				</ul>
+			</div>
+			<div>Contents...</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript" src="../common/js/sortboard.js"></script>
+		<script type="text/javascript">
+		(function() {
+		  'use strict';
+		  // Javascript Example
+		  // ------------------
+
+		  // Initializing the board.
+		  var sortlist = document.getElementById('sortlist');
+		  var sb = new Sortboard(sortlist, {
+			gutter: 10,
+			filterComplete: function(e) {
+			  console.log(e);
+			},
+			sortComplete: function() {
+			  console.log('Sort is completed.');
+			}
+		  });
+
+		  // Filtering
+		  var i, filter,
+			links = $('#filters a');
+
+		  // Click link event callback
+		  function clickCallback() {
+			return function() {
+			  if (this.className !== 'active') {
+				resetActiveLinks();
+
+				// Retrieve the filter value
+				filter = this.getAttribute('data-filter');
+
+				// Filtering by retrieved value
+				sb.filterBy(filter);
+
+				// Set active class for current link
+				this.className = 'active';
+
+				// Set filter class for sortlist
+				sortlist.className = (filter === 'all') ? '': 'filtered';
+			  }
+			};
+		  }
+
+		  // Reset active link classes
+		  function resetActiveLinks() {
+			for (var i = 0; i < links.length; ++i) {
+			  links[i].className = '';
+			}
+		  }
+
+		  // Click event handler for each filter link
+		  for (i = 0; i < links.length; ++i) {
+			links[i].addEventListener('click', clickCallback(), false);
+		  }
+
+		  // Default trigger for first filter link
+		  clickCallback().apply(links[0], []);
+
+		})(this);
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/portfolio/02.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:19:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

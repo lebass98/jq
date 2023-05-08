@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/drag_view.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:30:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/swiper.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.pop_img {position:relative;}
+		.pop_img .img_box {width:100%;}
+		.pop_img .img_box img {width:100%;}
+
+		.seat div.dragline {background:url('img/drag/asiana_popup_bg_dotline.png') left center repeat-x; position:absolute; left:4%; bottom:20px; width:92%; height:40px;}
+		.seat div.dragline a {position:absolute; left:15%; top:0; z-index:4; margin-left:-20px; border-radius:20px; overflow:hidden;}
+		.seat div.dragline a img {max-width:inherit;}
+		/*.seat div.dragline:before {content:''; width:10px; height:10px; position:absolute; left:-14px; top:50%; margin-top:-5px; border:1px solid #333; border-radius:10px;}*/
+		.seat div.dragline span.line {width:15%; height:2px; position:absolute; left:0; top:50%; margin-top:-1px; background:#333; z-index:3;}
+		.seat div.dragline p {font-size:13px; line-height:16px; color:#727171; position:absolute; left:0px; top:-23px; font-family:'notosansR';}
+
+		.seat .img_box ul {position:relative; left:0; top:0; width:100%; height:100%; /*overflow:hidden;*/}
+		.seat .img_box ul li {position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; filter:alpha(opacity=0); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";}
+		.seat .img_box ul li:first-child { position:static; }
+		.seat .img_box ul li.curr {opacity:1; filter:alpha(opacity=100); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";}
+
+		@media screen and (max-width:950px) {
+			#wrap { width:100%; }
+			.pop_img { width:100%; }
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="pop_img seat">
+				<div class="img_box">
+					<ul>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat01.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat02.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat03.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat04.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat05.jpg" alt=""/></li>
+						<li class="curr"><img src="img/drag/asiana_popup_img_comfort_seat06.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat07.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat08.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat09.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat10.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat11.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat12.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat13.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat14.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat15.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat16.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat17.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat18.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat19.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat20.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat21.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat22.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat23.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat24.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat25.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat26.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat27.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat28.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat29.jpg" alt=""/></li>
+						<li><img src="img/drag/asiana_popup_img_comfort_seat30.jpg" alt=""/></li>
+					</ul>
+				</div>
+				<div class="dragline">
+					<p><span class="kor">화살표를 마우스로 움직여보세요</span> <span class="eng">Move the arrow with your mouse</span></p>
+					<a href="#"><img src="img/drag/asiana_popup_btn_drag.png" alt=""/></a>
+					<span class="line">&nbsp;</span>
+				</div>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$(function(){
+
+			__startVr = false,
+			__startChair = false;
+
+			$(document).bind('mousemove touchmove', function (e) {
+				var evType = e.pageX;
+				if (__startVr) {
+					if (e.type == 'touchmove') {
+						evType = e.originalEvent.touches[0].pageX;
+					}
+					__movePoint = evType - __mousex;
+					moveVr();
+				} else if (__startChair) {
+					if (e.type == 'touchmove') {
+						evType = e.originalEvent.touches[0].pageX;
+					}
+					__movePoint = evType - __mousex;
+					moveChair();
+
+				}
+			});
+
+			$(document).bind('mouseup touchend', function (e) {
+				__startVr = false;
+				__startChair = false;
+			});
+
+			$('.dragline > a').bind('mousedown touchstart', function (e) {
+				e.preventDefault();
+				__contx = $(this).position().left;
+				__mousex = e.pageX;
+				if (e.type == 'touchstart') {
+					__mousex = e.originalEvent.touches[0].pageX;
+				}
+				$(this).blur();
+				__startVr = true;
+			});
+			$('.dragline > a').on('click', function (e) {
+				return false;
+			});
+			$('.ie8 .dragline > a').bind('dragstart mousedown', function () {
+				$(this).blur();
+				return false;
+			});
+
+			$('.dragline > a').on('keydown', function (e) {
+				__contx = $('.vrimg-dragee > div > a').position().left;
+				if (e.keyCode == '37') {
+					__movePoint = -20;
+					moveVr();
+				} else if (e.keyCode == '39') {
+					__movePoint = 20;
+					moveVr();
+				}
+			});
+
+			function moveVr() {
+				var poinleft = __contx + __movePoint;
+				var max = $('.dragline').width() + 40;
+				var aniX = $('.dragline > a').position().left;
+				var zero = 0;
+				var $panoramali = $('.seat .img_box ul > li').length - 1;
+				var moveControl = function () {
+					var persent = Math.ceil(poinleft / max * 29) ;
+					$('.dragline > a').css('left', poinleft / (max) * 100 + '%');
+					$('.dragline .line').css('width', poinleft / (max) * 100 + '%');
+					$('.seat .img_box ul > li.curr').removeClass('curr');
+					$('.seat .img_box ul > li').eq(persent).addClass('curr');
+				}
+				if ((poinleft >= (zero)) && (poinleft <= max)) {
+					moveControl();
+				} else if (poinleft > max) {
+					poinleft = max;
+					moveControl();
+				} else if (poinleft < zero) {
+					poinleft = zero;
+					moveControl();
+				}
+			}
+		});
+
+		// 브라우저 체크
+		var Browser = {
+			a: navigator.userAgent.toLowerCase()
+		}
+
+		Browser = {
+			ie: /*@cc_on true || @*/ false,
+			ie6: Browser.a.indexOf('msie 6') != -1,
+			ie7: Browser.a.indexOf('msie 7') != -1,
+			ie8: Browser.a.indexOf('msie 8') != -1
+		}
+
+		if (Browser.ie7 || Browser.ie8) {
+			$('#wrap').addClass('ie8');
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/drag_view.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:31:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

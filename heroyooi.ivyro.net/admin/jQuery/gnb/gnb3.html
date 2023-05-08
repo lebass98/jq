@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/gnb3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:08:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.menu_wrap { position:fixed; left:50%; top:0; margin-left:-475px; width:950px; height:80px; background:#333; z-index:1; }
+		.menu_wrap h1 { padding:25px 0 0 25px; font-size:25px; }
+		.menu_wrap a { color:#fff; }
+		.menu_wrap ul#gnb { position:absolute; right:60px; top:30px; }
+		.menu_wrap ul#gnb > li { float:left; margin-left:100px; }
+		.menu_wrap ul#gnb > li:first-child { margin-left:0; }
+		.menu_wrap ul#gnb > li > a { display:block; padding-bottom:13px; }
+		.menu_wrap ul#gnb > li > a.on { color:#f00; }
+		.menu_wrap ul#gnb ul { position:absolute; top:25px; display:none; }
+		.menu_wrap ul#gnb ul li { float:left; margin-left:30px; }
+		.menu_wrap ul#gnb ul li:first-child { margin-left:0; }
+		.menu_wrap ul#gnb ul li a { font-size:12px; }
+		.menu_wrap ul#gnb ul li a:hover { color:#f00; }
+		.menu_wrap ul#gnb ul.sub1 { left:0px; }
+		.menu_wrap ul#gnb ul.sub2 { left:155px; }
+		.menu_wrap ul#gnb ul.sub4 { left:333px; }
+
+		.section { height:1000px; padding:120px 30px 30px; color:#fff; background:#999; }
+
+		.section p.tit { font-size:40px; font-weight:bold; text-align:center; }
+
+		@media screen and (max-width:950px) {
+			.menu_wrap { left:0; margin-left:0; }
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="menu_wrap">
+			<h1><a href="#">Logo</a></h1>
+			<ul id="gnb">
+				<li>
+					<a href="#">Menu1</a>
+					<ul class="sub sub1">
+						<li><a href="#">Sub1-1</a></li>
+						<li><a href="#">Sub1-2</a></li>
+						<li><a href="#">Sub1-3</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Menu2</a>
+					<ul class="sub sub2">
+						<li><a href="#">Sub2-1</a></li>
+						<li><a href="#">Sub2-2</a></li>
+						<li><a href="#">Sub2-3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Menu3</a></li>
+				<li>
+					<a href="#">Menu4</a>
+					<ul class="sub sub4">
+						<li><a href="#">Sub4-1</a></li>
+						<li><a href="#">Sub4-2</a></li>
+						<li><a href="#">Sub4-3</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="wrap">
+			<div class="section top">
+				<p class="tit">Top Content</p>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var menu=1;
+		var sub=1;
+		
+		function hide(){
+			if(menu && sub){
+				$("#gnb .on").next().slideUp("fast");
+				$("#gnb .on").removeClass("on");
+			}
+		}
+
+		$("#gnb > li > a").bind("mouseover focus",function(){
+			$("#gnb .on").next().slideUp("fast");
+			$("#gnb .on").removeClass("on");
+
+			$(this).addClass("on");
+			$(this).next().stop().slideDown("fast");
+		})
+
+		$("#gnb").mouseenter(function(){
+			menu=0;
+		});
+		$("#gnb ul").mouseenter(function(){
+			sub=0;
+		});
+		
+		$("#gnb").mouseleave(function(){
+			menu=1;
+			setTimeout(hide, 500);
+		});
+		$("#gnb ul").mouseleave(function(){
+			sub=1;
+			setTimeout(hide, 500);
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/gnb3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:08:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

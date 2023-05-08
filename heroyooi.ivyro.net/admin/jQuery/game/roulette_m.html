@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/game/roulette_m.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jQueryRotateCompressed.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap{width:100%;}
+		#wrap img{width:100%;}
+
+		.roulette-sec{position:relative;margin:0 auto;max-width:481px;width:100%;}
+		.roulette-sec .b-start{position:absolute;left:37%;top:36%;background:red;display:block;width:27%;height:27%;opacity:.5;}
+		#wrap img.pin{position:absolute;left:48%;top:2.079%;width:4.78170478170478%;z-index:1;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<h1>룰렛 게임</h1>
+			<div class="roulette-sec">
+				<img id="roulette" src="images/roulette_.png" alt="">
+				<img class="pin" src="images/niddle.png" alt="">
+				<a href="#" class="b-start"></a>
+			</div>
+			<input type="button" value="시작" class="b-start">
+			<div class="result-sec">
+				<p class="res1"></p>
+				<p class="res2"></p>
+				<p class="res3"></p>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		//상품 정의
+		var pArr = ["0책략의 책","1중급 조공함","2남해현철","3무장 리셋카드","꽝!","5중급 징병령","6복주머니 100개","7건설카드","8휴전령","9큰나팔 10개"];
+
+		$('.b-start').on('click', function(){
+			rotation();
+			//$(this).remove();
+		});
+
+		function rotation(){
+			$('#roulette').rotate({
+				angle:0,
+				animateTo:360 * 5 + randomize(0, 360),
+				center: ["50%", "50%"],
+				easing: $.easing.easeInOutElastic,
+				callback: function(){
+					var n = $(this).getRotateAngle();
+					endAnimate(n);
+				},
+				duration: 5000
+			});
+		}
+
+		function endAnimate($n){
+			var n = $n;
+			$('.res1').text('움직인 각도 : ' + n);
+			var real_angle = n%360+18;
+			var part = Math.floor(real_angle/36); 
+			$('.res2').text('상품범위 : ' + part);
+			if(part < 1){
+				$('.res3').text('당첨내역 : ' + pArr[0]);
+				return;
+			}
+			if(part >= pArr.length){
+				$('.res3').text('당첨내역 : ' + pArr[pArr.length-1]);
+			}
+			$('.res3').text('당첨내역 : ' + pArr[part]);
+		}
+
+		function randomize($min, $max){
+			return Math.floor(Math.random()*($max-$min+1))+$min;
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/game/roulette_m.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

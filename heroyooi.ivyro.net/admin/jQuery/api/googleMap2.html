@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/googleMap2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { width:100%; }
+		.content { padding:10px; word-break:break-all; }
+		.content h1 { margin-bottom:10px; font-size:30px; }
+		.info li { margin-top:10px; font-size:14px; color:#666; line-height:1.4; }
+		.info li:first-child { margin-top:0; }
+		.info li span { color:#f00; font-weight:bold; }
+		.info li a { color:#000; }
+		.info li a:hover { font-weight:bold; }
+
+		#map { margin-top:5px; width:100%; height:300px; border:1px solid #ddd; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="content">
+				<h1>Marker Animation</h1>
+				<ul class="info">
+					<li>1) 구글 지도 API <strong>"키 카져오기"</strong> 클릭 <br />(<a href="https://developers.google.com/maps/documentation/javascript/?hl=ko" target="_blank">https://developers.google.com/maps/documentation/javascript/?hl=ko</a>)</li>
+					<li>2) 프로젝트 만들기 → 사용자 인증 정보 → 키 값 생성</li>
+					<li>3) 아래와 같이 적용(소스보기로 확인) <br />(<a href="https://developers.google.com/maps/documentation/javascript/examples/marker-animations?hl=ko">https://developers.google.com/maps/documentation/javascript/examples/marker-animations?hl=ko</a>)</li>
+					<li>
+					<div id="map"></div>
+					<script>
+					var marker;
+
+					function initMap() {
+						var map = new google.maps.Map(document.getElementById('map'), {
+							zoom: 14,
+							center: {lat: 37.547694, lng: 127.057527}
+						});
+
+						marker = new google.maps.Marker({
+							map: map,
+							draggable: true,
+							animation: google.maps.Animation.DROP,
+							position: {lat: 37.547694, lng: 127.057527}
+						});
+						marker.addListener('click', toggleBounce);
+					}
+
+					function toggleBounce() {
+						if(marker.getAnimation() !== null){
+							marker.setAnimation(null);
+						}else{
+							marker.setAnimation(google.maps.Animation.BOUNCE);
+						}
+					}
+					</script>
+					<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh5jFaf4d6iFtd4kUnqoA3uXY5gcnJbjI&amp;callback=initMap"></script>
+					</li>
+				</ul>
+			</div>
+			<!-- // content -->
+		</div>
+		<!-- // wrap -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/googleMap2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

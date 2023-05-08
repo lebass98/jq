@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/accessibility/gnb.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.skip-navi { position:absolute; left:0; top:0; z-index:999; width:100%; text-align:center; }
+		.skip-navi a { position:absolute; left:-999px; top:-999px; }
+		.skip-navi a:focus, .skip-navi a:active, .skip-navi a:hover { display:block; left:0; top:0; padding:7px 10px 5px; background:#000; color:#fff; font-weight:bold; font-size:14px; }
+
+		#wrap { width:1080px; }
+		#gnb {position:relative;height:51px;}
+		#gnb:after {display:block; content:"";clear:both;}
+		#gnb li {position:relative;float:left;background:url('img/gnb/menu_line.gif') no-repeat right 3px;}
+		#gnb li a.dep01{
+			width:174px;
+			font-size:14px;
+			font-weight:bold;
+			color:#3d3c3c;
+			display:block;
+			padding:15px 0 0 0;
+			height:34px;
+			text-align:center;
+			margin-left:1px;
+		}
+		#gnb li.first a {background:url('img/gnb/menu_line.gif') no-repeat left 3px;}
+		#gnb li.last a.dep01 {width:168px;}
+
+		#gnb ul li ul {display:none;width:166px;height:185px;position:absolute; top:51px;left:0px; padding:8px 0px 7px 8px;border-top:1px solid #f2f2f2;border-left:1px solid #e2e2e2;border-bottom:3px solid #1e61a8;margin-left:-1px;background:#fff;}
+		#gnb ul li.first ul {margin-left:1px;border-left:1px solid #c8c8c8;}
+		#gnb ul li.last ul {width:160px;margin-right:1px;border-right:1px solid #c8c8c8;}
+		#gnb ul li.active a {color:#1e61a8}
+		#gnb ul li.active ul {background:#eef4ef;}
+		#gnb ul li ul li {padding:0 0 0 0;background:none;clear:both;}
+		#gnb ul li ul li a, #gnb ul li.first ul li a {display:block;width:150px;padding:2px 0px 2px 7px;background:url('http://heroyooi.ivyro.net/assets/img/common/bluet01.gif') no-repeat left 11px;}
+		#gnb ul li ul li a:hover, #gnb ul li ul li a:focus {font-weight:bold;color:#21366b;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="skip-navi">
+			<a href="#container">본문 바로가기</a>
+			<a href="#gnb">주메뉴 바로가기</a>
+		</div>
+		<div id="wrap">
+			<div id="gnb">
+				<ul>
+					<li class="first"><a href="#" class="dep01">웹 접근성이란</a>
+						<ul>
+							<li><a href="#">웹 접근성 개요</a></li>
+							<li><a href="#">법. 제도</a></li>
+							<li><a href="#">장애인의 웹사이트 이용 이해</a></li>
+							<li><a href="#">웹 접근성 품질인증</a></li>
+							<li><a href="#">관련사이트</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="dep01">진단 및 컨설팅</a>
+						<ul>
+							<li><a href="#">지킴이 및 멘토 모집</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="dep01">교육마당</a>
+						<ul>
+							<li><a href="#">웹 접근성 온라인교육</a></li>
+							<li><a href="#">세미나</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="dep01">지식마당</a>
+						<ul>
+							<li><a href="#">지식마당 개요</a></li>
+							<li><a href="#">온라인 자문서비스</a></li>
+							<li><a href="#">개발자아카이브</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="dep01">정보마당</a>
+						<ul>
+							<li><a href="#">공지사항</a></li>
+							<li><a href="#">자료실</a></li>
+							<li><a href="#">뷰어 다운로드</a></li>
+						</ul>
+					</li>
+					<li class="last"><a href="#" class="dep01">기관 소개</a>
+						<ul>
+							<li><a href="#">기관장 인사말</a></li>
+							<li><a href="#">한국정보화진흥원 소개</a></li>
+							<li><a href="#">정보접근성 주요사업</a></li>
+							<li><a href="#">BI소개</a></li>
+							<li><a href="#">찾아오시는길</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- // gnb -->
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		function chk(){
+			if(cc == 1){
+				$("#gnb ul li ul").slideDown(100);
+				//$("#gnb .gnb_bg").slideDown(100);
+			}else{
+				$("#gnb ul li ul").slideUp(150);
+				//$("#gnb .gnb_bg").slideUp(250);
+			}
+		}
+
+		$('#gnb>ul>li').mouseover(function(){
+			setTimeout(chk, 100);
+			cc = 1;
+			$(this).addClass('active');
+		});
+
+		$('#gnb').mouseout(function(){
+			setTimeout(chk, 400);
+			cc = 0;
+			$('#gnb ul li').removeClass('active');
+		});
+
+		$('#gnb ul li a').focus(function(){
+			setTimeout(chk, 100);
+			cc = 1;
+			$(this).parent().addClass('active');
+		});
+
+		$('#gnb ul li a').blur(function(){
+			setTimeout(chk, 100);
+			cc = 0;
+			$('#gnb ul li').removeClass('active');
+			
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/accessibility/gnb.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

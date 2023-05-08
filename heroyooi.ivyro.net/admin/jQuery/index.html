@@ -1,0 +1,594 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:07:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> 제이쿼리 </title>
+		<link rel="stylesheet" type="text/css" href="common/css/reset.css">
+		<script type="text/javascript" src="common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Quicksand');
+		#wrap { position:relative; margin:0 auto; width:900px; padding:10px 0; }
+		#wrap h1 { padding:10px 0; margin-bottom:30px; font-family: 'Quicksand', sans-serif; font-size:26px; color:#333; border-bottom:2px solid #000; }
+		#wrap ul.utils { position:absolute; right:0; top:13px; display:none; }
+		#wrap ul.utils li { float:left; }
+		#wrap ul.utils li.close { margin-left:5px; }
+		#wrap ul.utils li a { display:block; width:20px; height:20px; line-height:20px; font-size:18px; text-align:center; border:1px solid #ddd; border-radius:3px; -webkit-border-radius:3px; }
+		.toggle-menu{position:absolute;right:0;top:18px;display:block;font-size:11px;color:#fff;background:#666;padding:5px 10px;border-radius:3px;text-transform:uppercase;}
+
+		.jlist { margin:0 auto; width:100%; }
+		.jlist:after { content:""; display:block; clear:both; }
+		.jlist > li { width:31.3%; margin:0 1% 10px 1%; line-height:1.2; border-radius:3px; -webkit-border-radius:3px; overflow:hidden; }
+		.jlist dt { position:relative; padding:10px 30px 10px 10px; font-family: 'Quicksand', sans-serif; font-size:24px; font-weight:bold; color:#333; background:#eee; }
+		.jlist dt span{font-size:14px;font-weight:normal;}
+		.jlist dt span.kr{font-family:'Oegyeinseolmyeongseo';}
+		.jlist dt span.more { position:absolute; right:10px; top:15px; display:inline-block; background:#666; color:#fff; border-radius:10px; text-align:center; font-size:16px;font-weight:bold;width:20px;height:20px;line-height:17px;cursor:pointer;}
+		.jlist dd { padding:10px; background:#fafafa; border-top:1px solid #ddd; /*display:none;*/ }
+		.jlist dd li { margin-top:5px; }
+		.jlist dd li:first-child { margin-top:0; }
+		.jlist dd li a { font-size:14px; color:#666; border-bottom:1px solid #666; }
+		.jlist dd li a:hover { color:#000; border-bottom:1px solid #000; }
+		.jlist dd li a span { font-weight:bold; color:#000; }
+
+		@media screen and (max-width:900px) {
+			#wrap { width:96%; }
+		}
+
+		@media screen and (max-width:690px) {
+			.jlist > li { width:48%; }
+		}
+
+		@media screen and (max-width:400px) {
+			.jlist > li { width:100%; margin:0 0 10px 0; }
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<div id="wrap">
+			<h1>Publishing Skills (HTML5 + CSS3 + jQuery)</h1>
+			<a href="#" class="toggle-menu">collapse</a>
+			<ul class="utils">
+				<li class="open"><a href="#">+</a></li>
+				<li class="close"><a href="#">-</a></li>
+			</ul>
+			<ul class="jlist">
+				<li>
+					<dl>
+						<dt>Menu & Navigation <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="gnb/gnb1.html">1. 왼쪽에서 나오는 메뉴(왼쪽 높이와 오른쪽 높이가 같음)</a></li>
+								<li><a href="gnb/gnb2.html">2. 위 아래로 움직이는 메뉴(해당메뉴 활성화)</a></li>
+								<li><a href="gnb/gnb3.html">3. Basic 메뉴(해당메뉴 활성화)</a></li>
+								<li><a href="gnb/gnb4.html">4. Fullpage 메뉴(<span>★IE7 완벽지원</span>)</a></li>
+								<li><a href="gnb/swipe.html">5. Swipe 메뉴(<span>모바일 - 터치 감도조절 / Swiper 3.4.1↑ </span>)</a></li>
+								<li><a href="gnb/swipe2.html">6. Swipe 메뉴 II(<span>모바일</span>)</a></li>
+								<li><a href="gnb/swipe_cookie.html">6. Swipe 메뉴 - 쿠키로 제어(<span>모바일</span>)</a></li>
+								<li><a href="gnb/swipe_renew.html">7-1. OWHO Swipe 메뉴 I(<span>lazyload 적용</span>)</a></li>
+								<li><a href="gnb/swipe_renew2.html">7-2. OWHO Swipe 메뉴 II(<span>lazyload 적용 및 개선</span>)</a></li>
+								<li><a href="gnb/gooey.html">8. Special 메뉴(SVG)</a></li>
+								<li><a href="gnb/wheel_menu.html">9. Special 메뉴(Wheel)</a></li>
+								<li><a href="gnb/menu_aim.html">10. jQuery-menu-aim</a></li>
+								<li><a href="gnb/appmenu.html">11. 앱 효과(아래에서 위로 순차적으로 올라오는 메뉴)</a></li>
+								<li><a href="gnb/mob_fixmenu.html">12-1. 모바일 좌측 메뉴(컨텐츠 고정/ iOS 대응)</a></li>
+								<li><a href="gnb/mob_fixmenu2.html">12-2. 모바일 좌측 메뉴(컨텐츠 고정/ iOS 대응)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Slideshow <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="slider/bxslider1.html">1-1. bxSlider(시작위치 변경 + 숫자 네비 / <span>모바일</span>)</a></li>
+								<li><a href="slider/bxslider2.html">1-2. bxSlider(풀페이지 + 양쪽에 딤처리)</a></li>
+								<li><a href="slider/bxslider3.html">1-3. bxSlider(풀스크린 + 중앙 정렬)</a></li>
+								<li><a href="slider/bxslider4.html">1-4. bxSlider(현대건설 / <span>웹접근성</span>)</a></li>
+								<li><a href="slider/bxslider5.html">1-5. bxSlider(가변적인 버튼 처리<span>★</span>)</a></li>
+								<li><a href="slider/bxslider6.html">1-6. bxSlider(페이져 및 자동 탭)</a></li>
+								<li><a href="slider/bxslider7.html">1-7. bxSlider(풀페이지 + 가변적인 페이져 처리)</a></li>
+
+								<li>&nbsp;</li>
+
+								<li><a href="slider/swiper1.html">2-1. Swiper(굴곡 효과 / <span>모바일</span>)</a></li>
+								<li><a href="slider/swiper2.html">2-2. Swiper(썸네일 반응 + 자동 / <span>모바일</span>)</a></li>
+								<li><a href="slider/swiper3.html">2-3. Swiper(자동으로 1개씩 움직이는 배너 / <span>모바일</span>)</a></li>
+								<li><a href="slider/swiper4.html">2-4. Swiper(움직이면서 BG가 변하는 배너 / <span>모바일</span>)</a></li>
+								<li><a href="slider/swiper_video.html">2-5. Swiper(비디오 제어 / <span>모바일</span>)</a></li>
+
+								<li>&nbsp;</li>
+
+								<li><a href="slider/idangerous.html">3. idangerous(썸네일 반응 + <span>IE하위버전</span> 작동)</a></li>
+								<li><a href="slider/random.html">4. Ramdom Slider</a></li>
+
+								<li>&nbsp;</li>
+
+								<li><a href="slider/owl1.html">5-1. Owl Carousel(Custom 1)</a></li>
+								<li><a href="slider/owl2.html">5-2. Owl Carousel(Custom 2)</a></li>
+								<li><a href="slider/owl3.html">5-3. Owl Carousel(One Slide &amp; Lazy Load)</a></li>
+								<li><a href="slider/owl4.html">5-4. Owl Carousel(transitionStyle)</a></li>
+								<li><a href="slider/owl5.html">5-5. Owl Carousel(Auto Height & Fade)</a></li>
+								<li><a href="slider/owl6.html">5-6. Owl Carousel(Synced Owls)</a></li>
+								<li><a href="slider/owl7.html">5-7. Owl Carousel I(좌우 버튼)</a></li>
+								<li><a href="slider/owl8.html">5-8. Owl Carousel II(입체적인 전환 효과 및 좌우 버튼)</a></li>
+								<li><a href="slider/owl9.html">5-9. Owl Carousel(청라성형외과 시설둘러보기<span>★IE7 완벽지원</span>)</a></li>
+								<li><a href="slider/owl10.html">5-10. Owl Carousel(가변적인 버튼 처리<span>★</span>)</a></li>
+
+								<li>&nbsp;</li>
+
+								<li><a href="slider/cycle1.html">6-1. Cycle2(Default Slideshow)</a></li>
+								<li><a href="slider/cycle2.html">6-2. Cycle2(Flip Transitions)</a></li>
+								<li><a href="slider/cycle3.html">6-3. Cycle2(Shuffle Transitions)</a></li>
+								<li><a href="slider/cycle.html">6-4. Cycle2(심화)</a></li>
+
+								<li>&nbsp;</li>
+
+								<li><a href="slider/flexslider1.html">7-1. Flexslider(Basic)</a></li>
+								<li><a href="slider/flexslider2.html">7-2. Flexslider(customDirectionNav)</a></li>
+								<li><a href="slider/flexslider3.html">7-3. Flexslider(Thumbnail ControlNav Pattern)</a></li>
+								<li><a href="slider/flexslider4.html">7-4. Flexslider(Slider with Carousel Slider as Navigation)</a></li>
+								<li><a href="slider/flexslider5.html">7-5. Flexslider(pausePlay)</a></li>
+								<li><a href="slider/flexslider6.html">7-6. Flexslider(Carousel With Min & Max Ranges)</a></li>
+
+								<li>&nbsp;</li>
+
+								<li><a href="slider/slick1.html">8-1. Slick</a></li>
+								<li><a href="slider/slick2.html">8-2. Slick</a></li>
+								<li><a href="slider/slick3.html">8-3. Slick(화면 확대)</a></li>
+								<li><a href="slider/slick4.html">8-4. Slick(skew)</a></li>
+								<li><a href="slider/slick5.html">8-5. Slick(화면 확대&축소 I)</a></li>
+								<li><a href="slider/slick6.html">8-6. Slick(화면 확대&축소 II)</a></li>
+								<li><a href="slider/slick7.html">8-7. Slick(with YouTube)</a></li>
+								<li><a href="slider/slick8.html">8-8. Slick(Other Methods)</a></li>
+								<li><a href="slider/slick8.html">8-9. Slick(afterChange, 슬라이드 각각 영역에서 효과 구현)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Portfolio <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="portfolio/01.html">1. MixItUp(<span>IE8 이상</span>에서 작동)</a></li>
+								<li><a href="portfolio/02.html">2. Sortboard(<span>IE9 이상</span>에서 작동)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Animation <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="animation/ani1.html">1. 말풍선 위아래로 움직임 & 핸드폰 진동</a></li>
+								<li><a href="animation/rotate1.html">2. Rotate(반복적으로 15도씩 움직임 / <span>IE9 이상</span>에서 작동)</a></li>
+								<li><a href="animation/swing1.html">3. Swing &amp; Flip(반복적으로 좌우로 움직임, 마우스 오버시 뒤집어짐 / <span>IE9 이상</span>에서 작동)</a></li>
+								<li><a href="animation/masonry.html">4-1. Masonry I(반응형 갤러리 리스트 / <span>IE하위버전</span>에서 미디어쿼리 작동)</a></li>
+								<li><a href="animation/flexible_list.html">4-2. Masonry II - 더보기 기능 추가</a></li>
+								<li><a href="animation/flexible_list_mob.html">4-3. Masonry III - 더보기 기능 추가(모바일용)</a></li>
+								<li><a href="animation/spin360.html">5. 360도 회전하는 이미지</a></li>
+								<li><a href="animation/flow.html">6. 계속 움직이는 파도 애니메이션(솔깃)</a></li>
+								<li><a href="animation/snow1.html">7. 눈 내리는 효과 I</a></li>
+								<li><a href="animation/snow2.html">8. 눈 내리는 효과 II</a></li>
+								<li><a href="animation/drive.html">9. 스타벅스 드라이브 쓰루</a></li>
+								<li><a href="animation/jsmovie1.html">10-1. jsMovie I</a></li>
+								<li><a href="animation/jsmovie2.html">10-2. jsMovie II</a></li>
+								<li><a href="animation/firefly.html">11. Fire Fly I</a></li>
+								<li><a href="animation/firefly2.html">11. Fire Fly II</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>TweenMax &amp Parallax Scrolling <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="tweenmax/tweenmax1.html">1. TweenMax &amp; superscrollorama(라마다호텔 주변관광지I)</a></li>
+								<li><a href="tweenmax/tweenmax2.html">2. TweenMax &amp; superscrollorama(라마다호텔 주변관광지II)</a></li>
+								<li><a href="tweenmax/tweenmax3.html">3. TweenMax &amp; superscrollorama(서울시 협동조합)</a></li>
+								<li><a href="tweenmax/tweenmax4.html">4. TweenMax &amp; superscrollorama<br />(청라성형외과 & 피부과 / 로딩 후 바로 실행)</a></li>
+								<li><a href="tweenmax/tweenmax5.html">5. TweenMax &amp; SVG</a></li>
+								<li><a href="tweenmax/parallax.html">6. 패럴랙스 & 포트폴리오</a></li>
+								<li><a href="tweenmax/skrollr.html">7. Skrollr</a></li>
+								<li><a href="tweenmax/money.html">8-1. 돈 떨어지는 효과</a></li>
+								<li><a href="tweenmax/point.html">9-1. 포인트 떨어지는 효과 I</a></li>
+								<li><a href="tweenmax/point2.html">9-2. 포인트 떨어지는 효과 II</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Image Effects <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="image/zoom.html">1. Smart Zoom(<span>모바일</span>)</a></li>
+								<li><a href="image/img_zoom1.html">2-1. Image Zoom I</a></li>
+								<li><a href="image/img_zoom2.html">2-2. Image Zoom II</a></li>
+								<li><a href="image/img_zoom3.html">2-3. Image Zoom III</a></li>
+								<li><a href="image/img_zoom4.html">2-4. Image Zoom IV</a></li>
+								<li><a href="image/img_zoom5.html">2-5. Image Zoom V</a></li>
+								<li><a href="image/drag_view.html">3. Drag Image View</a></li>
+								<li><a href="image/lazy_load1.html">4-1. Lazy Load I (fadein)</a></li>
+								<li><a href="image/lazy_load2.html">4-2. Lazy Load II (spinner)</a></li>
+								<li><a href="image/lazy_load3.html">4-3. Lazy Load III (spinner & 클릭 시 실행)</a></li>
+								<li><a href="image/map.html">5. 반응형 맵좌표 및 호버효과</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Input &amp; Textarea <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="input/01.html">1. 체크박스 클릭 시 인풋박스 활성화</a></li>
+								<li><a href="input/02.html">2. 인풋박스1 값 입력 시 인풋박스2 비활성화</a></li>
+								<li><a href="input/03.html">3. 파일 버튼 디자인</a></li>
+								<li><a href="input/04.html">4-1. 이미지 업로드 I</a></li>
+								<li><a href="input/04-2.html">4-2. 이미지 업로드 II</a></li>
+								<li><a href="input/04-3.html">4-3. 이미지 업로드 III (갯수제한)</a></li>
+								<li><a href="input/04-4.html">4-4. 이미지 업로드 IV (BG로 구현)</a></li>
+								<li><a href="input/05.html">5. 체크박스, 라디오 버튼 디자인</a></li>
+								<li><a href="input/onlyNumber.html">6. 숫자만 입력가능</a></li>
+								<li><a href="input/textcounter.html">7. Textarea 글짜 수 카운트</a></li>
+								<li><a href="input/resetTextarea.html">8. Textarea 엔터 클릭 시 높이 조절(채팅방)</a></li>
+								<li><a href="input/fileUpload.html">9. 파일 업로드 (목록 생성 & 삭제)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Table <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="table/01.html">1. 엑셀 형식(제목 고정)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Text Editor <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="editor/summernote.html">1. summernote I</a></li>
+								<li><a href="editor/summernote2.html">2. summernote II(옵션 설정)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Text Effects <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="text/01.html">1. 제자리에서 좌우로 움직이는 글씨(<span>IE10 이상</span>에서 작동)</a></li>
+								<li><a href="text/02.html">2. 왼쪽에서 날라와서 좌우로 움직이는 글씨(<span>IE10 이상</span>에서 작동)</a></li>
+								<li><a href="text/03.html">3. 0부터 올라가는 숫자</a></li>
+								<li><a href="text/04.html">4. 소수점부터 올라가는 숫자(숫자색과 크기도 서서히 변경)</a></li>
+								<li><a href="text/05.html">5. 마우스 오버시 무지개 색깔로 변하는 글씨</a></li>
+								<li><a href="text/06.html">6. 움직이는 글씨(포트폴리오 용)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Chart &amp; Graph <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="chart/01.html">1. 움직이는 원 그래프( circles / <span>모바일</span> / <span>IE9 이상</span>에서 작동)</a></li>
+								<li><a href="chart/03.html">2. 움직이는 원 그래프( circleChart / <span>모바일</span> / <span>IE9 이상</span>에서 작동 )</a></li>
+								<li><a href="chart/billboard1.html">3. 파이형 그래프( billboard )</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>jQuery UI <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="ui/datepicker1.html">1-1. DatePicker(기본)</a></li>
+								<li><a href="ui/datepicker2.html">1-2. DatePicker(프레지던트 호텔)</a></li>
+								<li><a href="ui/datepicker3.html">1-3. DatePicker(투액 모바일)</a></li>
+								<li><a href="ui/datepicker4.html">1-4. DatePicker(투액 모바일 - 연구중...)</a></li>
+								<li><a href="ui/datepicker5.html">1-5. DatePicker(뉴브랜드호텔, 출발일 및 도착일 설정, 결과값 표시)</a></li>
+								<li><a href="ui/datepicker6.html">1-6. DatePicker(프리비아 유지보수, 날짜 표시 및 날짜 선택 3개까지)</a></li>
+								<li style="display:none;"><a href="ui/datepicker_new.html">1-7. DatePicker(프리비아 리뉴얼)</a></li>
+								<li><a href="ui/datepickk1.html">2-1. DatePickk I(모바일 전용)</a></li>
+								<li><a href="ui/datepickk2.html">2-2. DatePickk II(모바일 전용)</a></li>
+								<li><a href="ui/progressbar.html">3. Progress Bar</a></li>
+								<li><a href="ui/draggable1.html">4-1. Draggable I</a></li>
+								<li><a href="ui/draggable2.html">4-2. Draggable II</a></li>
+								<li><a href="ui/sortable1.html">5-1. Sortable I</a></li>
+								<li><a href="ui/sortable2.html">5-2. Sortable II</a></li>
+								<li><a href="ui/slider_range.html">6. Slider Range</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Game <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="game/index.html">1. 틀린그림찾기</a></li>
+								<li><a href="game/roulette.html">2-1. 룰렛 (pc)</a></li>
+								<li><a href="game/roulette_m.html">2-2. 룰렛 (mobile)</a></li>
+								<!-- 
+								<li><a href="game/roulette_cheat_coocha.html">2-3. 사기 룰렛 (어떻게 돌리던 1장 당첨)</a></li>
+								-->
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Javascript <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="javascript/sum1.html">1. 합계(배열 합산, 숫자 3자리 단위마다 콤마)</a></li>
+								<li><a href="javascript/animateNumber.html">2. 소수점부터 올라가는 숫자(숫자 3자리 단위마다 콤마)</a></li>
+								<li><a href="javascript/checkDevice.html">3-1. PC,Mobile 체크</a></li>
+								<li><a href="javascript/checkMobile.html">3-2. Android, iOS 체크</a></li>
+								<li><a href="javascript/flexMenu.html">4. 유연한 메뉴(늘어나는 텍스트, 활성화 위치)</a></li>
+								<li><a href="javascript/oop.html">5. 객체지향 프로그래밍 연습</a></li>
+								<li><a href="javascript/stopPropagation.html">6. 기본 이벤트를 제거, 이벤트 전달을 제거</a></li>
+								<li><a href="javascript/blockViewingSource.html">7. 웹브라우저 소스보기 막기</a></li>
+								<li><a href="javascript/yymmdd.html">8. 오늘 날짜 구해서 커스텀(yy-mm-dd)</a></li>
+								<li><a href="javascript/setInterval.html">9. setInterval 을 활용한 무한 반복 애니메이션1(단독)</a></li>
+								<li><a href="javascript/setInterval2.html">9. setInterval 을 활용한 무한 반복 애니메이션2(다중)</a></li>
+								<li><a href="javascript/setTimeout.html">10. setTimeout, 자기실행함수를 활용한 무한 반복 애니메이션</a></li>
+								<li><a href="javascript/setTimeout2.html">11. setTimeout를 활용한 무한 반복 애니메이션</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Etc <span>(1. SelectBox)</span><span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="etc/select1.html">1. 셀렉트 박스(디자인)</a></li>
+								<li><a href="etc/select2.html">2. 셀렉트 박스(option값 인식)</a></li>
+								<li><a href="etc/select3.html">3. 셀렉트 박스(포커스 이동시 자동으로 활성화)</a></li>
+								<li><a href="etc/select4.html">4. 셀렉트 박스(패밀리 사이트)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Etc <span>(2. Scroll)</span> <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="etc/scrollbar.html">1. 스크롤 바(디자인)</a></li>
+								<li><a href="etc/iscroll1.html">2-1. Iscroll I(<span>웹</span>, 세로 스크롤)</a></li>
+								<li><a href="etc/iscroll2.html">2-2. Iscroll II(<span>모바일</span>, 가로 스크롤)</a></li>
+								<li><a href="etc/smooth_scroll.html">3-1. Smooth Scrolling I</a></li>
+								<li><a href="etc/smooth_scroll2.html">3-2. Smooth Scrolling II</a></li>
+								<li><a href="etc/horizon1.html">4-1. Horizon I(jInvertScroll)</a></li>
+								<li><a href="etc/horizon2.html">4-2. Horizon II(jInvertScroll)</a></li>
+								<li><a href="etc/scroll1.html">5-1. 마우스 스크롤 시 이벤트(상하 방향 감지I)</a></li>
+								<li><a href="etc/scroll2.html">5-2. 마우스 스크롤 시 이벤트(상하 방향 감지II) - iPhone5 지원</a></li>
+								<li><a href="etc/scrollTop.html">6. 페이지 로드시 최상단 고정</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Etc <span class="kr">(3. 기타 기능 및 문법)</span><span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="etc/each1.html">1-1. each문 문법I</a></li>
+								<li><a href="etc/each2.html">1-2. each문 문법II</a></li>
+								<li><a href="etc/random.html">2. random 색상 출력</a></li>
+								<li><a href="etc/settimeout.html">3-1. setTimeout, clearTimeout 문법</a></li>
+								<li><a href="etc/settimeout2.html">3-2. setTimeout(2초 뒤에 클릭)</a></li>
+								<li><a href="etc/eval.html">4-1. 별점</a></li>
+								<li><a href="etc/eval2.html">4-2. 별점</a></li>
+								<li><a href="etc/zoom.html">5. 화면 확대 &amp; 축소(브라우저 체크)</a></li>
+								<li><a href="etc/listmore.html">6-1. 리스트 더보기(클릭 시 5개씩 노출)</a></li>
+								<li><a href="etc/listmore2.html">6-2. 리스트 더보기(<span>모바일</span>, 가장 하단에 내려왔을 때 추가됨)</a></li>
+								<li><a href="etc/app.html">7. 안드로이드, 아이폰 구분해서 앱 설치</a></li>
+								<li><a href="etc/substring.html">8. substring 문법</a></li>
+								<li><a href="etc/indexOf.html">9. indexOf 문법</a></li>
+								<li><a href="etc/date.html">10. 날짜, 시간</a></li>
+								<li><a href="etc/buy_control.html">11. 제품 갯수 조절</a></li>
+								<li><a href="etc/search_text.html">12. 검색결과(검색어 표시)</a></li>
+								<li><a href="etc/countdown.html">13-1. 카운트 다운 I</a></li>
+								<li><a href="etc/countdown2.html">13-2. 카운트 다운 II</a></li>
+								<li><a href="etc/countdown3.html">13-3. 카운트 다운 III(다수 상품 카운트)</a></li>
+								<li><a href="etc/countdown4.html">13-4. 카운트 다운 IV(다수 상품 카운트 심화)</a></li>
+								<li><a href="etc/kakao_talk.html">14. 카카오톡</a></li>
+								<li><a href="etc/array_each.html">15. 배열, each문을 이용한 블럭 이동</a></li>
+								<li><a href="etc/placeholder.html">16. Placeholder(IE하위버전에서 작동)</a></li>
+								<li><a href="etc/responsive_area.html">17. 반응형 이미지맵</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>POPUP <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="popup/windowpop.html">1. 윈도우 팝업</a></li>
+								<li><a href="popup/layerpop.html">2-1. 레이어 팝업(오늘 하루 보지 않기 - 24시간으로 설정)</a></li>
+								<li><a href="popup/layerpop2.html">2-2. 레이어 팝업(오늘 하루 보지 않기 - 오늘 자정으로 설정)</a></li>
+								<li><a href="popup/fix_popup.html">3. 팝업 클릭 시 html, body 움직이지 않도록 고정</a></li>
+								<li><a href="popup/jQueryPopup.html">4. 제이쿼리 팝업</a></li>
+								<li><a href="popup/jQueryModal.html">5. 제이쿼리 모달</a></li>
+								<li><a href="popup/magnific.html">6. Magnific Popup</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>API <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="api/naver.html">1-1. 네이버 지도 API (기본)</a></li>
+								<li><a href="api/naver2.html">1-2. 네이버 지도 API (주소명으로 위치 찾기)</a></li>
+								<li><a href="api/naver4.html">1-4. 네이버 지도 API (툴팁까지 가져오기)</a></li>
+								<li><a href="api/googleMap.html">2-1. 구글 지도 API</a></li>
+								<li><a href="api/googleMap2.html">2-2. 구글 지도 API (Marker Animation)</a></li>
+								<li><a href="api/googleMap3.html">2-3. 구글 지도 API (Info windows)</a></li>
+								<li><a href="api/googleMap4.html">2-4. 구글 지도 API (GeoRSS Layers)</a></li>
+								<li><a href="api/googleMap5.html">2-5. 구글 지도_NBHM version</a></li>
+								<li><a href="api/insta.html">3. 인스타그램 API</a></li>
+								<li><a href="api/kakao.html">4. 카카오톡 API</a></li>
+								<li><a href="api/facebook.html">5. 페이스북 API</a></li>
+								<li><a href="api/youtube.html">6-1. 유튜브 API</a></li>
+								<li><a href="api/youtube2.html">6-2. 유튜브 예제</a></li>
+								<li><a href="api/youtube3.html">6-3. 유튜브 전체화면(JavaScript)</a></li>
+								<li><a href="api/youtube4.html">6-4. 유튜브 클릭 시 전체화면(JavaScript)</a></li>
+								<li><a href="api/postcode.html">7. 우편번호 서비스</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Special <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="special/webfont_loader.html">1. Webfont Loader</a></li>
+								<li><a href="special/live_preview.html">2. 사이트 미리보기</a></li>
+								<li><a href="special/signature.html">3. Signature Pad</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Accessibility <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="accessibility/gnb.html">1. 주메뉴(웹접근성 연구소)</a></li>
+								<li><a href="accessibility/rolling.html">2-1. 롤링배너</a></li>
+								<li><a href="accessibility/auto_rolling.html">2-2. 롤링배너(자동)</a></li>
+								<li><a href="accessibility/auto_rolling2.html">2-3. 롤링배너(자동+컨트롤)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Study <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="study/noConflict.html">- 다른 라이브러리, 다른 버전의 jQuery와 충돌 방지하기</a></li>
+								<li><a href="study/IIFE.html">- 즉시실행함수 표현식(IIFE)</a></li>
+								<li><a href="study/plugin.html">- 플러그인 만들기</a></li>
+								<li><a href="study/data.html">- jQuery 데이터 메쏘드</a></li>
+								<li><a href="study/trim.html">- trim 메서드·정규표현식을 사용한 공백 제거</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Form <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="form/basic.html">- Form submit (single validator)</a></li>
+								<li><a href="form/textarea.html">- Form submit (textarea newline)</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt>Tourvis <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="tourvis/daterangepicker.html">- Daterangepicker</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+<!-- 
+				<li>
+					<dl>
+						<dt>Privia Renewal <span class="more">-</span></dt>
+						<dd>
+							<ul>
+								<li><a href="privia/slick.html">1. Slick</a></li>
+								<li><a href="privia/datepicker-oneway.html">2-1. 데이트 피커, 편도</a></li>
+								<li><a href="privia/datepicker-shuttle.html">2-2. 데이트 피커, 왕복</a></li>
+								<li><a href="privia/datepicker-multiway.html">2-3. 데이트 피커, 다구간</a></li>
+								<li><a href="privia/priceRange.html">4-1. 가격대 슬라이드 (Input 버전)</a></li>
+								<li><a href="privia/priceRange2.html">4-2. 가격대 슬라이드 (Span 버전)</a></li>
+								<li><a href="privia/priceRange2.html">4-2. 가격대 슬라이드 (Span 버전)</a></li>
+								<li><a href="privia/htpList.html">5-1. 호텔 목록, 가장 하단까지 스크롤 시 목록 추가 (Ajax Load & Skeleton Screen)</a></li>
+								<li><a href="privia/htpList2.html">5-2. 호텔 목록, 가장 하단까지 스크롤 시 목록 추가 (Ajax Load & More & Skeleton Screen)</a></li>
+								<li><a href="privia/htpList3.html">5-3. 호텔 목록, 최종본</a></li>
+							</ul>
+						</dd>
+					</dl>
+				</li>
+-->
+			</ul>
+		</div>
+		<!-- // wrap -->
+
+		<script type="text/javascript" src="common/js/masonry.pkgd.js"></script>
+		<script type="text/javascript">
+		//$(window).load(function(){
+			var $grid = $('.jlist').masonry({
+				columnWidth: '.jlist > li',
+				itemSelector: '.jlist > li',
+				gutter: 0
+			});
+			$('.toggle-menu').on('click', function(e){
+				if($(this).text()=='collapse'){
+					$(this).text('expand');
+					$('.jlist dt span.more').text('+');
+					$('.jlist dd').hide();
+				}else{
+					$(this).text('collapse');
+					$('.jlist dt span.more').text('-');
+					$('.jlist dd').show();
+				}
+				$grid.masonry('layout');
+				e.preventDefault();
+			});
+			$('.jlist dt span.more').on('click', function(){
+				if($(this).text()=='+'){
+					$(this).text('-');
+					$(this).closest('dt').next().stop().slideDown(300, function(){
+						$grid.masonry('layout');
+					});
+				}else{
+					$(this).text('+');
+					$(this).closest('dt').next().stop().slideUp(300, function(){
+						$grid.masonry('layout');
+					});
+				}
+			});
+		//});
+		</script>
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:08:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

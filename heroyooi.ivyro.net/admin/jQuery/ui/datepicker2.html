@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery-ui.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		input.datepicker { margin-bottom:5px; width:200px; height:30px; line-height:30px; font-size:14px; color:#000; border:0; cursor:pointer; background:#eee; outline:none; text-indent:10px; }
+		.ui-datepicker { padding:0 !important; border-radius:0 !important; }
+		.ui-widget-header { border:0 !important; border-radius:0 !important; background:#e9e9e9 !important; }
+		.ui-widget-content { border:none !important; border-top:4px solid #010d57 !important; }
+		.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border:none !important; }
+		.ui-datepicker table { margin:2% !important; width:96% !important; }
+		.ui-icon-circle-triangle-w { background:url('img/cal_prev.png') center center no-repeat !important; }
+		.ui-icon-circle-triangle-e { background:url('img/cal_next.png') center center no-repeat !important; }
+		.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight { background:#010d57 !important; color:#fff !important; }
+		.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { background:#762123 !important; }
+
+		@media screen and (max-width:950px) {
+			#wrap { width:96%; }
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<input type="text" name="" id="" class="datepicker datepicker1" />
+			<input type="text" name="" id="" class="datepicker datepicker2" />
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$( ".datepicker1" ).datepicker({
+				defaultDate: "+1w",
+				dateFormat: 'yy-mm-dd',
+				prevText: '이전 달',
+				nextText: '다음 달',
+				minDate: 0,
+				//changeMonth: true,
+				numberOfMonths: 1,
+				onClose: function(selectedDate) {
+					$(".datepicker2").datepicker("option", "minDate", selectedDate);
+				}
+		});
+		$( ".datepicker2" ).datepicker({
+				defaultDate: "+1w",
+				dateFormat: 'yy-mm-dd',
+				prevText: '이전 달',
+				nextText: '다음 달',
+				//changeMonth: true,
+				numberOfMonths: 1,
+				onClose: function(selectedDate) {
+					$(".datepicker1").datepicker("option", "maxDate", selectedDate);
+				}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

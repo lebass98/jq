@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.bxslider.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.bxslider.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.main_visual_wrap { position:relative; width:100%; height:551px; overflow:hidden; }
+		.main_visual { position:relative; left:50%; width:3300px; height:551px; margin-left:-550px; }
+		.main_visual .bx-viewport { overflow:inherit !important; }
+		.main_visual li { position:relative; }
+		.main_visual li div.caption { position:absolute; left:25px; bottom:19px; background:url('img/bxslider/slide_dimm.png') 0 0 repeat; padding:20px; }
+		.main_visual li div.caption p.tit { margin-bottom:10px; font-size:40px; color:#fff; line-height:1.2; letter-spacing:-1px; font-family:'ns'; }
+		.main_visual li div.caption p.tit span { font-size:49px; font-family:'ngb'; }
+		.main_visual li div.caption p.con { font-size:16px; color:#fff; line-height:1.4; letter-spacing:-1px; }
+		#main_pager { position:absolute; left:0; bottom:13px; width:100%; }
+		#main_pager ul { font-size:0; text-align:center; }
+		#main_pager ul li { margin:0 4px; display:inline-block; }
+		:first-child+html #main_pager ul li { display:inline; }
+		#main_pager ul li a { display:block; width:13px; height:13px; background:url('img/bxslider/slide_pager_off.png') 0 0 no-repeat; text-indent:-20000px; }
+		#main_pager ul li a.active { background:url('img/bxslider/slide_pager_on.png') 0 0 no-repeat; }
+		.main_visual_wrap a.ms_control { position:absolute; top:50%; margin-top:-26.5px; }
+		.main_visual_wrap a.ms_prev { left:50%; margin-left:-540px; }
+		.main_visual_wrap a.ms_next { right:50%; margin-right:-540px; }
+		.main_visual_wrap div.ms_before { position:absolute; right:50%; top:0; margin-right:550px; width:100%; height:551px; background:url('img/bxslider/slide_dimm.png') 0 0 repeat; }
+		.main_visual_wrap div.ms_after { position:absolute; left:50%; top:0; margin-left:550px; width:100%; height:551px; background:url('img/bxslider/slide_dimm.png') 0 0 repeat; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="main_visual_wrap">
+			<div class="main_visual">
+				<ul class="main_slider">
+					<li>
+						<img src="img/bxslider/main_visual01.jpg" alt="" />
+						<div class="caption">
+							<p class="tit">2016 협동의 가치 확산<br /><span>작은 프로젝트</span> 지원사업</p>
+							<p class="con">서울시협동조합지원센터와 카카오가<br />시민과 함께하는 협동조합을 응원합니다.</p>
+						</div>
+					</li>
+					<li>
+						<img src="img/bxslider/main_visual02.jpg" alt="" />
+					</li>
+					<li>
+						<img src="img/bxslider/main_visual03.jpg" alt="" />
+					</li>
+				</ul>
+			</div>
+			<!-- // main_visual -->
+			<div class="ms_before"></div>
+			<div class="ms_after"></div>
+			<a href="#" class="ms_control ms_prev"><img src="img/bxslider/slide_prev.png" alt="이전 버튼" /></a>
+			<a href="#" class="ms_control ms_next"><img src="img/bxslider/slide_next.png" alt="다음 버튼" /></a>
+			<div id="main_pager">
+				<ul>
+					<li><a href="#" data-slide-index="0">1</a></li>
+					<li><a href="#" data-slide-index="1">2</a></li>
+					<li><a href="#" data-slide-index="2">3</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- // main_visual_wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var main_slider = $('.main_slider').bxSlider({
+			auto: true,
+			pager: true,
+			controls: false,
+			minSlides: 3,
+			maxSlides: 3,
+			moveSlides: 1,
+			slideWidth: 3300,
+			responsive: false,
+			pagerCustom: '#main_pager'
+		});
+		$('.ms_prev').on('click', function(){
+			main_slider.goToPrevSlide();
+			return false;
+		});
+		$('.ms_next').on('click', function(){
+			main_slider.goToNextSlide();
+			return false;
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/lazy_load3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<!-- 스타일 -->
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.lazyloadxt.spinner.css">
+		<style type="text/css">
+		.sample { margin:0 auto; width:96%; }
+		.sample li { margin-top:10px; border-radius:3px; }
+		.sample li img { width:100%; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<a href="#" class="lazyload-btn">Lazy Load 실행</a>
+		<ul class="sample">
+			<li><img data-src="/origin/img/portfolio/15445077.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/aawning.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/aiins.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/aiinsmobile.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/aoss.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/appnuri.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/babylove.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/bansuk.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/belimo.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/bigparent.jpg" alt=""></li>
+			<li><img data-src="/origin/img/portfolio/bizmobile.jpg" alt=""></li>
+		</ul>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.lazyloadxt.js"></script>
+		<script type="text/javascript">
+		$.lazyLoadXT.autoInit = false;
+		
+		$('.lazyload-btn').on('click', function(){
+			$('img[data-src]').lazyLoadXT();
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/lazy_load3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

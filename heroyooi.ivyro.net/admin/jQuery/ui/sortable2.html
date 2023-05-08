@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/sortable2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery-ui.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { padding-top:10px; width:500px; }
+		#wrap:after { content:""; display:block; clear:both; }
+
+		#sortable1, #sortable2 { float:left; padding:10px; width:223px; border:1px solid #eee; }
+		#sortable2 { margin-left:10px; }
+		#sortable1 li, #sortable2 li { position:relative; padding:10px; margin-top:5px; border-radius:3px; -webkit-border-radius:3px; }
+		#sortable1 li:first-child, #sortable2 li:first-child { margin-top:0; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<ul id="sortable1" class="connectedSortable">
+				<li class="ui-state-default">Item 1</li>
+				<li class="ui-state-default">Item 2</li>
+				<li class="ui-state-default">Item 3</li>
+				<li class="ui-state-default">Item 4</li>
+				<li class="ui-state-default">Item 5</li>
+			</ul>
+			<ul id="sortable2" class="connectedSortable">
+				<li class="ui-state-highlight">Item 1</li>
+				<li class="ui-state-highlight">Item 2</li>
+				<li class="ui-state-highlight">Item 3</li>
+				<li class="ui-state-highlight">Item 4</li>
+				<li class="ui-state-highlight">Item 5</li>
+			</ul>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$( "#sortable1, #sortable2" ).sortable({
+		  connectWith: ".connectedSortable"
+		}).disableSelection();
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/sortable2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

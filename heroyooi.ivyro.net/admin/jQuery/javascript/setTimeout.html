@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/setTimeout.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> jQuery </title>
+    <link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+    <script type="text/javascript" src="../common/js/jquery.min.js"></script>
+  </head>
+  <body>
+
+	<a href="../index-2.html" class="home">Home</a>
+	<style type="text/css">
+	.fix-banner{position:fixed;left:10px;top:10px;width:0;height:50px;background:red;}
+	</style>
+
+	<div id="wrap">
+		<div class="fix-banner"></div>
+	</div>
+	<!-- // wrap -->
+
+	<!-- 스크립트 -->
+	<script type="text/javascript">
+	!function infinite(){
+		var _target = $(".fix-banner");
+		_target.delay(4000).animate({'width':'200px'}, 1000, function(){
+			_target.delay(4000).animate({'width': '0px'}, 1000);
+		});
+		setTimeout(function(){
+			console.log(1)
+			infinite();
+		}, 8000);
+	}();
+	</script>
+	<!-- // 스크립트 -->
+
+  </body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/setTimeout.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

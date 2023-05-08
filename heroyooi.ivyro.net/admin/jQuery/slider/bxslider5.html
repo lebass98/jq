@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:10:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.bxslider.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.bxslider.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.main_visual {
+		    position: relative;
+		    margin: 0 auto;
+		    width: 1100px;
+		    height: 470px;
+		    overflow: hidden;
+		}
+		
+		.main_visual .bx-controls {
+		    position: absolute;
+		    left: 0;
+		    bottom: 15px;
+		    width: 100%;
+		    height: 8px;
+		    font-size: 0;
+		    text-align: center;
+		}
+		
+		.main_visual .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+		    position: static;
+		    padding-top: 0;
+		    bottom: 0;
+		    width: auto;
+		    display: inline-block;
+		}
+		
+		.main_visual .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+		    position: static;
+		    width: auto;
+		    bottom: 0;
+			margin-left:3px;
+			padding: 5px 3px;
+			border: 1px solid #737270;
+		    display: inline-block;
+		}
+		
+		*:first-child+html .main_visual .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+		    display: inline;
+		}
+		/* ie7 hack */
+		
+		*:first-child+html .main_visual .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+		    display: inline;
+		}
+		/* ie7 hack */
+		
+		.main_visual .bx-wrapper .bx-pager.bx-default-pager a {
+		    margin: 0 8px;
+		    width: 5px;
+		    height: 5px;
+		    border-radius: 0;
+		    -webkit-border-radius: 0;
+			transition: all 0.5s ease;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+			background-color:#737270;
+		}
+		
+		.main_visual .bx-wrapper .bx-pager.bx-default-pager a.active {
+			background-color: #005bac;
+			width: 45px;
+			height: 5px;
+			transition: all 0.5s ease;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+		}
+		
+		.main_visual .bx-wrapper .bx-controls-auto .bx-stop {
+		    width: 7px;
+		    height: 8px;
+		    background: url('img/bxslider/btn_stop.png') 0 0 no-repeat;
+		}
+		
+		.main_visual .bx-wrapper .bx-controls-auto .bx-start {
+		    width: 7px;
+		    height: 8px;
+		    background: url('img/bxslider/btn_play.png') 0 0 no-repeat;
+		}
+		
+		.main_visual .bx-wrapper .bx-controls-auto .bx-stop:hover {
+		    background-position: 0 0;
+		}
+		
+		.main_visual .bx-wrapper .bx-controls-auto .bx-start:hover {
+		    background-position: 0 0;
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="main_visual">
+			<ul>
+				<li><a href="#"><img src="img/bxslider/mvis1.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/bxslider/mvis2.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/bxslider/mvis3.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/bxslider/mvis4.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<!-- // main_visual -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$('.main_visual > ul').bxSlider({
+			auto: true,
+			autoControls: true,
+			autoControlsCombine: true,
+			controls: false,
+			touchEnabled: true
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/bxslider5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:11:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

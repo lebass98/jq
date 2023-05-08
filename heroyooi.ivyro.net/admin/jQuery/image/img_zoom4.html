@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/img_zoom4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:29:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.elevatezoom.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#gallery_01f img { border:2px solid white; }
+		.active img { border:2px solid #333 !important; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="zoom-left">
+
+			<img style="border:1px solid #e8e8e6;" id="zoom_04" src="img/small/image1.png" data-zoom-image="img/large/image1.jpg" width="411">
+
+			<div id="gallery_01f">
+				<a href="#" class="elevatezoom-gallery active" data-image="img/small/image1.png" data-zoom-image="img/large/image1.jpg"><img src="img/small/image1.png" width="100"></a>
+				<a href="#" class="elevatezoom-gallery" data-image="img/small/image2.png" data-zoom-image="img/large/image2.jpg"><img src="img/small/image2.png" width="100"></a>
+				<a href="http://heroyooi.ivyro.net/admin/jQuery/image/tester" class="elevatezoom-gallery" data-image="img/small/image3.png" data-zoom-image="img/large/image3.jpg"><img src="img/small/image3.png" width="100"></a>
+				<a href="http://heroyooi.ivyro.net/admin/jQuery/image/tester" class="elevatezoom-gallery" data-image="img/small/image4.png" data-zoom-image="img/large/image4.jpg"><img src="img/small/image4.png" width="100"></a>
+			</div>
+		</div>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$("#zoom_04").elevateZoom({
+			constrainType:"height", constrainSize:274, zoomType: "lens", containLensZoom: true, gallery:'gallery_01f', cursor: 'pointer', galleryActiveClass: "active"
+		}); 
+		$("#zoom_04").bind("click", function(e) {
+			var ez = $('#zoom_04').data('elevateZoom');
+			ez.closeAll();
+			$.fancybox(ez.getGalleryList());
+			return false;
+		}); 
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/img_zoom4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:30:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

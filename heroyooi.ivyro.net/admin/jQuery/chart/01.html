@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/chart/01.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/circles.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { width:100%; }
+		.cal_result { padding:100px 0; margin:0 auto; width:93.75%; background:#eee; }
+		.cal_result:after { content:""; display:block; clear:both; }
+		.cal_result li { float:left; width:50%; text-align:center; }
+		.cal_result li dt { margin-bottom:10px; display:inline-block; padding-left:28px; font-size:21px; height:21px; line-height:21px; color:#475354; }
+		.cal_result li.li1 dt { background:url('img/cal_icon01.png') 0 0 no-repeat; background-size:auto 21px; }
+		.cal_result li.li2 dt { background:url('img/cal_icon02.png') 0 0 no-repeat; background-size:auto 21px; }
+		.cal_result li dd { position:relative; margin:0 auto; width:124px; height:124px; }
+
+		.cal_result li dd .circles-wrp { width:100%; }
+		.cal_result li dd .circles-text { padding-top:10px; font-size:20px !important; color:#475354; }
+		.cal_result li dd .circles-decimals { font-size:16px; }
+		.cal_result li dd .circles-decimals:after{content:'%';}
+		.cal_result li dd .rank { position:absolute; left:0; top:37px; width:100%; font-size:12px; color:#8b9394; text-align:center; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<ul class="cal_result">
+				<li class="li1">
+					<dl>
+						<dt>키</dt>
+						<dd>
+							<p class="rank">상위</p>
+							<div class="circle" id="circles-1"></div>
+						</dd>
+					</dl>
+				</li>
+				<li class="li2">
+					<dl>
+						<dt>몸무게</dt>
+						<dd>
+							<p class="rank">상위</p>
+							<div class="circle" id="circles-2"></div>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var colors = [ ['#dfe2e6', '#01b8d1'], ['#dfe2e6', '#f6dc00'] ], 
+		circles = [], 
+		percentages = [70.8, 50.1];
+
+		for (var i = 1; i <= 2; i++) {
+			var child = document.getElementById('circles-' + i),
+				percentage = percentages[i-1],
+				circle = Circles.create({
+					id:         child.id,
+					value:      percentage,
+					radius:     62,
+					width:      13,
+					colors:     colors[i - 1],
+					duration:   700 // 속도
+				});
+
+			circles.push(circle);
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/chart/01.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

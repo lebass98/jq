@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/select4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#select_box { position:relative; width:178px; height:28px; border:1px solid #ddd; border-radius:3px; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<select name="select" id="select_box">
+				<option value="패밀리 사이트">패밀리 사이트</option>
+				<option value="http://www.happybridgecoop.com/main/main.php">HAPPY BRIDGE</option>
+				<option value="http://www.foodcore.net/main/main.php">화평동</option>
+				<option value="http://www.namuya.co.kr/main/main.php">국수나무</option>
+				<option value="https://www.facebook.com/HBMcoop">HBM 협동조합경영연구소</option>
+				<option value="http://www.hcooptour.com/coop.asp">HAPPY COOP TOUR</option>
+			</select>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$("#select_box").on("change",function(){
+			var url = $(this).find("option:selected").attr('value');
+			$(this).prev().html( $(this).find("option:selected").text() );
+			if(url == '패밀리 사이트'){
+				return false;
+			}else{
+				var openNewWindow = window.open("about:blank");
+				openNewWindow.location.href = url;
+			}
+		}).prev().html(function() {
+			return $(this).next().find("option:selected").text();
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/select4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

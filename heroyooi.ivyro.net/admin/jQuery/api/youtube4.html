@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/youtube4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.about-insta-wrap { position:relative; }
+		.about-insta-wrap img { width:100%; }
+		.btn-fullscreen { position:absolute; left:5%; top:76.6%; width:90%; height:1.1%; background:gold; text-indent:-20000px; font-size:0; opacity:0.5; }
+		.about-insta-wrap #player { position:absolute; left:8.0%; top:73.29%; width:84.0%; height:3.12%; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="about-insta-wrap">
+			<img src="img/about_owho_insta.jpg" alt="" />
+			<div id="player"></div>
+			<a class="btn-fullscreen" href="javascript:void(0)">전체화면 보기</a>
+		</div>
+
+		<!-- 스크립트 -->
+		<script src="https://www.youtube.com/iframe_api"></script>
+		<script>
+		var player;
+		var $$ = document.querySelector.bind(document);
+
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('player', {
+				height: '390',
+				width: '640',
+				videoId: 'MZ4W6HHJC18',
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+
+		function onPlayerReady(event) {
+			// event.target.playVideo();
+			setupListener();
+		}
+
+		function setupListener() {
+			$$('.btn-fullscreen').addEventListener('click', playFullscreen);
+		}
+
+		function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.ENDED) {
+				stopFullScreen();
+			}
+		}
+
+		function stopVideo() {
+			player.stopVideo();
+		}
+
+		function playFullscreen() {
+			var iframe = $$('#player');
+			var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
+
+			player.playVideo();
+
+			if (requestFullScreen) {
+				requestFullScreen.bind(iframe)();
+			}
+		}
+
+		function stopFullScreen() {
+			var cancelFullscreen = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen;
+
+			if (cancelFullscreen) {
+				cancelFullscreen.bind(document)();
+			}
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/youtube4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

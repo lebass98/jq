@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/listmore2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { width:96%; padding-bottom:50px; }
+
+		.qna_list { border-top:1px solid #8ea6b5; }
+		.qna_list > li { position:relative; border-bottom:1px solid #8ea6b5; }
+		.qna_list li dt { position:relative; padding:15px 10px 15px 39px; font-size:15px; color:#336482; line-height:21px; cursor:pointer; }
+		.qna_list li dt span { position:absolute; left:10px; top:16px; display:block; width:20px; height:20px; line-height:20px; background:#6c90a6; font-size:13px; font-weight:bold; color:#fff; text-align:center; border-radius:50%; -webkit-border-radius:50%; }
+		.qna_list li.on dt { font-weight:bold; }
+		.qna_list li dd { position:relative; padding:13px 10px 13px 34px; background:#dee1e3; font-size:14px; color:#232323; line-height:20px; border-top:1px solid #8ea6b5; min-height:20px; display:none; }
+		.qna_list li dd span { position:absolute; left:10px; top:13px; font-size:16px; font-weight:bold; color:#232323; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="qna_wrap">
+				<ul class="qna_list">
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문1
+							</dt>
+							<dd>
+								<span>A</span>
+								답변1
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문2
+							</dt>
+							<dd>
+								<span>A</span>
+								답변2
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문3
+							</dt>
+							<dd>
+								<span>A</span>
+								답변3
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문4
+							</dt>
+							<dd>
+								<span>A</span>
+								내용4
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문5
+							</dt>
+							<dd>
+								<span>A</span>
+								내용5
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문6
+							</dt>
+							<dd>
+								<span>A</span>
+								내용6
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문7
+							</dt>
+							<dd>
+								<span>A</span>
+								내용7
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문8
+							</dt>
+							<dd>
+								<span>A</span>
+								내용8
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문9
+							</dt>
+							<dd>
+								<span>A</span>
+								내용9
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문10
+							</dt>
+							<dd>
+								<span>A</span>
+								내용10
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문11
+							</dt>
+							<dd>
+								<span>A</span>
+								내용11
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문12
+							</dt>
+							<dd>
+								<span>A</span>
+								내용12
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>
+								<span>Q</span>
+								질문13
+							</dt>
+							<dd>
+								<span>A</span>
+								내용13
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<!-- // qna_wrap -->
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$(window).scroll(function() {
+			var closeToBottom = ( $(window).scrollTop() >= $(document).height() - $(window).height() );
+			if (closeToBottom) { 
+				setTimeout( function(){
+					$('.qna_list').append( 
+						'<li>' +
+							'<dl>' +
+								'<dt><span>Q</span>추가 질문</dt>' +
+								'<dd><span>A</span>추가 내용</dd>' +
+							'</dl>' +
+						'</li>' +
+						'<li>' +
+							'<dl>' +
+								'<dt><span>Q</span>추가 질문</dt>' +
+								'<dd><span>A</span>추가 내용</dd>' +
+							'</dl>' +
+						'</li>' +
+						'<li>' +
+							'<dl>' +
+								'<dt><span>Q</span>추가 질문</dt>' +
+								'<dd><span>A</span>추가 내용</dd>' +
+							'</dl>' +
+						'</li>'
+					);
+					$(window).scrollTop( $(this).scrollTop() + 155 ); // 스크롤을 가장 하단으로 고정
+				}, 1000); // 10초 후에 생성
+			} 
+		});
+
+		$(window).load(function(){
+			$('.qna_list > li').on('click', function(){
+				if(!$(this).hasClass('on')){
+					$(this).addClass('on');
+					$(this).find('dd').slideDown(300);
+				}else{
+					$(this).removeClass('on');
+					$(this).find('dd').slideUp(300);
+				}
+				return false;
+			});
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/listmore2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

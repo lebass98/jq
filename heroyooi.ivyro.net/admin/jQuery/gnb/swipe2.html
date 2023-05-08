@@ -1,0 +1,614 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/swipe2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.easing.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.mousewheel.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		html, body {
+		  width: 100%;
+		  height: 100%;
+		}
+
+		body { overflow: hidden; }
+
+		.container {
+		  width: 100%;
+		  height: 100%;
+		  overflow: hidden;
+		}
+
+		.wrapper {
+		  width: 100%;
+		  position: relative;
+		  -webkit-transition: transform 0.3s ease;
+		  transition: transform 0.3s ease;
+		}
+
+		.section {
+		  width: 100%;
+		  height: 100%;
+		  text-align: center;
+		  vertical-align: middle;
+		  color: #fff;
+		}
+
+		.section:nth-child(1) { background-color: #41C289; }
+		.section:nth-child(2) { background-color: #EF476F; }
+		.section:nth-child(3) { background-color: #384047; }
+		.section:nth-child(4) { background-color: #9660A1; }
+		.section:nth-child(5) { background-color: #0F88B6; }
+
+		.inner {
+		  height: 100%;
+		  overflow-y:auto;
+		}
+
+		.pager { position: fixed; top:50%; right:2%; z-index:90; }
+		.pager > span { display:block; margin:10px 0; width:8px; height:8px; border-radius:50%; border:3px solid #fff; cursor:pointer; }
+		.pager > span.on { background-color:#fff; -webkit-transition:all 0.3s ease-out; -moz-transition:all 0.3s ease-out; -o-transition:all 0.3s ease-out; transition:all 0.3s ease-out; }
+		.page_num { position:fixed; left:10px; top:10px; font-weight:bold; color:#fff; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="container" id="swiper-wrap">
+			<div class="wrapper">
+				<div class="section">
+					<div class="inner">
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						<a href="http://www.jqueryscript.net/demo/Mobile-First-Full-Page-Slider-with-jQuery-Swipe-Slider/" target="_blank" style="padding:30px 0; display:block; color:#fff; font-size:10px; text-decoration:underline;">http://www.jqueryscript.net/<br />demo/Mobile-First-Full-Page-Slider-with-jQuery-Swipe-Slider/</a>
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1<br />
+						1
+					</div>
+				</div>
+				<div class="section">
+					<div class="inner">
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2<br />
+						2
+					</div>
+				</div>
+				<div class="section">
+					<div class="inner">
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3<br />
+						3
+					</div>
+				</div>
+				<div class="section">
+					<div class="inner">
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4<br />
+						4
+					</div>
+				</div>
+				<div class="section">
+					<div class="inner">5</div>
+				</div>
+			</div>
+		</div>
+		<div class="pager"></div>
+		<div class="page_num"><span id="thepage"></span>/<span id="pagelength"></span></div>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var $window = $("html, body"),
+			winW = $window.width(),
+			winH = $window.height();
+
+		var xStart,xEnd,yStart,yEnd;
+		$swipe = $('#swiper-wrap'),
+		$pagerWrap = $('.pager'),
+		$test = $("<span></span>");
+
+		for(var p=0; p<=($('.section').length-1); p++){
+			$('.pager').append("<span></span>");
+		};
+
+		var $pager = $('.pager span'),
+		$boxWrapper = $swipe.find('.wrapper'),
+		$box = $swipe.find('.section'),
+		boxLength = $box.length,
+		pagerLength = $test * boxLength;
+
+		//init page tips
+		var $pageCount = $('#pagelength');
+			$thepage = $('#thepage');
+			$pageCount.text(boxLength);
+			$thepage.text('1');
+
+		var pH = $pagerWrap.height();
+		$pagerWrap.css({"margin-top":-pH/2});
+
+		for(var i = 0; i<=(boxLength -1); i++){
+			$pager.eq(i).attr("rel","#box_"+i);
+			$box.eq(i).attr("id","box_"+i);
+		};
+
+		$boxWrapper.height(winH*boxLength);
+		$box.height(winH);
+
+		$boxH = $(".wrapper").height() / boxLength;
+
+		$(window).resize(function(){
+			var $window = $(window),
+			winH = $window.height(),
+			$boxWrapper = $swipe.find('.wrapper'),
+			$box = $swipe.find('.section'),
+			boxLength = $box.length;
+
+			$boxWrapper.height(winH*boxLength);
+			$('.section').height(winH);
+			$boxH = $(".wrapper").height() / boxLength;
+		});
+
+		//swipe event
+		function handleTouchEvent(event){
+
+			event = event.originalEvent;
+
+			switch(event.type){
+				case "touchstart":
+					xStart = event.touches[0].clientX;
+					yStart = event.touches[0].clientY;
+					break;
+				case "touchend":
+					xEnd = event.changedTouches[0].clientX;
+					yEnd = event.changedTouches[0].clientY;
+					var $this = $(this);
+					swipehadle($this,xStart,xEnd,yStart,yEnd);
+					break;
+				case "mousedown":
+					xStart = event.clientX;
+					yStart = event.clientY;
+					break;
+				case "mouseup":
+					xEnd = event.clientX;
+					yEnd = event.clientY;
+					var $this = $(this);
+					swipehadle($this,xStart,xEnd,yStart,yEnd);
+					break;
+				case "touchmove":
+					event.preventDefault();
+					break;
+				case "mousemove":
+					event.preventDefault();
+					break;
+			};
+		};
+
+		$pager.eq(0).addClass('on');
+		$pager.click(function(){
+			var posIndex = $(this).index();
+			var posY = $($(this).attr("rel")).height();
+			//console.log(posIndex);
+
+			$pager.removeClass('on');
+			$(this).addClass('on');
+			$boxWrapper.css({
+				 '-webkit-transform': 'translate3d(0,'+(-posY*posIndex)+'px,0)',
+				 'transform': 'translate3d(0,'+(-posY*posIndex)+'px,0)'
+			});
+		});
+
+		function swipehadle(thebox,xStart,xEnd,yStart,yEnd){
+			var verticalDistance = yEnd-yStart,
+			$thebox = thebox,
+			theIndex = $thebox.index();
+			//console.log(theIndex);
+			if(verticalDistance>30){
+				if(theIndex>0){
+					// 아래로 스와이프
+					$boxWrapper.css({
+						 '-webkit-transform': 'translate3d(0,'+(-$boxH*(theIndex-1))+'px,0)',
+						 'transform': 'translate3d(0,'+(-$boxH*(theIndex-1))+'px,0)'
+					});
+					$thebox.addClass('box-active').siblings().removeClass('box-active');
+					// console.log(theIndex);
+					$pager.removeClass('on');
+					$pager.eq(theIndex-1).addClass('on');
+			  }
+			}else if(verticalDistance<-30){
+				if(theIndex<boxLength-1){
+					// 위로 스와이프
+					$boxWrapper.css({
+						 '-webkit-transform': 'translate3d(0,'+(-$boxH*(theIndex+1))+'px,0)',
+						 'transform': 'translate3d(0,'+(-$boxH*(theIndex+1))+'px,0)'
+					});
+					$thebox.addClass('box-active').siblings().removeClass('box-active');
+					// console.log(theIndex);
+					$pager.removeClass('on');
+					$pager.eq(theIndex+1).addClass('on');
+			  };
+			};
+		};
+
+		$swipe.find(".section").each(function(){
+			$(this).mousewheel(function(event,delta){
+				//console.log($(this).index());
+				if(delta>0){
+					// 마우스 휠을 올렸을때
+					// console.log("up");
+					// console.log($(this).index());
+					if($(this).index()>0){
+						$boxWrapper.css({
+							 '-webkit-transform': 'translate3d(0,'+(-$boxH*($(this).index()-1))+'px,0)',
+							 'transform': 'translate3d(0,'+(-$boxH*($(this).index()-1))+'px,0)'
+						});
+						$pager.removeClass('on');
+						$pager.eq($(this).index()-1).addClass('on');
+					};
+				}else if(delta<0){
+					// console.log($(this).index());
+					// if($('.inner').eq($(this).index()).scrollTop() >= $('.inner').eq($(this).index()+1).offset().top){
+						// 마우스 휠을 내렸을때
+						// console.log("down");
+						if($(this).index()<boxLength-1){
+							$boxWrapper.css({
+								'-webkit-transform': 'translate3d(0,'+(-$boxH*($(this).index()+1))+'px,0)',
+								'transform': 'translate3d(0,'+(-$boxH*($(this).index()+1))+'px,0)'
+							});
+							$pager.removeClass('on');
+							$pager.eq($(this).index()+1).addClass('on');
+						}
+					// }
+				}
+			});
+		});
+
+		$(window).resize(function(){
+			var $window = $(window),
+			winH = $window.height(),
+			$boxWrapper = $swipe.find('.wrapper'),
+			$box = $swipe.find('.section'),
+			boxLength = $box.length;
+
+			$boxWrapper.height(winH*boxLength);
+
+			/*
+			$boxWrapper.css({
+				'-webkit-transform': 'translate3d(0,'+(winH*($(this).index()+1))+'px,0)',
+				'transform': 'translate3d(0,'+(winH*($(this).index()+1))+'px,0)'
+			});
+			$pager.removeClass('on');
+			$pager.eq($(this).index() +1).addClass('on');
+			*/
+		});
+
+		$('body').on("touchstart touchend touchmove mousedown mouseup mousemove",'.section',handleTouchEvent);
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/swipe2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:09:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/search_text.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { width:600px; }
+		.sch_form { margin:0 auto 30px; width:200px; height:30px; border:1px solid #000; }
+		.sch_form;after { content:""; display:block; clear:both; }
+		.sch_form input.sch_bar { float:left; display:block; width:170px; height:30px; border:0; text-indent:10px; }
+		.sch_form input.sch_btn { float:right; display:block; width:30px; height:30px; line-height:30px; font-size:10px; color:#fff; text-align:center; border:0; background:#000; }
+
+		.pro_list { width:600px; }
+		.pro_list:after { content:""; display:block; clear:both; }
+		.pro_list li { float:left; width:178px; height:218px; margin:10px; border:1px solid #ddd; }
+		.pro_list li dt { width:178px; height:178px; }
+		.pro_list li dd { width:168px; height:29px; padding:5px; border-top:1px solid #ddd; font-size:12px; color:#666; line-height:1.2; }
+		.pro_list li dd span { color:#ff7e00; }
+		.pro_list li dd em { font-weight:bold; font-style:normal; color:#000; background:gold; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="sch_form">
+				<input class="sch_bar" type="text" name="" id="" value="셔츠" />
+				<input class="sch_btn" type="submit" value="검색" />
+			</div>
+			<ul class="pro_list">
+				<li>
+					<dl>
+						<dt><img src="img/sample1.jpg" alt="" /></dt>
+						<dd><span>알꼬르소</span> 스트라이프 데님해지 루즈핏 헨리넥 네이비 셔츠</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt><img src="img/sample2.jpg" alt="" /></dt>
+						<dd><span>알꼬르소</span> 코튼린넨슬럽 헨리넥 화이트 셔츠</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt><img src="img/sample3.jpg" alt="" /></dt>
+						<dd><span>HAZZYS</span> 골지 슬림핏 터틀넥 티셔츠 라이트 그레이</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt><img src="img/sample4.jpg" alt="" /></dt>
+						<dd><span>HAZZYS</span> 스트라이프 버튼 카라 티셔츠</dd>
+					</dl>
+				</li>
+				<li>
+					<dl>
+						<dt><img src="img/sample1.jpg" alt="" /></dt>
+						<dd><span>DAKS</span> 톤온톤 체크 슬림핏 캐주얼 셔츠 블루</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var keyword = $('input.sch_bar').val();
+		if(keyword == ''){
+			
+		}else{
+			$(".pro_list:contains('"+keyword+"')").each(function () {
+				var regex = new RegExp(keyword,'gi');
+				$(this).html( $(this).html().replace(regex, "<em>"+keyword+"</em>") );
+			});
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/search_text.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

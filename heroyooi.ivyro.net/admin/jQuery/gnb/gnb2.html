@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/gnb2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:08:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.menu_wrap { position:fixed; left:50%; top:0; margin-left:-475px; width:950px; height:80px; background:#333; z-index:1; }
+		.menu_wrap h1 { padding:25px 0 0 25px; font-size:25px; }
+		.menu_wrap a { color:#fff; }
+		.menu_wrap ul#gnb { position:absolute; right:30px; top:30px; }
+		.menu_wrap ul#gnb li { float:left; margin-left:30px; }
+		.menu_wrap ul#gnb li a.on { color:#f00; }
+
+		.section { height:1000px; padding:120px 30px 30px; color:#fff; }
+		.top { background:#eee; color:#000; }
+		.section1 { background:#999; }
+		.section2 { background:#666; }
+		.section3 { background:#999; }
+		.section4 { background:#aaa; }
+
+		.section p.tit { font-size:40px; font-weight:bold; text-align:center; }
+
+		@media screen and (max-width:950px) {
+			.menu_wrap { left:0; margin-left:0; }
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="menu_wrap">
+			<h1><a href="#">Logo</a></h1>
+			<ul id="gnb">
+				<li><a href="#">Menu1</a></li>
+				<li><a href="#">Menu2</a></li>
+				<li><a href="#">Menu3</a></li>
+				<li><a href="#">Menu4</a></li>
+			</ul>
+		</div>
+		<div id="wrap">
+			<div class="section top">
+				<p class="tit">Top Content</p>
+			</div>
+			<div class="section section1">
+				<p class="tit">Title1</p>
+			</div>
+			<div class="section section2">
+				<p class="tit">Title2</p>
+			</div>
+			<div class="section section3">
+				<p class="tit">Title3</p>
+			</div>
+			<div class="section section4">
+				<p class="tit">Title4</p>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$(window).on('scroll', function(){
+			var scTop = $(window).scrollTop(),
+				 mh = $('.menu_wrap').height(),
+				 sec1 = $('.section1').offset().top,
+				 sec2 = $('.section2').offset().top,
+				 sec3 = $('.section3').offset().top,
+				 sec4 = $('.section4').offset().top;
+			if(scTop >= 0){
+				$('#gnb a').removeClass('on')
+			}
+			if(scTop >= sec1-mh){
+				$('#gnb a').removeClass('on')
+				$('#gnb a').eq(0).addClass('on')
+			}
+			if(scTop >= sec2-mh){
+				$('#gnb a').removeClass('on')
+				$('#gnb a').eq(1).addClass('on')
+			}
+			if(scTop >= sec3-mh){
+				$('#gnb a').removeClass('on')
+				$('#gnb a').eq(2).addClass('on')
+			}
+			if(scTop >= sec4-mh){
+				$('#gnb a').removeClass('on')
+				$('#gnb a').eq(3).addClass('on')
+			}
+		});
+		$('h1 a').on('click', function(){
+			$('html, body').stop().animate({'scrollTop': 0}, 300);
+			return false;
+		});
+		$('#gnb a').on('click', function(){
+			var idx = $('#gnb a').index(this)+1;
+			$('html, body').stop().animate({'scrollTop': $('.section'+idx).offset().top}, 300);
+			return false;
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/gnb/gnb2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:08:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

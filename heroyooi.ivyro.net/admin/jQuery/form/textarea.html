@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/form/textarea.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<style>
+		span{color:red;}
+		textarea{height:200px;resize:none;}
+		input[type="submit"], .b-modify{display:inline-block;padding:3px 5px;background:#333;color:#fff;font-size:12px;border-radius:3px;border:0;}
+		.b-modify{display:none;}
+		</style>
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<form>
+			<textarea name="desc"></textarea>
+			<input type="submit">
+		</form>
+		<span></span>
+		<a href="#" class="b-modify">수정</a>
+
+		<!-- 스크립트 -->
+		<script>
+		var txt = '';
+		$('form').submit(function(e){
+			txt = $('textarea').val();
+			if(txt == '') return false;
+			var _txt = txt.replace(/\n/g, "<br>").replace(/ /gi, "&nbsp");
+			$('span').show().html(_txt);
+			$('.b-modify').fadeIn(100);
+			$('textarea').val('');
+			$('input[type="submit"').fadeOut(100);
+			e.preventDefault();
+		});
+		$('.b-modify').on('click', function(e){
+			$('span').hide();
+			$('textarea').val( $('span').html().replace(/(<br>|<br\/>|<br \/>)/g, '\r\n').replace(/&nbsp;/g, ' ') ).focus();
+			$(this).fadeOut(100);
+			$('input[type="submit"').fadeIn(100);
+			e.preventDefault();
+		});
+
+		function htmlEntities(str) {
+			return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/form/textarea.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

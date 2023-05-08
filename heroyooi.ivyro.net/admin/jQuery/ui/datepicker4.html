@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="http://heroyooi.ivyro.net/ta/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.min.js"></script>
+
+		<!-- 스타일 -->
+		<style>
+		@import url('../../../../fonts.googleapis.com/earlyaccess/notosanskr.css');
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+		* { box-sizing:border-box; }
+		#wrap{max-width:360px;font-family:'Noto Sans KR';}
+		.check-info div{overflow:hidden;padding:10px 0}
+		.check-info div.check-out{border-top:1px solid #ddd}
+		.check-info p.tit{float:left}
+		.check-info p.res{float:right;}
+
+		/* 달력 */
+		.ui-datepicker{position:relative;background:0;border-radius:0;text-align:center;font-family:'Roboto';font-weight:400}
+		.ui-datepicker-calendar{width:100%}
+		.ui-datepicker-calendar th{padding:10px 0;text-align:center;color:#181818;font-size:12px;font-weight:400}
+		.ui-datepicker-calendar th span[title="Sunday"]{color:#fb4e02}
+		.ui-datepicker-calendar th span[title="Saturday"]{color:#337be8}
+		.ui-datepicker-prev{position:absolute;left:12px;top:25px}
+		.ui-datepicker-next{position:absolute;right:12px;top:25px}
+		.ui-icon.ui-icon-circle-triangle-w{display:inline-block;width:10px;height:21px;background:url(http://heroyooi.ivyro.net/ta/images/cont/sprite_arrow_collection.png) 0 -26px no-repeat;background-size:12px auto;text-indent:-20000px}
+		.ui-icon.ui-icon-circle-triangle-e{display:inline-block;width:10px;height:21px;background:url(http://heroyooi.ivyro.net/ta/images/cont/sprite_arrow_collection.png) 100% -47px no-repeat;background-size:12px auto;text-indent:-20000px}
+		.ui-datepicker-title{padding:20px 0;font-size:30px;color:#333}
+		#ui-datepicker-div{right:10px}
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default, .ui-button,
+		html .ui-button.ui-state-disabled:hover,
+		html .ui-button.ui-state-disabled:active{padding-top:15px;width:45px;height:45px;display:block;font-size:16px;font-weight:100;line-height:1;color:#181818;margin:0 auto;border-radius:50%;-webkit-border-radius:50%}
+		.ui-priority-secondary,
+		.ui-widget-content .ui-priority-secondary,
+		.ui-widget-header .ui-priority-secondary{opacity:.4;}/* 이전달, 다음달 */
+		.ui-state-active,
+		.ui-widget-content .ui-state-active,
+		.ui-widget-header .ui-state-active, a.ui-button:active,
+		.ui-button:active,
+		.ui-button.ui-state-active:hover{background:#4c51f7 !important;color:#fff !important;opacity:1}/* 선택한 날 */
+		/*.ui-state-highlight,
+		.ui-widget-content .ui-state-highlight,
+		.ui-widget-header .ui-state-highlight{background:#fffa90 !important;color:#777620} 오늘 날짜*/
+		.ui-state-active.ui-state-highlight,
+		.ui-widget-content .ui-state-active.ui-state-highlight,
+		.ui-widget-header .ui-state-active.ui-state-highlight{background:#4c51f7 !important;color:#fff;opacity:1} /* 오늘 & 오늘을 선택할 경우 */
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) a,
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) span{color:#fb4e02}/* 주말 및 공휴일 */
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) a,
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) span{color:#4c51f7}/* 주말 및 공휴일 */
+		.datepicker-wrap{margin-top:10px}
+		.datepicker-wrap > div{display:none}
+
+		@media screen and (max-width:360px){
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default, .ui-button,
+		html .ui-button.ui-state-disabled:hover,
+		html .ui-button.ui-state-disabled:active{padding-top:13px;width:40px;height:40px}
+		}
+
+		@media screen and (max-width:320px){
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default, .ui-button,
+		html .ui-button.ui-state-disabled:hover,
+		html .ui-button.ui-state-disabled:active{padding-top:10px;width:35px;height:35px}
+		}
+		</style>
+		<!-- // 스타일 -->
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="check-info">
+				<div class="check-in">
+					<p class="tit">체크인</p>
+					<p class="res"><span class="month">12</span>월 <span class="day">26</span>일</p>
+				</div>
+				<div class="check-out">
+					<p class="tit">체크아웃</p>
+					<p class="res"><span class="month">12</span>월 <span class="day">28</span>일</p>
+				</div>
+			</div>
+			<div id="datepicker"></div>
+		</div><!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$.datepicker.setDefaults({
+			showMonthAfterYear: true,
+			yearSuffix: '<span class="ui-datepicker-dot">.</span>',
+			monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+			dayNamesMin: ['SUN','MON','TUE','WED','THU','FRI','SAT'],
+			showOtherMonths: true,
+			selectOtherMonths: false
+		});
+
+		$('.visit-date p.tit').on('click', function(){
+			if(!$(this).parent().hasClass('on')){
+				$(this).parent().addClass('on');
+			}else{
+				$(this).parent().removeClass('on');
+			}
+		});
+		$('#datepicker').datepicker({
+			// showOtherMonths: false,
+			onSelect: function(selectedDate){
+				var year = selectedDate.substring(6,10);
+				var month = selectedDate.substring(0,2);
+				var day = selectedDate.substring(3,5);
+				$('.visit-date').removeClass('on');
+				$('.visit-date p.tit').text(year+'-'+month+'-'+day);
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker4.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

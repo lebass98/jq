@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/kakao.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script src="../../../../developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		p.link { margin-bottom:10px; }
+		p.link a { font-size:14px; font-weight:bold; color:#333; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<p class="link"><a href="https://developers.kakao.com/docs/js" target="_blank">JavaScript 개발가이드 바로가기</a></p>
+			<a id="kakao-link-btn" href="javascript:;"><img width="30" src="../../../../developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/></a>
+			<script type='text/javascript'>
+			  //<![CDATA[
+				// // 사용할 앱의 JavaScript 키를 설정해 주세요.
+				Kakao.init('3569d435f3321d74730a0285fb9539ff');
+				// // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+				Kakao.Link.createTalkLinkButton({
+				  container: '#kakao-link-btn',
+				  label: '퍼블리싱 폴포츠 사이트에 오신 것을 환영합니다♪',
+				  image: {
+					src: 'http://heroyooi.ivyro.net/origin/img/about/syw_mob.jpg',
+					width: '300',
+					height: '254'
+				  },
+				  webButton: {
+					text: '퍼블리싱 폴포츠',
+					url: 'http://heroyooi.ivyro.net' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+				  }
+				});
+			  //]]>
+			</script>
+		</div>
+		<!-- // wrap -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/kakao.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

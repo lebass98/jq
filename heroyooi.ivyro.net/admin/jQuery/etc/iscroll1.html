@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/iscroll1.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/iscroll.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#side_menu_wrap { border-left:1px solid #c7c7c7; border-bottom:1px solid #c7c7c7; background:#f2f2f2; position:absolute; top:0; right:0; width:275px; height:700px; }
+		.option_tab { display:block; position:absolute; top:0; left:-43px; width:42px; }
+		.option_tab li { width:42px; display:block; }
+		.option_tab a { display:block; width:42px; height:49px; font-size:0; text-indent:-9999px; background:url("img/iscroll/bg_custom_tab.png") no-repeat 0 0; }
+		.option_tab .tab_color a { background-position:0 0; }
+		.option_tab .tab_print a { background-position:0 -49px; }
+		.option_tab .tab_emblem a { background-position:0 -98px; }
+		.option_tab .tab_strap a { background-position:0 -147px; }
+		.option_tab .tab_patch a { background-position:0 -196px; }
+		.option_tab .tab_color.on a { background-position:-42px 0; }
+		.option_tab .tab_print.on a { background-position:-42px -49px; }
+		.option_tab .tab_emblem.on a { background-position:-42px -98px; }
+		.option_tab .tab_strap.on a { background-position:-42px -147px; }
+		.option_tab .tab_patch.on a { background-position:-42px -196px; }
+
+		.side_menu { position:relative; height:700px; overflow:hidden; cursor:pointer; }
+		#side_menu_cnt { background:url("img/iscroll/bg_side_menu.png"); position: absolute; z-index: 1; top: 0; bottom: 0px; left: 0; width: 100%; overflow: hidden; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="side_menu_wrap">
+			<div class="option_tab">
+				<ul>
+					<li class="tab_color on"><a href="#">컬러 옵션</a></li>
+					<li class="tab_print"><a href="#">프린트 옵션</a></li>
+					<li class="tab_emblem"><a href="#">엠블렘 옵션</a></li>
+					<li class="tab_strap"><a href="#">스트랩 옵션</a></li>
+					<li class="tab_patch"><a href="#">패치 옵션</a></li>
+				</ul>
+			</div>
+			<!-- // option_tab -->
+			<div class="side_menu">
+				<div id="side_menu_cnt">
+					<div class="scroller">
+						<!--01. 컬러 선택-->
+						<div class="menu_section color_choice">
+							----------------------------<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역<br />
+							컬러 선택 영역
+						</div>
+						<!--//01. 컬러 선택-->
+						<!--02. 패턴 선택-->
+						<div class="menu_section pattern_choice">
+							----------------------------<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역<br />
+							패턴 영역
+						</div>
+						<!--//02. 패턴 선택-->
+						<!--03. 엠블렘 선택-->
+						<div class="menu_section emblem_choice">
+							----------------------------<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역<br />
+							엠블렘 영역
+						</div>
+						<!--//03. 엠블렘 선택-->
+						<!--04. 스트랩 선택-->
+						<div class="menu_section strab_choice">
+							----------------------------<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역<br />
+							스트랩 영역
+						</div>
+						<!--//04. 스트랩 선택-->
+						<!--05. 와펜 선택-->
+						<div class="menu_section wappen_choice">
+							----------------------------<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역<br />
+							와펜 영역
+						</div>
+						<!--//05. 와펜 선택-->
+					</div>
+					<!-- // scroller -->
+				</div>
+				<!-- // side_menu_cnt -->
+			</div>
+			<!-- // side_menu -->
+		</div>
+		<!-- // side_menu_wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$(window).on('load', function(){
+			side_menu_loaded(); //사이드 메뉴 스크롤 
+			svg_mouse_ev(); // 사이드 메뉴 클릭 시 위치 이동
+		});
+
+		function side_menu_loaded () {
+			myScroll = new IScroll('#side_menu_cnt', { 
+				scrollX: false, scrollY: true,
+				/*
+				eventPassthrough: true,
+				preventDefault: false,
+				hideScrollbar: false,
+				*/
+				bounce: false,
+				scrollbarClass: 'myScrollbar',
+				mouseWheel: true,
+				scrollbars: true,
+				click: true
+			});
+		}
+
+		function svg_mouse_ev(){
+			var agent = navigator.userAgent.toLowerCase();
+			$(".tab_color a").click(function(){ // 컬러
+				var top  = $('.color_choice').position().top;
+				if (agent.indexOf("msie 9") != -1) { // ie9
+					myScroll.scrollBy(0, -top);
+				}else{
+					myScroll.scrollToElement(".color_choice", "300");
+				}
+				tab_option_init();
+				$(this).parent().addClass("on");
+				return false;
+			});
+			$(".tab_print a").click(function(){ // 프린트
+				var top  = $('.pattern_choice').position().top;
+				if (agent.indexOf("msie 9") != -1) { // ie9
+					myScroll.scrollBy(0, -top);
+				}else{
+					myScroll.scrollBy(0, -top,  "300");
+				}
+				tab_option_init();
+				$(this).parent().addClass("on");
+				return false;
+			});
+			$(".tab_emblem a").click(function(){ // 엠블렘
+				var top  = $('.emblem_choice').position().top;
+				if (agent.indexOf("msie 9") != -1) { // ie9
+					myScroll.scrollBy(0, -top);
+				}else{
+					myScroll.scrollBy(0, -top,  "300");
+				}
+				tab_option_init();
+				$(this).parent().addClass("on");
+				return false;
+			});
+			$(".tab_strap a").click(function(){ // 스트랩
+				var top  = $('.strab_choice').position().top;
+				if (agent.indexOf("msie 9") != -1) { // ie9
+					myScroll.scrollBy(0, -top);
+				}else{
+					myScroll.scrollBy(0, -top,  "300");
+				}
+				tab_option_init();
+				$(this).parent().addClass("on");
+				return false;
+			});
+			$(".tab_patch a").click(function(){ // 와펜
+				var top  = $('.wappen_choice').position().top;
+				if (agent.indexOf("msie 9") != -1) { // ie9
+					myScroll.scrollBy(0, -top);
+				}else{
+					myScroll.scrollBy(0, -top,  "300");
+				}
+				tab_option_init();
+				$(this).parent().addClass("on");
+				return false;
+			});
+		}
+		function tab_option_init(){
+			$(".option_tab li").removeClass("on");
+			$(".wappen_module").css("display","none");
+			// wappen_grid = false;
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/iscroll1.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="http://heroyooi.ivyro.net/ta/css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.min.js"></script>
+
+		<!-- 스타일 -->
+		<style>
+		@import url('../../../../fonts.googleapis.com/earlyaccess/notosanskr.css');
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+		* { box-sizing:border-box; }
+		em{font-style:normal;}
+		#wrap{max-width:100%;font-family:'Noto Sans KR';}
+		.check-info div{overflow:hidden;padding:10px 0}
+		.check-info div.check-out{border-top:1px solid #ddd}
+		.check-info p.tit{float:left}
+		.check-info p.res{float:right;}
+
+		.wrap-select-date {padding-top:160px;padding-bottom:50px;background:#f8f8f8;}
+		.wrap-select-date .c-fix-btn {display: none;}
+		.s-chk-area {position:fixed;width:100%;top:0;left:0;z-index:1;background:#fff;}
+		.s-chk-area .chk-date {padding-left:15px;margin-bottom:10px;}
+		.s-chk-area .chk-date li {position: relative;font-size:22px;color: #000;font-weight: 300;border-top: 1px solid #b2b2b2;padding: 10px 0;}
+		.s-chk-area .chk-date li em {font-family:'Roboto';font-weight: 600;font-size:23px;}
+		.s-chk-area .chk-date li:first-child {border-top: 0;}
+		.s-chk-area .chk-date .cd-date {position: absolute;right: 30px;}
+		.s-chk-area .chk-date input[type="text"] {border: 0;clip: rect(0 0 0 0);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}
+		.s-chk-area .result-days {text-align: center;position: absolute;width: 100%;top:23px;display: none;}
+		.s-chk-area .result-days .inner {display: inline-block;font-size:17px;color: #fff;font-weight: 300;background-color: #f14406;text-align: center;min-width:50px;height: 50px;line-height: 50px;border-radius: 50px;padding: 0 13px;}
+		.s-chk-area .result-days em {font-family:'Roboto';font-weight: 600;font-size:18px;}
+		.u-datepicker-weekend {padding: 0 15px;background-color: #f8f8f8;}
+		.u-datepicker-weekend ul {border-bottom: 1px solid #e6e6e5;display: table;table-layout: fixed;width: 100%;background-color: #f8f8f8;}
+		.u-datepicker-weekend li {display: table-cell;width: 14.28571428571429%;font-size:12px;color: #000;font-family:'Roboto';font-weight: 300;text-align: center;padding: 19px 0;}
+		.u-datepicker-weekend li:first-child {color: #f35600;}
+		.u-datepicker-weekend li:last-child {color: #337be8;}
+
+		/* datepicker */
+		.ui-datepicker.ui-datepicker-multi{position:relative;background-color: #f8f8f8;border-radius:0;text-align:center;font-family:'Roboto';}
+		.ui-datepicker-multi .ui-datepicker-group {float: none;}
+		.ui-datepicker-multi .ui-datepicker-group table {width: 100%;margin: 0 auto;table-layout: fixed;}
+		.ui-widget-header {background: none;border: 0;color: #000;font-weight: normal;}
+		.ui-widget.ui-widget-content {border: 0;}
+		.ui-datepicker .ui-datepicker-header {padding: 30px 0 20px 0;}
+		.ui-datepicker .ui-datepicker-header .ui-corner-all {display: none;}
+		.ui-datepicker .ui-datepicker-title {padding:0;font-size:17px;color:#000;font-weight: 600;}
+		.ui-datepicker-calendar{width:100%;padding-top: 20px;}
+		.ui-datepicker-calendar > thead {display: none;}
+		.ui-datepicker-today .ui-state-default,
+		.ui-state-active, 
+		.ui-widget-content .ui-state-active, 
+		.ui-widget-header .ui-state-active, 
+		a.ui-button:active, 
+		.ui-button:active, 
+		.ui-button.ui-state-active:hover {background: none;}
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) a,
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(1n) span{color:#f35600}
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) a,
+		.ui-datepicker td.ui-datepicker-week-end:nth-child(7n) span{color:#337be8}
+		.ui-state-default,
+		.ui-widget-content .ui-state-default,
+		.ui-widget-header .ui-state-default, .ui-button,
+		html .ui-button.ui-state-disabled:hover,
+		html .ui-button.ui-state-disabled:active {width: 40px;height: 40px;line-height: 40px;display:block;font-size:15px;color:#181818;border: 0;text-align: center;padding: 0;margin: 0 auto;background: #f8f8f8;}
+		.ui-datepicker {padding: 0 15px;}
+		.ui-datepicker td {padding: 0;}
+		.dp-highlight .ui-state-default {background: #fb4e02;color: #fff !important;font-weight: 600;border-radius: 50%;}
+		.dp-highlight.pd-between {background: #fb4e02;}
+		.dp-highlight.dp-first {
+			-webkit-background: linear-gradient(to right,#f8f8f8 0%,#f8f8f8 50%,#fb4e02 50%,#fb4e02 100%);
+			-moz-background: linear-gradient(to right,#f8f8f8 0%,#f8f8f8 50%,#fb4e02 50%,#fb4e02 100%);
+			background: linear-gradient(to right,#f8f8f8 0%,#f8f8f8 50%,#fb4e02 50%,#fb4e02 100%);
+		}
+		.dp-highlight.dp-end {
+			-webkit-background: linear-gradient(to right,#fb4e02 0%,#fb4e02 50%,#f8f8f8 50%,#f8f8f8 100%);
+			-moz-background: linear-gradient(to right,#fb4e02 0%,#fb4e02 50%,#f8f8f8 50%,#f8f8f8 100%);
+			background: linear-gradient(to right,#fb4e02 0%,#fb4e02 50%,#f8f8f8 50%,#f8f8f8 100%);	
+		}
+		</style>
+		<!-- // 스타일 -->
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="wrap-select-date">
+				<div class="s-chk-area">
+					<ul class="chk-date">
+						<li class="chk-in">
+							<span class="cd-label">체크인</span>
+							<span class="cd-date"><!--<em class="month">12</em>월 <em class="day">26</em>일--></span>
+							<input type="text" class="selectDay" size="10">
+						</li>
+						<li class="chk-out">
+							<span class="cd-label">체크아웃</span>
+							<span class="cd-date"><!--<em class="month">12</em>월 <em class="day">29</em>일--></span>
+							<input type="text" class="selectDay" size="10">
+						</li>
+					</ul>
+					<span class="result-days"><span class="inner"><em class="days"></em>박</span></span>
+					<div class="u-datepicker-weekend">
+						<ul>
+							<li>SUN</li>
+							<li>MON</li>
+							<li>TUE</li>
+							<li>WED</li>
+							<li>THU</li>
+							<li>FRI</li>
+							<li>SAT</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="datepicker"></div>
+
+				<div class="c-fix-btn">
+					<div class="ly-cfb ly-item-sb">
+						<span class="c-btn b-st1"><a href="#">완료</a></span>
+					</div>
+				</div>
+			</div><!-- // wrap-select-date -->
+		</div><!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$('#datepicker').datepicker({
+			showMonthAfterYear: true,
+			yearSuffix: '<span class="ui-datepicker-dot">.</span>',
+			monthNames: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+			minDate: '1',
+			maxDate: '+362',
+			numberOfMonths: [13,1],
+			dateFormat: 'yy-mm-dd',
+			beforeShowDay: function(date) {
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
+				var addClassName = '';
+				if(date1){
+					if(date.getTime() == date1.getTime()){
+						if(date2){
+							addClassName = 'dp-highlight dp-first';
+						}
+						else{
+							addClassName = 'dp-highlight';
+						}
+					}
+					else if(date2){
+						if(date.getTime() == date2.getTime()){
+							addClassName = 'dp-highlight dp-end';
+						}
+						else if(date > date1 && date < date2){
+							addClassName = 'dp-highlight pd-between';
+						}
+					}
+				}
+				else{
+					addClassName = '';
+				}
+				return [true, addClassName];
+			},
+			onSelect: function(dateText, inst) {
+				var date1 = $.datepicker.parseDate('yy-mm-dd', $(".chk-in .selectDay").val());
+				var date2 = $.datepicker.parseDate('yy-mm-dd', $(".chk-out .selectDay").val());
+				var selectedDate = $.datepicker.parseDate('yy-mm-dd', dateText);
+				var month = (selectedDate.getMonth()+1) < 10 ? '0' + (selectedDate.getMonth()+1)  : selectedDate.getMonth()+1;
+				var day = selectedDate.getDate() < 10 ? '0' + selectedDate.getDate()  : selectedDate.getDate();
+				
+				if (!date1 || date2) {
+					$(".chk-in .selectDay").val(dateText);
+					$(".chk-out .selectDay").val('');
+					$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+					$(".chk-out .cd-date").html('');
+					$('.wrap-select-date .c-fix-btn, .result-days').hide();
+					$(this).datepicker();
+				} else {
+					if( selectedDate < date1 ) {
+						$(".chk-out .selectDay").val( $(".chk-in .selectDay").val() );
+						$(".chk-in .selectDay").val(dateText);
+						$(".chk-out .cd-date").html($(".chk-in .cd-date").html());
+						$(".chk-in .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+					} else {
+						if($(".chk-in .selectDay").val() == dateText){return}
+						$(".chk-out .selectDay").val(dateText);
+						$(".chk-out .cd-date").html('<em class="month">'+month+'</em>월 <em class="day">'+day+'</em>일');
+					}
+					
+					var chkIn = $(".chk-in .selectDay").val().split('-');
+					var chkOut = $(".chk-out .selectDay").val().split('-');
+					var chkInDate = new Date(chkIn[0], chkIn[1], chkIn[2]);
+					var chkOutDate = new Date(chkOut[0], chkOut[1], chkOut[2]);
+					var duration = (chkOutDate-chkInDate)/1000/60/60/24;
+					$('.result-days .days').text(duration);
+					$('.wrap-select-date .c-fix-btn, .result-days').show();
+					$(this).datepicker();
+				}
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/ui/datepicker5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

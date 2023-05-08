@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/scrollbar.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.mCustomScrollbar.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.tb_wrap { margin:0 auto; padding:10px; width:768px; height:586px; background:#f7f7f7; }
+		.tb_wrap div.content { /*width:748px;*/ width:768px; }
+
+		/*
+		.tb_wrap .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { background:#8e8e8e; }
+		.tb_wrap .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar, 
+		.tb_wrap .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
+			background:#8e8e8e; 
+		}
+		.tb_wrap .mCSB_scrollTools .mCSB_draggerRail { background:none; }
+		.tb_wrap .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar { background:#8e8e8e; }
+		*/
+		/*
+		.tb_wrap .mCSB_container_wrapper { margin-right:20px; margin-bottom:20px; }
+		*/
+
+		#target{background:red;color:#fff;padding:10px;border-radius:3px;-webkit-border-radius:3px;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="tb_wrap">
+				<div class="content">
+					내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					<p id="target">target</p>
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+					내용이 나옵니다.<br />
+				</div>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		// http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/scrollbar_themes_demo.html
+		$(".tb_wrap").mCustomScrollbar({
+			theme: "inset-2-dark",
+			mouseWheel: {
+				enable: true,
+				scrollAmount: 100
+			},
+			scrollButtons:{
+				enable: true
+			},
+			axis: "yx",
+			autoExpandScrollbar: true, // 마우스오버시 확대 효과
+			callbacks: {
+				onInit: function(){}, // 레이아웃이 완성되기 전
+				onScrollStart: function(){}, // 스크롤링이 시작될 때
+				onScroll: function(){}, // 스크롤링 되고나서
+				whileScrolling: function(){}, // 스크롤 될때마다
+			}
+		});
+
+		$('.tb_wrap').mCustomScrollbar("scrollTo","#target");
+
+		// Scroll to 300 pixels
+		//$('.tb_wrap').mCustomScrollbar("scrollTo",300);
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/scrollbar.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/input/04-3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.file_wrap { width:100%; padding-bottom:20px; overflow-x:auto; }
+		.filebox_wrap { overflow:hidden; }
+		.filebox_wrap li { position:relative; float:left; width:90px; height:90px; margin-left:10px; }
+		.filebox_wrap li:first-child { margin-left:0; }
+		.filebox_wrap li img { width:88px; height:88px; border:1px solid #ddd; }
+		.filebox_wrap li input.img_upload { position:absolute; left:0; top:0; width:100%; height:100%; background:gold; opacity:0; filter:alpha(opacity=0); cursor:pointer; }
+		.filebox_wrap li a.remove { position:absolute; right:0; top:0; width:20px; height:20px; line-height:20px; text-align:center; background:#000; font-size:11px; color:#fff; display:block; }
+		.filebox_wrap li:last-child a.remove { display:none; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="file_wrap">
+			<ul class="filebox_wrap">
+				<li>
+					<img src="img/file_default.jpg" alt="">
+					<input type="file" name="btn_file[]" class="img_upload">
+					<a href="#" class="remove">X</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript" src="../common/js/load-image.all.min.js"></script>
+		<script type="text/javascript">
+		$(function() {
+			eventHandlerAttach();
+		});
+
+		function eventHandlerAttach() {
+			var $thumb_limit = 4; // 갯수 제한
+			$('.img_upload').on('click', function(){
+				if( $('.filebox_wrap li').size() > $thumb_limit ){
+					if( $('.img_upload').index(this) == $thumb_limit ){
+						alert('더 이상 등록이 불가능합니다.');
+						return false;
+					}
+				}
+			});
+
+			$('.img_upload').not('.change-event-attached').on('change', function(e) {
+				// 이벤트 핸들러 중복 방지
+				$(this).addClass('change-event-attached');
+				var $target = $(this).parent().find('img');
+				loadImage(
+					e.target.files[0],
+					function (img) {
+						$target.prop('src', img.toDataURL());
+
+						if( $('.filebox_wrap').find('img[src*="file_default.jpg"]').size() < 1 ){
+							var filebox = '';
+							filebox += '<li><img src="img/file_default.jpg" alt=""><input type="file" name="btn_file[]" class="img_upload" accept="image/*"><a href="#" class="remove">X</a></li>'
+							$('.filebox_wrap').append(filebox);
+						}
+						eventHandlerAttach();
+						fbResize(); // 가변적인 사이즈 계산
+					},
+					{
+						canvas: true,
+						crop: true,
+						downsamplingRatio: 0.5,
+						maxWidth: 80,
+						maxHeight: 80,
+						orientation: true
+					}
+				);
+			});
+
+			$('.filebox_wrap a.remove').click(function(){
+				$(this).parent().remove();
+				fbResize();
+				return false;
+			});
+		}
+
+		function fbResize(){ // 가변적인 사이즈 계산
+			var $thumb_num = $('.filebox_wrap').children('li').length;
+			$('.filebox_wrap').css('width', $thumb_num*100-10);
+			$('.file_wrap').scrollLeft( $thumb_num * 100 );
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/input/04-3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

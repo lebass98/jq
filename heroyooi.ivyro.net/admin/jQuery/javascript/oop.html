@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/oop.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+		<script type="text/javascript" src="https://codemirror.net/lib/codemirror.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/javascript/javascript.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/addon/selection/active-line.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/xml/xml.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+		<script type="text/javascript" src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script>
+
+		<style>
+		html,body{width:100%; height:100%;}
+		#wrap{width:100%; height:100%; position:relative; background-color: #111; z-index:10;}
+		#header{width:100%;}
+		#wrap .in{font-size:17px; color:#fff; line-height:25px;}
+		.code{width:1000px; margin:0 auto; font-size:15px; color:#fff; line-height:24px;}
+		.block{margin-bottom:30px; padding:10px 0; width:100%; text-align:center; border:1px solid #fff;}
+		.block>b{display:inline-block; padding:5px 0; font-size:20px; color:yellow; font-weight:600; }
+		.add{padding:10px 0; width:20%; margin:0 auto; font-size:20px; color:#fff; font-weight:600; text-align:center; border:1px solid red; cursor:pointer;}
+		.del{font-size:20px; color:#fff; text-align:center; cursor:pointer;}
+		.total{font-size:20px; color:#fff; text-align:center; cursor:pointer;}
+		.total>span{font-size:120%; color:red; font-weight:600;}
+		.sampleWrap{margin-top:30px;}
+		.sampleWrap>p{padding-bottom:10px; font-size:16px; color:#222; font-weight:600;}
+		.CodeMirror-wrap{border:1px solid #ddd;}
+		.CodeMirror{height:100%;}
+		.CodeMirror *{font-family:"Malgun Gothic","맑은 고딕",sans-serif;font-size:14px; line-height:1.4;}
+		</style>
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="code in">
+				<div class="area"></div>
+				<div class="add">추가</div>
+
+				<div class="total">데이터 갯수 : <span></span></div>
+			</div>
+			<div class="sampleWrap">
+
+			<script type="text/javascript">
+			//<![CDATA[
+			$(document).ready(function(){
+				genHTML(); // codemirror 실행
+				var _num = 0;
+				var arr = [];
+
+				var reset = {
+					init : function(){
+						//alert();
+						//reset.create(); 초기 생성 _num=1; 셋팅
+						$(".add").on("click", function(){
+							_num++;
+							reset.create();
+						});
+					},
+
+					create : function(){
+						var obj = {};
+						obj.num = _num;
+						console.log("갯수_" + obj.num);
+						$(".total>span").text(obj.num);
+						reset.draw(obj);
+					},
+
+					draw : function(obj){
+						//console.log(obj);
+						var $html = "";
+						$html += "<div class='block' id="+ obj.num +"><b>"+ obj.num +"</b>";
+						$html += "<div class='del'>삭제</div>";
+						$html += "</div>";
+						obj.ui = $($html);
+						$(".area").append(obj.ui);
+						arr.push(obj);
+						//console.log(arr);
+						reset.event(obj);
+					},
+
+					event : function(obj){
+						obj.ui.find(".del").on("click", function(){
+							obj.ui.remove();
+							arr.splice(obj.num, 1);
+							reset.change(arr);
+							_num--;
+							console.log("갯수_"+_num);
+							$(".total>span").text(_num);
+						});
+						reset.change(arr);
+						console.log(_num);
+					},
+
+					change : function(arr){
+						for(var i in arr){
+							var obj = arr[i];
+							obj.num = parseInt(i);
+							obj.ui.attr("id", obj.num);
+							obj.ui.find("b").text(obj.num);
+						};
+					}
+				}
+				reset.init();
+			});
+			//]]>
+			</script>
+			</div><!-- // sampleWrap -->
+
+			<!-- 스크립트 -->
+			<script type="text/javascript" src="../common/js/jquery.animateNumber.js"></script>
+			<script type="text/javascript">
+				function genHTML(valArr){
+					$('.sampleWrap').each(function(i){
+						var temp = valArr || $(this).html();
+						var $src = $('<div class="htmlsrc" ></div>');
+						$(this).after($src);	
+						var myCodeMirror = CodeMirror($src[0], {
+							value: valArr ? temp[i] : temp,
+							mode: 'htmlmixed',
+							lineNumbers: !$(this).is('.inline'),
+							readOnly: true,
+							styleActiveLine: false,
+							autoClearEmptyLines:true,
+							lineWrapping: true,
+							matchBrackets: true
+						});
+						if($(this).hasClass('mine')) $(this).hide(); // 클래스 mine 이 붙으면 기존에 있던 텍스트는 삭제
+					});
+				}
+				</script>
+				<!-- // 스크립트 -->
+			</div><!-- //wrap -->
+
+			<!--
+				http://lucky8401.dothome.co.kr/jquery/info/info_0.html
+				재영씨 예제
+			-->
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/oop.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

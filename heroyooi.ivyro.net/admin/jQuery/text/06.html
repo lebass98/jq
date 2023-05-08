@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/text/06.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/animate.css">
+		<link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/TweenMax.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.textillate.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.lettering.js"></script>
+		<!-- <script type="text/javascript" src="../common/js/jquery.fittext.js"></script> -->
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.txt_box { position:relative; padding-top:200px;  }
+		.txt_box div.line { position:relative; margin-top:20px; background:url('img/txt_bg.png')left top no-repeat; }
+		.txt_box p { position:relative; }
+		.txt_box p.txt { color:#54450e; line-height:1; }
+		.txt_box p.txt.sty1 { font-size:50px; font-weight:bold; color:#3b310f; font-family: 'Titillium Web', sans-serif; }
+		.txt_box p.txt.sty2 { font-size:20px; font-weight:bold; font-family: 'Titillium Web', sans-serif; }
+		.txt_box p.txt.sty3 { padding:15px 0 5px 0; font-size:15px; line-height:1.5; }
+		.txt_box p.txt.sty4 { font-size:15px; color:#969696; line-height:1.4; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div class="txt_box">
+				<p class="txt sty1">YEON WOOK SUNG</p>
+				<p class="txt sty2">WEB PUBLISHER PORTFOLIO</p>
+				<div class="line">
+					<p class="txt sty3">
+						방문해 주셔서 감사합니다. <br />
+						이 페이지는 웹퍼블리셔로서 해왔던 모든 것을 모아둔 포트폴리오입니다.<br />
+						제 컨텐츠에 관심이 있으시다면, 언제든지 연락주세요!
+					</p>
+					<p class="txt sty4">
+						Thank you for visiting my homepage. <br />
+						This page is a kind of portfolio that includes what i have done as a web publisher. <br />
+						If you are interested in my contents. Do not hesitate to contact me!
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		TweenMax.from($('.txt_box p.txt.sty1'), .7, {css:{left: 0, top: 20, opacity:0}, ease: Quad.easeOut});
+		TweenMax.from($('.txt_box p.txt.sty2'), .7, {css:{left: 0, top: 20, opacity:0}, ease: Quad.easeOut});
+		TweenMax.from($('.txt_box div.line'), .7, {css:{left: 0, top: -80, opacity:0}, delay: .5, ease: Quad.easeOut});
+		$('.txt_box .sty2').textillate({loop: true,minDisplayTime: 2000, _in: {effect: 'swing'}, out: { effect: 'swing'}});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/text/06.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

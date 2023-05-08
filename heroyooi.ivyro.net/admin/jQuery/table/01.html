@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/table/01.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.chromatable.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.tb { width:100%; }
+		.tb th { padding:10px 0; border:1px solid #ddd; font-size:14px; color:#fff; text-align:center; background:#333; box-sizing:border-box; -webkit-box-sizing:border-box; }
+		.tb td { padding:10px; border-left:1px solid #ddd; border-right:1px solid #ddd; border-bottom:1px solid #ddd; font-size:13px; color:#666; line-height:1.4; background:#fff; box-sizing:border-box; -webkit-box-sizing:border-box; }
+
+
+		.scrolling_outer { margin-top:30px; }
+		.ui-resizable {
+			position:relative;
+		}
+		.ui-resizable-handle {
+			display:block;
+			font-size:0.1px;
+			position:absolute;
+			z-index:99999;
+		}
+
+		.ui-resizable-s { 
+			background:#eee url(img/grippie.png) no-repeat scroll center 2px;
+			border-top:1px solid #ccc;
+			bottom:-5px;
+			cursor:s-resize;
+			height:14px;
+			left:0;width:100%; 
+		}
+
+
+		@media screen and (max-width:950px){
+			#wrap { width:96%; }
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<table class="tb" id="tb1">
+				<thead>
+					<tr>
+						<th>제목1</th>
+						<th>제목2</th>
+						<th>제목3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="tb" id="tb2">
+				<thead>
+					<tr>
+						<th>제목1</th>
+						<th>제목2</th>
+						<th>제목3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+					<tr>
+						<td>내용1</td>
+						<td>내용2</td>
+						<td>내용3</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$("#tb1").chromatable({
+			width: "100%",
+			height: "250px",
+			scrolling: "no"
+		});
+
+		$("#tb2").chromatable({
+			width: "100%",
+			height: "250px",
+			scrolling: "yes"
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/table/01.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:32:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/kakao_talk.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/jquery.mCustomScrollbar.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.mCustomScrollbar.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		html, body { height:100%; }
+		.kakao_wrap { position:relative; width:768px; height:100%; padding-bottom:90px; background:#a0c0d7; margin:0 auto; font-family:'ng'; box-sizing:border-box; }
+		.kakao_wrap .date{ padding:10px 0; background:#98b6cc; text-align:center; }
+		.kakao_wrap .date span{ display:inline-block; padding:5px 20px; color:#404040; font-size:16px; }
+
+		.talk_myself .mCSB_inside > .mCSB_container { margin-right:15px; }
+		.talk_myself .mCSB_scrollTools { top:10px; bottom:10px; }
+
+		.talk_container { position:relative; min-height:110px; padding:0 10px; }
+		.talk_wrap { padding:10px 0 10px 80px; min-height:75px; }
+		.talk_user { position:absolute; left:0; top:10px; width:60px; text-align:center; }
+		.talk_user p.user { width:60px; height:60px; border-radius:50%; -webkit-border-radius:50%; overflow:hidden; }
+		.talk_user p.name { padding-top:10px; font-size:15px; font-weight:bold; }
+
+		.talk_cont li { margin-bottom:10px; font-size:15px; word-break:break-all; }
+		.talk_cont li div{ position:relative; display:inline-block; max-width:260px; padding:15px 13px; background:#fff; border-radius:5px; line-height:1.5; font-size:14px; color:#000; box-shadow:1px 1px 1px #969696; }
+		.talk_cont li div img{vertical-align:bottom;}
+		.talk_cont li div a{display:inline-block;color:#000;border-bottom:1px solid #000;}
+		.talk_cont li em.time{ position:absolute; bottom:0; display:inline-block;font-size:12px;color:#666;vertical-align:bottom;font-style:normal; padding:5px; }
+
+		.talk_cont.left li { display:none; padding-left:4px; padding-right:50px; }
+		.talk_cont.left li:first-child { background:url('img/kakao/kakao_talk.png') left top no-repeat; }
+		.talk_cont.left li:first-child span { border-top-left-radius:0px; }
+		.talk_cont.left li em.time { right:-45px; }
+		.talk_cont.right{display:none;text-align:right;}
+		.talk_cont.right li{ display:block; padding-right:3px; padding-left:0px; }
+		.talk_cont.right li:first-child{background:url('img/kakao/kakao_talk_r.png') right top no-repeat;}
+		.talk_cont.right li div{ max-width:100%; background:#454545; box-shadow:-0.5px 1px 1px #969696; color:#fff; white-space: pre-line;/* 줄바꿈 인식 */ }
+		.talk_cont.right li em.time { left:-45px; }
+
+		.talk_write { position:absolute; bottom:0px; left:0px; width:100%; height:90px; }
+		.talk_write .inner { position:relative; padding:5px 90px 5px 5px; height:80px; background:#cddbe6; }
+		.talk_write .inner textarea { width:100%; height:80px; padding:10px; border:none; resize:none; font-size:12px; color:#666; outline:none; font-family:'ng'; box-sizing:border-box; }
+		.talk_write .inner a { position:absolute; top:5px; right:5px; display:inline-block; width:80px; height:80px; line-height:80px; background:#666; font-size:14px; color:#fff; text-align:center; }
+
+		@media screen and (max-width:768px){
+			.kakao_wrap{width:100%;}
+			.talk_wrap { padding-left:70px; }
+			.talk_cont li div{max-width:220px;padding:10px;font-size:12px;}
+			.talk_cont li em.time{padding:5px;}
+			.talk_cont.right li em.time{display:block;}
+		}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<div class="kakao_wrap">
+			<div class="talk_myself">
+				<div class="date"><span></span></div>
+				<div class="talk_container">
+					<div class="talk_wrap">
+						<div class="talk_user">
+							<p class="user"><img src="../../../origin/img/contact/syw.jpg" alt="" /></p>
+							<p class="name">성 연 욱</p>
+						</div>
+						<!-- 대화창 -->
+						<ul class="talk_cont left">
+							<li>
+								<div><p>안녕하세요! <img src="img/kakao/smail.jpg" alt="" /></p></div>
+							</li>
+							<li>
+								<div><p>5년 차, 웹 퍼블리셔 <strong>성연욱</strong>이라고 합니다.</p></div>
+							</li>
+							<li>
+								<div>
+									<p>제가 궁금하시다면,<br /><a href="http://heroyooi.ivyro.net/" target="_blank">제 포트폴리오 페이지</a>에서 확인해주세요.</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p><strong>연락처</strong><br />Tel: <a href="tel:010-4147-5948">010-4147-5948</a><br />Email: <a href="mailto:heroyooi1018@gmail.com">heroyooi1018@gmail.com</a></p>
+								</div>
+							</li>
+							<li>
+								<div><p>감사합니다.</p></div>
+							</li>
+						</ul>
+						<ul class="talk_cont right"></ul>
+						<!-- //대화창 -->
+					</div>
+					<!-- // talk_wrap -->
+				</div>
+				<!-- // talk_container -->
+			</div>
+			<div class="talk_write">
+				<div class="inner">
+					<textarea name="" id="" cols="30" rows="10" placeholder="답장을 적어주시고, 전송버튼을 눌러주세요."></textarea>
+					<a href="javascript:;" class="btn">전송</a>
+				</div>
+			</div>
+			<!-- // talk_write -->
+		</div>
+		<!-- // kakao_wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		// 오늘 날짜
+		var now = new Date();
+		var year= now.getFullYear();
+		var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+		var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+		var week_array = new Array('일','월','화','수','목','금','토');
+		var week = week_array[now.getDay()]; // 요일
+		var hours = now.getHours(); // 시간
+		var minutes = now.getMinutes(); // 분
+
+		var chan_val = year + '년 ' + mon + '월 ' + day + '일 ' +week + '요일';
+		$('.kakao_wrap .date span').text(chan_val);
+
+		// 현재 시간
+		function getTimeNows() {
+		  var d = new Date();
+		  var s =
+			zeroNum(d.getHours(), 2) + ':' +
+			zeroNum(d.getMinutes(), 2)
+		  return s;
+		}
+
+		function zeroNum(n, num) {
+		  var zero = '';
+		  n = n.toString();
+		  if (n.length < num) {
+			for (i = 0; i < num - n.length; i++)
+			  zero += '0';
+		  }
+		  return zero + n;
+		}
+		
+		// kakao대화창 현재시간 추가
+		$('.talk_cont.left > li > div').each(function(i){
+			$(this).append('<em class="time">'+getTimeNows()+'</em>');
+		});
+
+		// kakao대화창 Scroll
+		$(".kakao_wrap .talk_container").mCustomScrollbar({
+			scrollButtons:{enable:true,scrollType:"stepped"},
+			keyboard:{scrollType:"stepped"},
+			scrollInertia: 250,
+			theme:"rounded-dark"
+		});
+
+		// 대화창 순서대로 show
+		$('.talk_container .talk_cont li').each(function(i){
+			myVar = setTimeout(function(e){
+				$('.talk_container .talk_cont li').eq(i).show();
+			},600*i);
+		});
+		
+		// 사용자 카톡 전송
+		$('.talk_write .inner a').on('click', function(){
+			sendMessage();
+			return false;
+		});
+
+		// PC 버전에서 Enter 클릭 시
+		var isSmart = { value: navigator.userAgent.match("iPhone|iPad|Android|Mobile|Windows CE|Windows Phone|Opera Mini") != null };
+		if( !isSmart.value ){ // PC
+			$('.talk_write textarea').attr('placeholder', '답장을 적어주시고, Enter 혹은 전송버튼을 눌러주세요.');
+			$('.talk_write textarea').keydown(function(e){
+				var $this = $(this);
+				if ((e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey)	{ // Ctrl 누른 상태에서 + Enter 클릭 시
+					$this.val($this.val() + '\r\n'); // Textarea에서 줄바꿈을 인식시켜주는 코드
+					return false;
+				}
+				if (e.keyCode == 13){ // Enter 클릭 시
+					sendMessage();
+					return false;
+				}
+			});
+		}else{ // Mobile
+			$('.talk_write textarea').attr('placeholder', '답장을 적어주시고, 전송버튼을 눌러주세요.');
+			$('.talk_write textarea').keydown(function(e){
+				var $this = $(this);
+				if (e.keyCode == 13){ // Enter 클릭 시
+					$this.val($this.val() + '\r\n'); // Textarea에서 줄바꿈을 인식시켜주는 코드
+					return false;
+				};
+			});
+		}
+
+		talkResize();
+		$(window).resize(function(){
+			talkResize();
+		});
+
+		function talkResize(){
+			var $win_width = $(window).width(),
+				 $win_height = $(window).height(),
+				 $talk_header = $('.kakao_wrap .date').outerHeight(),
+				 $talk_write = $('.talk_write').outerHeight();
+			$('.talk_container').css({
+				'height': $win_height - ($talk_header + $talk_write)
+			});
+			$(".talk_container").mCustomScrollbar("scrollTo", "bottom");
+		}
+
+		function sendMessage(){
+			var $txt_val = $('.talk_write .inner textarea').val();
+			if($txt_val == ''){
+				return false;
+			}
+			$txt_val.replace("\r\n", "<br>");
+			$('.talk_cont.right').show();
+			$('.talk_cont.right').append('<li><div><p>'+htmlEntities($txt_val)+'</p><em class="time">'+getTimeNows()+'</em></div></li>');
+			$('.talk_write .inner textarea').val('');
+			$('.talk_write .inner textarea').focus();
+
+			$(".talk_container").mCustomScrollbar("update");
+			$(".talk_container").mCustomScrollbar("scrollTo", "bottom");
+		}
+
+		function htmlEntities(str) {
+			return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/kakao_talk.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/youtube3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { width:100%; }
+
+		.main_visual { height:805px; overflow:hidden; position:relative; }
+		.video_box { position:absolute; left:0; top:0; width:100%; height:100%; z-index:0;}
+		.video_box iframe { position:absolute; left:0; top:0; width:100%; height:100%; z-index:0; pointer-events:none }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="main_visual">
+			<div class="video_box">
+				<div id="main_video"></div>
+			</div>
+		</div>
+
+		<!-- 스크립트 -->
+		<script src="https://www.youtube.com/iframe_api"></script>
+		<script type="text/javascript">
+				function main_video(){
+					$(".main_visual").height($(window).height());
+					//메인 영상
+					if($("#main_video").length > 0) {
+						var $target = $(".main_visual");
+						function youTube_visual() {
+							var aspectRatio = 1.78,
+							$video = $("#main_video"),
+							$v_Width = $(window).width(),
+							$v_Height = $target.height(),
+							$v_Ratio = $v_Width / $v_Height;
+							// console.log('$v_Ratio : ' + $v_Ratio);
+							 if($v_Ratio > 1.78) {
+								var $getV_Height = $v_Width * 0.5625;
+								$video.css({ width:$v_Width, height:$getV_Height, left:0, top:"50%", margin:-($getV_Height / 2) + "px 0 0 0" });
+							}
+							else {
+								var $getV_Width = $v_Height * 1.78;
+								$video.css({ width:$getV_Width, height:$v_Height, left:"50%", top:0, margin:"0 0 0 -" + ($getV_Width / 2) + "px" });
+							}
+						}
+						$(window).on("resize", function() {
+							youTube_visual();
+						});
+						youTube_visual();
+					}
+				};
+
+				$(document).ready(function(){
+					main_video();
+				});
+				//메인 유튜브 영상
+				var mainVideo;
+				function onYouTubeIframeAPIReady() {
+					mainVideo = new YT.Player("main_video", {
+						height: "100%",
+						width: "100%",
+						playerVars: {
+								autoplay: 1,
+								loop: 1,
+								controls: 0,
+								showinfo: 0,
+								autohide: 1,
+								modestbranding: 1,
+								rel: 0,
+								vq: "hd1080"
+						},
+						videoId: "gofBLZBHnlI",
+						events: {
+								"onReady": function(event) {
+									 event.target.playVideo();
+									 mainVideo.mute();
+								},
+								"onStateChange": function(event) {
+									 if (event.data === YT.PlayerState.ENDED) {
+										  mainVideo.playVideo(); 
+									 }
+								}
+						}
+					});
+				}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/api/youtube3.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:36:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

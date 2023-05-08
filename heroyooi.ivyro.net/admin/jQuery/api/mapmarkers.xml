@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<markers>
+    <marker id="1" src="https://hotel.priviatravel.com/contents/1/4/81/16653.jpg" name="더 페닌슐라 방콕" star="4" score="6.5" review="56" lat="-33.869843" lng="-151.225769" label="252,400" />
+    <marker id="2" src="img/map_con_sample.jpg" name="JW 메리어트 호텔 마카오" star="3" score="3" review="58" lat="-33.861034" lng="151.171936" label="300,000" />
+    <marker id="3" src="https://i.travelapi.com/hotels/6000000/5160000/5155800/5155710/5155710_72_b.jpg" name="아일랜드 퍼시픽 호텔" star="2" score="3" review="68" lat="-33.898113" lng="151.174469" label="400,200" />
+    <marker id="4" src="img/map_con_sample.jpg" name="콘래드 호텔" star="1" score="7" review="78" lat="-33.840282" lng="151.207474" label="99,999,999" />
+    <marker id="5" src="http://img.modetour.co.kr/eagle/photoimg/36444/bfile/LuxuryOceanViewPoolVillaTheClub.jpg" name="훌레트 하우스" star="2" score="3" review="88" lat="-33.910751" lng="151.194168" label="3,001,100" />
+    <marker id="6" src="img/map_con_sample.jpg" name="월드 리조트" star="3" score="10" review="98" lat="-33.906357" lng="151.263763" label="5,012,000" />
+    <marker id="7" src="https://s3.ap-northeast-2.amazonaws.com/owho/data/item/1511854985/thumb-IMG_0114_400x400.jpg" name="리스타 호텔" star="4" score="3" review="108" lat="-33.881123" lng="151.209656" label="600,000" />
+    <marker id="8" src="https://i.travelapi.com/hotels/6000000/5160000/5155800/5155710/5155710_72_b.jpg" name="Red Lantern" star="5" score="4" review="128" lat="-33.874737" lng="151.215530" label="99,999,999" />
+</markers>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/img_zoom5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:30:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.elevatezoom.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		.zoom-wrapper { width:795px; border-radius:10px; border: 1px solid #eoeoeo; padding:10px; background-color:#f7f7f7; }
+		.zoom-left { float:left; width:412px; }
+		.zoom-right { float:left; width:320px; padding:20px; }
+
+		#gallery_09 img { width:96px; border:2px solid #fff; }
+		.active img { border:2px solid #333; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div class="zoom-wrapper">
+			<div class="zoom-left">
+				<img style="border:1px solid #e8e8e6;" id="zoom_09" src="img/small/image2.png" data-zoom-image="img/large/image1.jpg" width="411">
+				<div id="gallery_09">
+					<a href="#" class="elevatezoom-gallery" data-update="" data-image="img/small/image1.png" data-zoom-image="img/large/image1.jpg"><img src="img/small/image1.png" width="100"></a>
+					<a href="#" class="elevatezoom-gallery active" data-image="img/small/image2.png" data-zoom-image="img/large/image2.jpg"><img src="img/small/image2.png" width="100"></a>
+					<a href="http://heroyooi.ivyro.net/admin/jQuery/image/tester" class="elevatezoom-gallery" data-image="img/small/image3.png" data-zoom-image="img/large/image3.jpg"><img src="img/small/image3.png" width="100"></a>
+					<a href="http://heroyooi.ivyro.net/admin/jQuery/image/tester" class="elevatezoom-gallery" data-image="img/small/image4.png" data-zoom-image="img/large/image4.jpg"><img src="img/small/image4.png" width="100"></a>
+				</div>
+			</div><!-- // zoom-left -->
+			<div class="zoom-right">
+				<select id="select"> 
+					<option value="1">Front</option>
+					<option value="2">Back</option>
+					<option value="3">Scenery</option>
+					<option value="4">Side</option>
+				</select>
+			</div><!-- // zoom-right -->
+			<div style="clear:both;"></div>
+		</div><!-- // zoom-wrapper -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$("#zoom_09").elevateZoom({
+			gallery : "gallery_09",
+			galleryActiveClass: "active"
+		});
+
+		$("#select").change(function(e){
+			var currentValue = $("#select").val();
+			if(currentValue == 1){
+				smallImage = 'img/small/image1.png';
+				largeImage = 'img/large/image1.jpg';
+			}
+			if(currentValue == 2){
+				smallImage = 'img/small/image2.png';
+				largeImage = 'img/large/image2.jpg';
+			}
+			if(currentValue == 3){
+				smallImage = 'img/small/image3.png';
+				largeImage = 'img/large/image3.jpg';
+			}
+			if(currentValue == 4){
+				smallImage = 'img/small/image4.png';
+				largeImage = 'img/large/image4.jpg';
+			}
+			// Example of implementing Active Class
+			$('#gallery_09 a').removeClass('active').eq(currentValue-1).addClass('active');
+			var ez = $('#zoom_09').data('elevateZoom');
+			ez.swaptheimage(smallImage, largeImage); 
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/image/img_zoom5.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:30:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

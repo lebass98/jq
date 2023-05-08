@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/form/basic.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<style>
+		p{color:blue;}
+		span{color:red;}
+		</style>
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<p>'성연욱' 이 정답입니다.</p>
+		<form action="javascript:alert( '성공' );">
+			<input type="text">
+			<input type="submit">
+		</form>
+		<span></span>
+
+		<!-- 스크립트 -->
+		<script>
+		$('form').submit(function(e){
+			if($('input:first').val() === '성연욱'){
+				$('span').text('조회 성공').show();
+				return;
+			}
+			$('span').text('조회 실패').show().fadeOut(1000);
+			e.preventDefault();
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/form/basic.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:37:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

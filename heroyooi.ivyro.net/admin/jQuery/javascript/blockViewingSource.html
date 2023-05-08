@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/blockViewingSource.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<h1>F12 버튼 방지 &amp; 우측 클릭 방지</h1>
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		// F12 버튼 방지
+		$(document).ready(function(){
+			$(document).bind('keydown',function(e){
+				if ( e.keyCode == 123 /* F12 */) {
+					e.preventDefault();
+					e.returnValue = false;
+				}
+			});
+		});
+		
+		// 우측 클릭 방지
+		document.onmousedown=disableclick;
+		status="페이지 소스보기를 허용하지 않습니다.";
+		
+		function disableclick(event){
+			if (event.button==2) {
+				alert(status);
+				return false;
+			}
+		}
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/blockViewingSource.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

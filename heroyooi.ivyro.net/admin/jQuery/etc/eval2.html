@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/eval2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		p { padding:30px 0 10px; font-size:14px; font-weight:bold; color:#333; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+
+			<p>상품만족도</p>
+			<div id="star1" ></div>
+			<input type="hidden" id="starRating1" value="3"/>
+
+			<p>배송만족도</p>
+			<div id="star2" ></div>
+			<input type="hidden" id="starRating2" value="3"/>
+
+			<p>소통만족도</p>
+			<div id="star3" ></div>
+			<input type="hidden" id="starRating3" value="3"/>
+
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript" src="../common/js/jquery.raty.js"></script>
+		<script type="text/javascript">
+		$('div#star1').raty({
+			score: 3
+			,path : "img/eval"
+			,width : 200
+			,click: function(score, evt) {
+				$("#starRating1").val(score);
+			}
+		});
+		$('div#star2').raty({
+			score: 3
+			,path : "img/eval"
+			,width : 200
+			,click: function(score, evt) {
+				$("#starRating2").val(score);
+			}
+		});
+		$('div#star3').raty({
+			score: 3
+			,path : "img/eval"
+			,width : 200
+			,click: function(score, evt) {
+				$("#starRating3").val(score);
+			}
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/eval2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

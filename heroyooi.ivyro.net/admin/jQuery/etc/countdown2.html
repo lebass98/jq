@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/countdown2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/countdown.css">
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/jquery.countdown.js"></script>
+
+		<!-- 스타일 -->
+		<style type="text/css">
+		#wrap { width:96%; }
+		a.link { display:inline-block; margin-top:10px; font-size:12px; font-weight:bold; color:#000; }
+
+		.ev_timer { padding:30px 0; margin:0 auto; max-width:355px; width:100%; text-align:center; }
+		.ev_timer li { margin:0 2px; display:inline-block; }
+		.ev_timer li dt { width:48px; height:70px; line-height:70px; border-radius:5px; -webkit-border-radius:5px; background:#202020; font-size:20px; color:#f8f8f8; text-align:center; box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.5); -webkit-box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.5); }
+		.ev_timer li dd { padding-top:5px; font-size:12px; }
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<div id="getting-started"></div>
+			<a class="link" href="http://hilios.github.io/jQuery.countdown" target="_blank">http://hilios.github.io/jQuery.countdown</a>
+		</div>
+		<!-- // wrap -->
+
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		$('#getting-started').countdown('2020/03/14 14:00:00', function(event) {
+			$(this).html(event.strftime(
+				'<ul class="ev_timer">' +
+					'<li><dl><dt>%w</dt><dd>WEEKS</dd></li>'+
+					'<li><dl><dt>%d</dt><dd>DAYS</dd></li>'+
+					'<li><dl><dt>%H</dt><dd>HOURS</dd></li>'+
+					'<li><dl><dt>%M</dt><dd>MIN</dd></li>'+
+					'<li><dl><dt>%S</dt><dd>SEC</dd></li>' +
+				'</ul>'
+			));
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/etc/countdown2.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:34:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/slick8.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:18:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+
+		<!-- 스타일 -->
+		<link rel="stylesheet" type="text/css" href="../common/slick-master/slick.css">
+		<link rel="stylesheet" type="text/css" href="../common/slick-master/slick-theme.css">
+		<style type="text/css">
+		#visual{width:600px;position:relative;}
+		.main-visual, .slide-tab{width:100%;}
+		.slide-tab:after{content:'';display:block;clear:both;}
+		.slide-tab a{display:block;width:33.333%;padding:10px 0;float:left;background:#eee;color:#000;text-align:center;border:1px solid #fff;box-sizing:border-box;}
+		.slide-tab a.active{background:#000;color:#fff;}
+		.slide-prev, .slide-next, .slide-pause, .slide-play{font-size:14px;display:inline-block;background:#333;color:#fff;font-weight:300;padding:10px;border-radius:3px;}
+		.slide-prev, .slide-next{position: absolute;top:115px;}
+		.slide-prev{left:-50px;}
+		.slide-next{right:-50px;}
+		</style>
+		<!-- // 스타일 -->
+
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+		<div id="wrap">
+			<!-- visual -->
+			<div id="visual">
+				<div class="main-visual">
+					<div><img src="img/slick/visual_1.jpg" alt="" /></div>
+					<div><img src="img/slick/visual_2.jpg" alt="" /></div>
+					<div><img src="img/slick/visual_3.jpg" alt="" /></div>
+				</div>
+				<div class="slide-tab">
+					<a href="#" class="active">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+				</div>
+				<a href="#" class="slide-prev">prev</a>
+				<a href="#" class="slide-next">next</a>
+				<a href="#" class="slide-pause">pause</a>
+				<a href="#" class="slide-play">play</a>
+			</div>
+			<!-- //visual -->
+		</div>
+
+		<!-- 스크립트 -->
+		<!-- 
+		https://github.com/kenwheeler/slick 
+		-->
+		<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/slick-master/slick.min.js"></script>
+		<script type="text/javascript">
+		var mainSlide = $('.main-visual').slick({
+		  touchThreshold: 100,
+		  autoplay: true,
+		  autoplaySpeed: 1000,
+		  cssEase: 'ease-out'
+		  //cssEase: 'cubic-bezier(0.600, -0.280, 0.735, 0.045)'
+		});
+		var slideIndex = 0;
+		$('.slide-tab a').on('click', function(e){
+		  e.preventDefault();
+		  slideIndex = $('.slide-tab a').index(this);
+		  mainSlide.slick('slickGoTo', slideIndex);
+		});
+		// On swipe event
+		$('.main-visual').on('swipe', function(event, slick, direction){
+		  //console.log(direction);
+		  // left
+		});
+
+		// On edge hit
+		$('.main-visual').on('edge', function(event, slick, direction){
+		  //console.log('edge was hit')
+		});
+
+		// On before slide change
+		$('.main-visual').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		  console.log(nextSlide);
+		  $('.slide-tab a').eq(nextSlide).siblings().removeClass('active');
+		  $('.slide-tab a').eq(nextSlide).addClass('active');
+		});
+		//$('.main-visual').slick('slickSetOption', 'speed', 5000, true);
+		/*
+		$('.main-visual').on('afterChange', function(event, slick, currentSlide, nextSlide){
+		  console.log(currentSlide);
+		  $('.slide-tab a').eq(currentSlide).siblings().removeClass('active');
+		  $('.slide-tab a').eq(currentSlide).addClass('active');
+		});
+		*/
+
+		var $Prev = $('.slide-prev');
+		var $Next = $('.slide-next');
+		var $Pause = $('.slide-pause')
+		var $Play = $('.slide-play')
+
+		$Prev.on('click', function(e){
+		  e.preventDefault();
+		  mainSlide.slick('slickPrev');
+		});
+		$Next.on('click', function(e){
+		  e.preventDefault();
+		  mainSlide.slick('slickNext');
+		});
+		$Pause.on('click', function(e){
+		  e.preventDefault();
+		  mainSlide.slick('slickPause');
+		});
+		$Play.on('click', function(e){
+		  e.preventDefault();
+		  mainSlide.slick('slickPlay');
+		});
+		</script>
+		<!-- // 스크립트 -->
+
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/slider/slick8.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:18:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

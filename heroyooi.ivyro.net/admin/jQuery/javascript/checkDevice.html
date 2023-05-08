@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+	
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/checkDevice.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title> jQuery </title>
+		<link rel="stylesheet" type="text/css" href="../common/css/reset.css">
+		<!-- 스크립트 -->
+		<script type="text/javascript">
+		var isSmart = {
+			value: navigator.userAgent.match("iPhone|iPad|Android|Mobile|Windows CE|Windows Phone|Opera Mini") != null
+		};
+
+		if(isSmart.value){ // 모바일일 경우
+			document.write('모바일입니다.');
+		}
+
+		if(!isSmart.value){ // PC일 경우
+			document.write('PC입니다.');
+		}
+		</script>
+		<!-- // 스크립트 -->
+	</head>
+	<body>
+
+		<a href="../index-2.html" class="home">Home</a>
+	</body>
+
+<!-- Mirrored from heroyooi.ivyro.net/admin/jQuery/javascript/checkDevice.html by HTTrack Website Copier/3.x [XR&CO'2007], Tue, 24 Dec 2019 06:33:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>
